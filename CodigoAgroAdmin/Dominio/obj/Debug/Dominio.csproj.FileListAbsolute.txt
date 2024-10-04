@@ -16,3 +16,9 @@ E:\UTN\Aterrizar.com\Codigo\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.c
 E:\UTN\Aterrizar.com\Codigo\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 E:\UTN\Aterrizar.com\Codigo\Dominio\obj\Debug\Dominio.dll
 E:\UTN\Aterrizar.com\Codigo\Dominio\obj\Debug\Dominio.pdb
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Dominio\bin\Debug\Dominio.dll
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Dominio\bin\Debug\Dominio.pdb
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Dominio\obj\Debug\Dominio.dll
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Dominio\obj\Debug\Dominio.pdb

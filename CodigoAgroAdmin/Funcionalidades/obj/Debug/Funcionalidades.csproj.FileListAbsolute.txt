@@ -43,3 +43,12 @@ C:\Users\facun\OneDrive\Escritorio\Facultad\Aterrizar.com\Codigo\Funcionalidades
 C:\Users\facun\OneDrive\Escritorio\Facultad\Aterrizar.com\Codigo\Funcionalidades\obj\Debug\Funciona.62B5C317.Up2Date
 C:\Users\facun\OneDrive\Escritorio\Facultad\Aterrizar.com\Codigo\Funcionalidades\obj\Debug\Funcionalidades.dll
 C:\Users\facun\OneDrive\Escritorio\Facultad\Aterrizar.com\Codigo\Funcionalidades\obj\Debug\Funcionalidades.pdb
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\bin\Debug\Funcionalidades.dll
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\bin\Debug\Funcionalidades.pdb
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\bin\Debug\Dominio.dll
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\bin\Debug\Dominio.pdb
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\obj\Debug\Funcionalidades.csproj.AssemblyReference.cache
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\obj\Debug\Funcionalidades.csproj.CoreCompileInputs.cache
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\obj\Debug\Funciona.62B5C317.Up2Date
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\obj\Debug\Funcionalidades.dll
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\Funcionalidades\obj\Debug\Funcionalidades.pdb

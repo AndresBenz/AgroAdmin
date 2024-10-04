@@ -50,6 +50,7 @@
     <Compile Include="RepositorioMail.cs" />
     <Compile Include="RepositorioMes.cs" />
     <Compile Include="RepositorioPaquete.cs" />
+    <Compile Include="RepositorioProductos.cs" />
     <Compile Include="RepositorioRelIdExcursionxReserva.cs" />
     <Compile Include="RepositorioRelReservaXusuario.cs" />
     <Compile Include="RepositorioReserva.cs" />

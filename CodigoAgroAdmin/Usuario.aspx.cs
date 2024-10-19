@@ -1,4 +1,4 @@
-﻿using Dominio;
+﻿/*using Dominio;
 using Funcionalidades;
 using System;
 using System.Collections.Generic;
@@ -34,4 +34,4 @@ namespace CodigoAgroAdmin
         }
     }
 }
-}
+}*/

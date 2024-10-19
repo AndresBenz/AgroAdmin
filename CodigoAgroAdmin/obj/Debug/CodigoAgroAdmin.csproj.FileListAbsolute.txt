@@ -57,3 +57,7 @@ D:\Proyectos\AgroAdmin\CodigoAgroAdmin\obj\Debug\CodigoAgroAdmin.csproj.CoreComp
 D:\Proyectos\AgroAdmin\CodigoAgroAdmin\obj\Debug\CodigoAg.1EF20D9C.Up2Date
 D:\Proyectos\AgroAdmin\CodigoAgroAdmin\obj\Debug\CodigoAgroAdmin.dll
 D:\Proyectos\AgroAdmin\CodigoAgroAdmin\obj\Debug\CodigoAgroAdmin.pdb
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\bin\Dominio.dll
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\bin\Funcionalidades.dll
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\bin\Dominio.pdb
+D:\Proyectos\AgroAdmin\CodigoAgroAdmin\bin\Funcionalidades.pdb

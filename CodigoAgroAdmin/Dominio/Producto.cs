@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Productos
+    public class Producto
     {
         public int IdProducto { get; set; }
-        public string NombreProducto { get; set; }
-        public string TipoProducto { get; set; }
-        public string MarcaProducto { get; set; }
+        public string Nombre { get; set; }
+        public int IdTipo { get; set; }
+        public int IdMarca { get; set; } 
         public decimal Precio { get; set; }
         public int StockActual { get; set; }
         public int StockMinimo { get; set; }
-        public string URLimagen { get; set; }
     }
 }

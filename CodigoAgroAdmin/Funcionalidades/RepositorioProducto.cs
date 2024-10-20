@@ -41,8 +41,43 @@ namespace Funcionalidades
                  throw ex;
              }
          }
-        
 
-      
+
+
+        public Producto ObtenerProductoPorId(int idProducto)
+        {
+            Producto producto = null;
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                // Establecemos el Stored Procedure que obtendrá el producto por ID
+                accesoDatos.setearSp("SelProductoPorId");
+                // Agregamos el parámetro del ID del producto
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+                accesoDatos.ejecutarLectura();
+
+                // Si encuentra un resultado, crea el objeto producto
+                if (accesoDatos.Lector.Read())
+                {
+                    producto = new Producto();
+                    producto.IdProducto = (int)accesoDatos.Lector["IdProducto"];
+                    producto.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    producto.IdTipo = (int)accesoDatos.Lector["IdTipo"];
+                    producto.IdMarca = (int)accesoDatos.Lector["IdMarca"];
+                    producto.Precio = (decimal)accesoDatos.Lector["Precio"];
+                    producto.StockActual = (int)accesoDatos.Lector["StockActual"];
+                    producto.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                }
+
+                accesoDatos.cerrarConexion();
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }

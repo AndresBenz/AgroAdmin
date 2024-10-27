@@ -1,6 +1,8 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,37 +12,37 @@ namespace Funcionalidades
     public class RepositorioProducto
     {
         public List<Producto> ListarConSp()
-         {
-             List<Producto> listarProductos = new List<Producto>();
-             AccesoDatos accesoDatos = new AccesoDatos();
-             try
-             {
-                 accesoDatos.setearSp("SelProductos");
-                 accesoDatos.ejecutarLectura();
+        {
+            List<Producto> listarProductos = new List<Producto>();
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("SelProductos");
+                accesoDatos.ejecutarLectura();
 
-                 while (accesoDatos.Lector.Read())
-                 {
-                     Producto aux = new Producto();
+                while (accesoDatos.Lector.Read())
+                {
+                    Producto aux = new Producto();
 
-                     aux.IdProducto = (int)accesoDatos.Lector["IdProducto"];
-                     aux.Nombre = (string)accesoDatos.Lector["Nombre"];
-                     aux.IdTipo = (int)accesoDatos.Lector["IdTipo"];
-                     aux.IdMarca = (int)accesoDatos.Lector["IdMarca"] ;
-                     aux.Precio = (decimal)accesoDatos.Lector["Precio"];
-                     aux.StockActual = (int)accesoDatos.Lector["StockActual"];
-                     aux.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                    aux.IdProducto = (int)accesoDatos.Lector["IdProducto"];
+                    aux.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    aux.IdTipo = (int)accesoDatos.Lector["IdTipo"];
+                    aux.IdMarca = (int)accesoDatos.Lector["IdMarca"];
+                    aux.Precio = (decimal)accesoDatos.Lector["Precio"];
+                    aux.StockActual = (int)accesoDatos.Lector["StockActual"];
+                    aux.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
 
-                     listarProductos.Add(aux);
-                 }
+                    listarProductos.Add(aux);
+                }
 
-                 accesoDatos.cerrarConexion();
-                 return listarProductos;
-             }
-             catch (Exception ex)
-             {
-                 throw ex;
-             }
-         }
+                accesoDatos.cerrarConexion();
+                return listarProductos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
 
@@ -50,13 +52,10 @@ namespace Funcionalidades
             AccesoDatos accesoDatos = new AccesoDatos();
             try
             {
-                // Establecemos el Stored Procedure que obtendrá el producto por ID
                 accesoDatos.setearSp("SelProductoPorId");
-                // Agregamos el parámetro del ID del producto
                 accesoDatos.setearParametros("@IdProducto", idProducto);
                 accesoDatos.ejecutarLectura();
 
-                // Si encuentra un resultado, crea el objeto producto
                 if (accesoDatos.Lector.Read())
                 {
                     producto = new Producto();
@@ -79,5 +78,78 @@ namespace Funcionalidades
         }
 
 
+
+        public void AgregarProducto(Producto producto)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("insProducto");
+
+                accesoDatos.setearParametros("@Nombre", producto.Nombre);
+                accesoDatos.setearParametros("@Precio", producto.Precio);
+                accesoDatos.setearParametros("@StockActual", producto.StockActual);
+                accesoDatos.setearParametros("@StockMinimo", producto.StockMinimo);
+                accesoDatos.setearParametros("@IdTipo", producto.IdTipo);
+                accesoDatos.setearParametros("@IdMarca", producto.IdTipo);
+
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar el producto", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void EliminarProducto(int idProducto)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("DelProducto");
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el producto", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void EditarProducto(Producto producto)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("updProducto");
+
+                accesoDatos.setearParametros("@IdProducto", producto.IdProducto);
+                accesoDatos.setearParametros("@Nombre", producto.Nombre);
+                accesoDatos.setearParametros("@Precio", producto.Precio);
+                accesoDatos.setearParametros("@StockActual", producto.StockActual);
+                accesoDatos.setearParametros("@StockMinimo", producto.StockMinimo);
+                accesoDatos.setearParametros("@IdTipo", producto.IdTipo);
+                accesoDatos.setearParametros("@IdMarca", producto.IdTipo);
+
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al editar el producto", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
     }
 }

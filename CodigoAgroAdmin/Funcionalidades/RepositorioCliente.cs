@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
@@ -24,6 +25,7 @@ namespace Funcionalidades
                     
                         aux.IdCliente = (int)accesoDatos.Lector["IdCliente"];
                         aux.Nombre = (string)accesoDatos.Lector["Nombre"];
+                        aux.DNI = (string)accesoDatos.Lector["DNI"];
                         aux.Direccion = accesoDatos.Lector["Direccion"] as string;
                         aux.CorreoElectronico = (string)accesoDatos.Lector["CorreoElectronico"];
                         aux.Telefono = accesoDatos.Lector["Telefono"] as string;
@@ -39,6 +41,113 @@ namespace Funcionalidades
                 throw ex;
             }
         }
+
+        public Cliente ObtenerClientePorId(string DNICliente)
+        {
+            Cliente cliente = null;
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSp("SelClientePorId");
+                accesoDatos.setearParametros("@DNI", DNICliente);
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    cliente = new Cliente
+                    {
+                        IdCliente = (int)accesoDatos.Lector["IdCliente"],
+                        Nombre = (string)accesoDatos.Lector["Nombre"],
+                        DNI = (string)accesoDatos.Lector["DNI"],
+                        Direccion = (string)accesoDatos.Lector["Direccion"],
+                        CorreoElectronico = (string)accesoDatos.Lector["CorreoElectronico"],
+                        Telefono = (string)accesoDatos.Lector["Telefono"]
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el cliente por ID", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+
+            return cliente;
+        }
+
+
+        public void AgregarCliente(Cliente cliente)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("insCliente");
+                accesoDatos.setearParametros("@Nombre", cliente.Nombre);
+                accesoDatos.setearParametros("@Direccion", cliente.Direccion);
+                accesoDatos.setearParametros("@CorreoElectronico", cliente.CorreoElectronico);
+                accesoDatos.setearParametros("@Telefono", cliente.Telefono);
+                accesoDatos.setearParametros("@DNI", cliente.DNI);
+
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar el cliente", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void EliminarCliente(string DNICliente)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("delCliente");
+                accesoDatos.setearParametros("@DNI", DNICliente);
+
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el cliente", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void EditarCliente(Cliente cliente)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("updCliente");
+                accesoDatos.setearParametros("@IdCliente", cliente.IdCliente);
+                accesoDatos.setearParametros("@Nombre", cliente.Nombre);
+                accesoDatos.setearParametros("@Direccion", cliente.Direccion);
+                accesoDatos.setearParametros("@CorreoElectronico", cliente.CorreoElectronico);
+                accesoDatos.setearParametros("@Telefono", cliente.Telefono);
+                accesoDatos.setearParametros("@DNI", cliente.DNI);
+
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al editar el cliente", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
 
     }
 }

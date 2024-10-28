@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestionproveedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestionproveedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestioncliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestioncliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestionproveedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestionproveedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestioncliente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestioncliente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\funcionalidades\\repositorioproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositorioproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\funcionalidades\\repositoriocliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositoriocliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\dominio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|solutionrelative:dominio\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\dominio\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|solutionrelative:dominio\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Inicio.aspx",
               "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Inicio.aspx",
               "RelativeDocumentMoniker": "Inicio.aspx",
@@ -45,40 +53,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GestionProveedores.aspx.cs",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx.cs",
-              "RelativeDocumentMoniker": "GestionProveedores.aspx.cs",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx.cs",
-              "RelativeToolTip": "GestionProveedores.aspx.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAuAAAAAAAAAA==",
+              "Title": "GestionCliente.aspx.cs",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionCliente.aspx.cs",
+              "RelativeDocumentMoniker": "GestionCliente.aspx.cs",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionCliente.aspx.cs",
+              "RelativeToolTip": "GestionCliente.aspx.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAiwDYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T00:41:36.061Z",
+              "WhenOpened": "2024-10-28T01:11:57.265Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GestionProveedores.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx",
-              "RelativeDocumentMoniker": "GestionProveedores.aspx",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx",
-              "RelativeToolTip": "GestionProveedores.aspx",
+              "Title": "GestionCliente.aspx",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionCliente.aspx",
+              "RelativeDocumentMoniker": "GestionCliente.aspx",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionCliente.aspx",
+              "RelativeToolTip": "GestionCliente.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-28T00:41:23.44Z",
+              "WhenOpened": "2024-10-28T01:10:47.36Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "RepositorioProveedor.cs",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioProveedor.cs",
-              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioProveedor.cs",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioProveedor.cs",
-              "RelativeToolTip": "Funcionalidades\\RepositorioProveedor.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIAwwBEAAAA0AAAAAAAAAA==",
+              "Title": "RepositorioCliente.cs",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioCliente.cs",
+              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioCliente.cs",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioCliente.cs",
+              "RelativeToolTip": "Funcionalidades\\RepositorioCliente.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAIwH4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T00:40:03.351Z",
+              "WhenOpened": "2024-10-28T01:08:54.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Dominio\\Cliente.cs",
+              "RelativeDocumentMoniker": "Dominio\\Cliente.cs",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Dominio\\Cliente.cs",
+              "RelativeToolTip": "Dominio\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T01:07:13.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Dominio\\Usuario.cs",
+              "RelativeDocumentMoniker": "Dominio\\Usuario.cs",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Dominio\\Usuario.cs",
+              "RelativeToolTip": "Dominio\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T01:07:08.964Z",
               "EditorCaption": ""
             }
           ]

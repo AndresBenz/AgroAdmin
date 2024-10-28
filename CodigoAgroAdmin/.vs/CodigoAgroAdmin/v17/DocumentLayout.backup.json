@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestionproductos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestionproductos.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestionproveedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestionproveedores.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\funcionalidades\\repositorioproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositorioproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\funcionalidades\\repositorioproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositorioproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\dominio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|solutionrelative:dominio\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestionproductos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestionproductos.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\master.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:master.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|d:\\proyectos\\agroadmin\\codigoagroadmin\\gestionproveedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|solutionrelative:gestionproveedores.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|CodigoAgroAdmin.csproj|D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\inicio.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
@@ -34,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Inicio.aspx",
               "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Inicio.aspx",
               "RelativeDocumentMoniker": "Inicio.aspx",
@@ -53,66 +45,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Producto.cs",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Dominio\\Producto.cs",
-              "RelativeDocumentMoniker": "Dominio\\Producto.cs",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Dominio\\Producto.cs",
-              "RelativeToolTip": "Dominio\\Producto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
+              "Title": "GestionProveedores.aspx.cs",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx.cs",
+              "RelativeDocumentMoniker": "GestionProveedores.aspx.cs",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx.cs",
+              "RelativeToolTip": "GestionProveedores.aspx.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAswD0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T13:52:27.964Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RepositorioProducto.cs",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioProducto.cs",
-              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioProducto.cs",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioProducto.cs",
-              "RelativeToolTip": "Funcionalidades\\RepositorioProducto.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAIAwwIwAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:41:39.485Z",
+              "WhenOpened": "2024-10-28T00:41:36.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GestionProductos.aspx.cs",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProductos.aspx.cs",
-              "RelativeDocumentMoniker": "GestionProductos.aspx.cs",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProductos.aspx.cs",
-              "RelativeToolTip": "GestionProductos.aspx.cs",
-              "ViewState": "AgIAANoAAAAAAAAAAAAAwOIAAABAAAAAAAAAAA==",
+              "Title": "GestionProveedores.aspx",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx",
+              "RelativeDocumentMoniker": "GestionProveedores.aspx",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProveedores.aspx",
+              "RelativeToolTip": "GestionProveedores.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-10-28T00:41:23.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RepositorioProveedor.cs",
+              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioProveedor.cs",
+              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioProveedor.cs",
+              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Funcionalidades\\RepositorioProveedor.cs",
+              "RelativeToolTip": "Funcionalidades\\RepositorioProveedor.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAIAwwBEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:31:40.362Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GestionProductos.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProductos.aspx",
-              "RelativeDocumentMoniker": "GestionProductos.aspx",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\GestionProductos.aspx",
-              "RelativeToolTip": "GestionProductos.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-27T12:31:21.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Master.Master",
-              "DocumentMoniker": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Master.Master",
-              "RelativeDocumentMoniker": "Master.Master",
-              "ToolTip": "D:\\Proyectos\\AgroAdmin\\CodigoAgroAdmin\\Master.Master",
-              "RelativeToolTip": "Master.Master",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-10-20T00:29:35.051Z",
+              "WhenOpened": "2024-10-28T00:40:03.351Z",
               "EditorCaption": ""
             }
           ]

@@ -39,5 +39,109 @@ namespace Funcionalidades
                 throw ex;
             }
         }
+
+        public Proveedor ObtenerProveedorPorId(int idProveedor)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            Proveedor proveedor = null;
+
+            try
+            {
+                accesoDatos.setearSp("selProveedorPorId");
+                accesoDatos.setearParametros("@IdProveedor", idProveedor);
+
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    proveedor = new Proveedor
+                    {
+                        IdProveedor = (int)accesoDatos.Lector["IdProveedor"],
+                        Nombre = accesoDatos.Lector["Nombre"].ToString(),
+                        Direccion = accesoDatos.Lector["Direccion"].ToString(),
+                        CorreoElectronico = accesoDatos.Lector["CorreoElectronico"].ToString(),
+                        Telefono = accesoDatos.Lector["Telefono"].ToString()
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el proveedor por ID", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+
+            return proveedor;
+        }
+
+
+        public void AgregarProveedor(Proveedor proveedor)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("insProveedor");  
+                accesoDatos.setearParametros("@Nombre", proveedor.Nombre);
+                accesoDatos.setearParametros("@Direccion", proveedor.Direccion);
+                accesoDatos.setearParametros("@CorreoElectronico", proveedor.CorreoElectronico);
+                accesoDatos.setearParametros("@Telefono", proveedor.Telefono);
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar el proveedor", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+
+
+        public void EditarProveedor(Proveedor proveedor)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("updProveedor");
+                accesoDatos.setearParametros("@IdProveedor", proveedor.IdProveedor);
+                accesoDatos.setearParametros("@Nombre", proveedor.Nombre);
+                accesoDatos.setearParametros("@Direccion", proveedor.Direccion);
+                accesoDatos.setearParametros("@CorreoElectronico", proveedor.CorreoElectronico);
+                accesoDatos.setearParametros("@Telefono", proveedor.Telefono);
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al editar el proveedor", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void EliminarProveedor(int idProveedor)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("delProveedor");
+                accesoDatos.setearParametros("@IdProveedor", idProveedor);
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el proveedor", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
     }
 }

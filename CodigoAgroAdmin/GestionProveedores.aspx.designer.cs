@@ -60,6 +60,15 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.PlaceHolder phFormulario;
 
         /// <summary>
+        /// Control hiddenIdProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenIdProveedor;
+
+        /// <summary>
         /// Control nombreProveedor.
         /// </summary>
         /// <remarks>

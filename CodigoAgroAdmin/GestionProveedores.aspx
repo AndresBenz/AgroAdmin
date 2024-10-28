@@ -30,6 +30,7 @@
 
                 <asp:PlaceHolder ID="phFormulario" runat="server" Visible="false">
                     <h2>Agregar/Editar Proveedor</h2>
+                    <asp:HiddenField ID="hiddenIdProveedor" runat="server" />
                     <div class="form-group">
                         <label for="nombreProveedor">Nombre del Proveedor</label>
                         <asp:TextBox ID="nombreProveedor" runat="server" CssClass="form-control" placeholder="Ingrese el nombre del proveedor"></asp:TextBox>

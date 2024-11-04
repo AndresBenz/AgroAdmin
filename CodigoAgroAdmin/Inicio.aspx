@@ -4,6 +4,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Productos Mas vendidos</h1>
+    <div class="mb-3">
+        <asp:TextBox ID="txtBuscar" runat="server" CssClass="form-control" Placeholder="Buscar productos..."></asp:TextBox>
+        <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
+    </div>
 <asp:Repeater ID="RepeaterProductos" runat="server">
     <ItemTemplate>
         <div class="col-md-4">

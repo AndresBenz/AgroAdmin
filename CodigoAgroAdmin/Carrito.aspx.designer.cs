@@ -11,25 +11,25 @@ namespace CodigoAgroAdmin
 {
 
 
-    public partial class RegistroCompras
+    public partial class Carrito
     {
 
         /// <summary>
-        /// Control gvCompras.
+        /// Control RepeaterCarrito.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCompras;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterCarrito;
 
         /// <summary>
-        /// Control gvDetallesCompra.
+        /// Control lblTotal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDetallesCompra;
+        protected global::System.Web.UI.WebControls.Label lblTotal;
     }
 }

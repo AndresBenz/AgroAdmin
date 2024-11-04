@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Funcionalidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,20 @@ namespace CodigoAgroAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                CargarDetallesVenta();
+            }
+        }
 
+
+        private void CargarDetallesVenta()
+        {
+            RepositorioDetalleVenta repositorio = new RepositorioDetalleVenta();
+            List<DetalleVenta> detallesVenta = repositorio.ListarConSp();
+
+            GridViewDetallesVenta.DataSource = detallesVenta;
+            GridViewDetallesVenta.DataBind();
         }
     }
 }

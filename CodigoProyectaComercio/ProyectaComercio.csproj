@@ -71,13 +71,15 @@
     <Content Include="GestionCliente.aspx" />
     <Content Include="GestionProductos.aspx" />
     <Content Include="GestionProveedores.aspx" />
+    <Content Include="GestionUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Login.aspx" />
+    <Content Include="ModificarUsuario.aspx" />
     <Content Include="PantallaEmpleado.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="RegistroCompras.aspx" />
     <Content Include="RegistroVentas.aspx" />
-    <Content Include="Usuarios.aspx" />
+    <Content Include="RegistroUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +111,13 @@
     <Compile Include="GestionProveedores.aspx.designer.cs">
       <DependentUpon>GestionProveedores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestionUsuario.aspx.cs">
+      <DependentUpon>GestionUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionUsuario.aspx.designer.cs">
+      <DependentUpon>GestionUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -125,6 +134,13 @@
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuario.aspx.cs">
+      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarUsuario.aspx.designer.cs">
+      <DependentUpon>ModificarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="PantallaEmpleado.aspx.cs">
       <DependentUpon>PantallaEmpleado.aspx</DependentUpon>
@@ -155,12 +171,12 @@
     <Compile Include="RegistroVentas.aspx.designer.cs">
       <DependentUpon>RegistroVentas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios.aspx.cs">
-      <DependentUpon>Usuarios.aspx</DependentUpon>
+    <Compile Include="RegistroUsuario.aspx.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Usuarios.aspx.designer.cs">
-      <DependentUpon>Usuarios.aspx</DependentUpon>
+    <Compile Include="RegistroUsuario.aspx.designer.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

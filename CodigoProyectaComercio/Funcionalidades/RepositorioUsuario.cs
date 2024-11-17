@@ -26,12 +26,12 @@ namespace Funcionalidades
                 {
                     Usuario aux = new Usuario();
 
-
+                    aux.IdUsuario = (int)AccesoDatos.Lector["IdUsuario"];
                     aux.NombreUsuario = (string)AccesoDatos.Lector["Nombre"];
                     aux.DNI = (int)AccesoDatos.Lector["DNI"];
                     aux.CorreoElectronico = (string)AccesoDatos.Lector["CorreoElectronico"];
                     aux.Telefono = (string)AccesoDatos.Lector["Telefono"];
-
+                    aux.TipoUsuario = (TipoUsuario)(int)AccesoDatos.Lector["TipoUsuario"];
 
                     listarUsuario.Add(aux);
                 }
@@ -67,6 +67,8 @@ namespace Funcionalidades
                     usuario.NombreUsuario = (string)accesoDatos.Lector["Nombre"];
                     usuario.CorreoElectronico = (string)accesoDatos.Lector["CorreoElectronico"];
                     usuario.Telefono = (string)accesoDatos.Lector["Telefono"];
+                    usuario.TipoUsuario = (TipoUsuario)(int)accesoDatos.Lector["TipoUsuario"];
+
                 }
 
                 accesoDatos.cerrarConexion();
@@ -77,6 +79,51 @@ namespace Funcionalidades
                 throw ex;
             }
         }
+
+        public void EliminarUsuario(int idUsuario)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("DelUsuario");
+                accesoDatos.setearParametros("@IdUsuario", idUsuario);
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+
+        public void ModificarUsuario(Usuario usuario)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("updUsuario");
+                accesoDatos.setearParametros("@IdUsuario", usuario.IdUsuario);
+                accesoDatos.setearParametros("@Nombre", usuario.NombreUsuario);
+                accesoDatos.setearParametros("@CorreoElectronico", usuario.CorreoElectronico);
+                accesoDatos.setearParametros("@DNI", usuario.DNI);
+                accesoDatos.setearParametros("@Telefono", usuario.Telefono);
+                accesoDatos.setearParametros("@TipoUsuario", usuario.TipoUsuario);
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
         public bool Loguear(Usuario usuario)
         {
 

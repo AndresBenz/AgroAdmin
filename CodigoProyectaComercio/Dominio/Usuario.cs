@@ -5,8 +5,8 @@ namespace Dominio
 
     public enum TipoUsuario
     {
-        Normal = 1,
-        Admin = 2,
+        Normal = 0,
+        Admin = 1,
     }
     public class Usuario
     {

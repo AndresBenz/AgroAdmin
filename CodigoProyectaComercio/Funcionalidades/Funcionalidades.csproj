@@ -52,6 +52,7 @@
     <Compile Include="RepositorioProductoProveedor.cs" />
     <Compile Include="RepositorioProveedor.cs" />
     <Compile Include="RepositorioUsuario.cs" />
+    <Compile Include="RepositorioVenta.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">

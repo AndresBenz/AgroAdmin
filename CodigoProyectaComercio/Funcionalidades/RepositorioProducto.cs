@@ -140,6 +140,32 @@ namespace Funcionalidades
             }
         }
 
+
+        public int ObtenerTotalProductosEnStock()
+        {
+            int totalProductos = 0;
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSp("SelTotalProductos");  
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    totalProductos = (int)accesoDatos.Lector["TotalProductos"];  
+                }
+
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return totalProductos;
+        }
+
         public void EditarProducto(Producto producto)
         {
             AccesoDatos accesoDatos = new AccesoDatos();

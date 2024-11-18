@@ -68,11 +68,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Carrito.aspx" />
+    <Content Include="GestionCategoria.aspx" />
     <Content Include="GestionCliente.aspx" />
+    <Content Include="GestionMarca.aspx" />
     <Content Include="GestionProductos.aspx" />
     <Content Include="GestionProveedores.aspx" />
     <Content Include="GestionUsuario.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="InicioAdministrador.aspx" />
+    <Content Include="InicioEmpleado.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ModificarUsuario.aspx" />
     <Content Include="PantallaEmpleado.aspx" />
@@ -90,12 +94,33 @@
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Empleado.Master.cs">
+      <DependentUpon>Empleado.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado.Master.designer.cs">
+      <DependentUpon>Empleado.Master</DependentUpon>
+    </Compile>
+    <Compile Include="GestionCategoria.aspx.cs">
+      <DependentUpon>GestionCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionCategoria.aspx.designer.cs">
+      <DependentUpon>GestionCategoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionCliente.aspx.cs">
       <DependentUpon>GestionCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GestionCliente.aspx.designer.cs">
       <DependentUpon>GestionCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionMarca.aspx.cs">
+      <DependentUpon>GestionMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionMarca.aspx.designer.cs">
+      <DependentUpon>GestionMarca.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionProductos.aspx.cs">
       <DependentUpon>GestionProductos.aspx</DependentUpon>
@@ -120,6 +145,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InicioAdministrador.aspx.cs">
+      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioAdministrador.aspx.designer.cs">
+      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioEmpleado.aspx.cs">
+      <DependentUpon>InicioEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioEmpleado.aspx.designer.cs">
+      <DependentUpon>InicioEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -181,6 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
+    <Content Include="Empleado.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,5 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CodigoAgroAdmin.Login" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="CodigoAgroAdmin.Log" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <title>Inicio de Sesión</title>
     <style>
         .login-container {
             max-width: 400px;
@@ -53,11 +62,10 @@
             margin-top: 10px;
         }
     </style>
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="login-container">
-        <asp:Panel ID="pnlLogin" runat="server">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="login-container">
             <h2>Inicio de Sesión</h2>
             <asp:Label ID="lblmensajeLogin" runat="server" ForeColor="Red"></asp:Label>
             <div>
@@ -71,6 +79,7 @@
             <div>
                 <asp:Button ID="btnLogin" runat="server" Text="Iniciar Sesión" OnClick="btnLogin_Click" />
             </div>
-        </asp:Panel>
-    </div>
-</asp:Content>
+        </div>
+    </form>
+</body>
+</html>

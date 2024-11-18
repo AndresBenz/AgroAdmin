@@ -9,10 +9,11 @@ using System.Web.UI.WebControls;
 
 namespace CodigoAgroAdmin
 {
-    public partial class Login : Page
+    public partial class Log : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Redirige si ya hay un usuario logueado
             if (Session["usuario"] != null)
             {
                 Response.Redirect("Perfil.aspx", false);
@@ -26,25 +27,29 @@ namespace CodigoAgroAdmin
 
             try
             {
+              
                 usuario = new Usuario(txtCorreoLogin.Text, int.Parse(txtDNILogin.Text), false);
 
+              
                 if (repousuario.Loguear(usuario))
                 {
+               
                     Session.Add("usuario", usuario);
                     Response.Redirect("Perfil.aspx", false);
                 }
                 else
                 {
+       
                     lblmensajeLogin.Text = "Usuario o contraseña incorrecta";
                     lblmensajeLogin.ForeColor = System.Drawing.Color.Red;
                 }
             }
             catch (Exception ex)
             {
+            
                 lblmensajeLogin.Text = "Error: " + ex.Message;
                 lblmensajeLogin.ForeColor = System.Drawing.Color.Red;
             }
         }
     }
 }
-

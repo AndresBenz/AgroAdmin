@@ -123,6 +123,31 @@ namespace Funcionalidades
             }
         }
 
+        public int ObtenerTotalClientes()
+        {
+            int totalClientes = 0;
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSp("SelTotalClientes");  
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    totalClientes = (int)accesoDatos.Lector["TotalClientes"];
+                }
+
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return totalClientes;
+        }
+
         public void EditarCliente(Cliente cliente)
         {
             AccesoDatos accesoDatos = new AccesoDatos();

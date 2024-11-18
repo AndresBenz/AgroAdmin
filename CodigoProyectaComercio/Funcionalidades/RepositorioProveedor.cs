@@ -99,9 +99,37 @@ namespace Funcionalidades
             }
         }
 
+        public int ObtenerTotalProveedoresActivos()
+        {
+            int totalProveedoresActivos = 0;  
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSp("SelTotalProveedores");  
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    
+                    totalProveedoresActivos = (int)accesoDatos.Lector["TotalProveedores"];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el total de proveedores activos", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+
+            return totalProveedoresActivos;
+        }
 
 
-        public void EditarProveedor(Proveedor proveedor)
+
+            public void EditarProveedor(Proveedor proveedor)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
             try

@@ -39,7 +39,7 @@ namespace CodigoAgroAdmin
             {
                 try
                 {
-                    // Eliminar usuario
+                    
                     repo.EliminarUsuario(idUsuario);
                     CargarUsuarios(); 
                     lblMensaje.Text = "Usuario eliminado exitosamente.";
@@ -47,7 +47,7 @@ namespace CodigoAgroAdmin
                 }
                 catch (Exception ex)
                 {
-                    // Manejar error
+                    
                     lblMensaje.Text = "Error al eliminar usuario: " + ex.Message;
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                 }

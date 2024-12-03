@@ -26,7 +26,7 @@ namespace Funcionalidades
 
                     aux.IdProducto = (int)accesoDatos.Lector["IdProducto"];
                     aux.Nombre = (string)accesoDatos.Lector["Nombre"];
-                    aux.IdTipo = (int)accesoDatos.Lector["IdTipo"];
+                    aux.IdCategoria = (int)accesoDatos.Lector["IdCategoria"];
                     aux.IdMarca = (int)accesoDatos.Lector["IdMarca"];
                     aux.Precio = (decimal)accesoDatos.Lector["Precio"];
                     aux.StockActual = (int)accesoDatos.Lector["StockActual"];
@@ -76,7 +76,7 @@ namespace Funcionalidades
                     producto = new Producto();
                     producto.IdProducto = (int)accesoDatos.Lector["IdProducto"];
                     producto.Nombre = (string)accesoDatos.Lector["Nombre"];
-                    producto.IdTipo = (int)accesoDatos.Lector["IdTipo"];
+                    producto.IdCategoria = (int)accesoDatos.Lector["IdCategoria"];
                     producto.IdMarca = (int)accesoDatos.Lector["IdMarca"];
                     producto.Precio = (decimal)accesoDatos.Lector["Precio"];
                     producto.StockActual = (int)accesoDatos.Lector["StockActual"];
@@ -105,8 +105,8 @@ namespace Funcionalidades
                 accesoDatos.setearParametros("@Precio", producto.Precio);
                 accesoDatos.setearParametros("@StockActual", producto.StockActual);
                 accesoDatos.setearParametros("@StockMinimo", producto.StockMinimo);
-                accesoDatos.setearParametros("@IdTipo", producto.IdTipo);
-                accesoDatos.setearParametros("@IdMarca", producto.IdTipo);
+                accesoDatos.setearParametros("@IdCategoria", producto.IdCategoria);
+                accesoDatos.setearParametros("@IdMarca", producto.IdMarca);
 
                 accesoDatos.ejecutarAccion();
             }
@@ -178,8 +178,8 @@ namespace Funcionalidades
                 accesoDatos.setearParametros("@Precio", producto.Precio);
                 accesoDatos.setearParametros("@StockActual", producto.StockActual);
                 accesoDatos.setearParametros("@StockMinimo", producto.StockMinimo);
-                accesoDatos.setearParametros("@IdTipo", producto.IdTipo);
-                accesoDatos.setearParametros("@IdMarca", producto.IdTipo);
+                accesoDatos.setearParametros("@IdCategoria", producto.IdCategoria);
+                accesoDatos.setearParametros("@IdMarca", producto.IdMarca);
 
                 accesoDatos.ejecutarAccion();
             }

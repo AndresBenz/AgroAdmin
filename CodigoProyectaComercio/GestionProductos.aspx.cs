@@ -35,7 +35,7 @@ namespace CodigoAgroAdmin
 
                     nombreProducto.Text = producto.Nombre;
                     precioProducto.Text = producto.Precio.ToString();
-                    tipoProducto.Text=producto.IdTipo.ToString();
+                    categoriaProducto.Text=producto.IdCategoria.ToString();
                     marcaProducto.Text=producto.IdMarca.ToString();
                     stockActual.Text = producto.StockActual.ToString();
                     stockMinimo.Text = producto.StockMinimo.ToString();
@@ -149,7 +149,7 @@ namespace CodigoAgroAdmin
         {
             nombreProducto.Text = string.Empty;
             precioProducto.Text = string.Empty;
-            tipoProducto.Text = string.Empty;
+            categoriaProducto.Text = string.Empty;
             stockActual.Text = string.Empty;
             stockMinimo.Text = string.Empty;
             hiddenIdProducto.Value = string.Empty;
@@ -172,13 +172,13 @@ namespace CodigoAgroAdmin
             }
             producto.Precio = precio;
 
-            if (!int.TryParse(tipoProducto.Text, out int idtipoProducto))
+            if (!int.TryParse(categoriaProducto.Text, out int idtipoProducto))
             {
                 lblMensajeFormulario.Text = "Por favor, ingrese un tipo de producto valido";
                 lblMensajeFormulario.Visible = true;
                 return;
             }
-            producto.IdTipo = idtipoProducto;
+            producto.IdCategoria = idtipoProducto;
 
 
             if (!int.TryParse(marcaProducto.Text, out int idMarcaProducto))
@@ -187,7 +187,7 @@ namespace CodigoAgroAdmin
                 lblMensajeFormulario.Visible = true;
                 return;
             }
-            producto.IdTipo = idMarcaProducto;
+            producto.IdMarca = idMarcaProducto;
 
 
 
@@ -236,13 +236,13 @@ namespace CodigoAgroAdmin
             }
             producto.Precio = precio;
 
-            if (!int.TryParse(tipoProducto.Text, out int idtipoProducto))
+            if (!int.TryParse(categoriaProducto.Text, out int idtipoProducto))
             {
                 lblMensajeFormulario.Text = "Por favor, ingrese un stock actual válido.";
                 lblMensajeFormulario.Visible = true;
                 return;
             }
-            producto.IdTipo = idtipoProducto;
+            producto.IdCategoria = idtipoProducto;
 
 
             if (!int.TryParse(marcaProducto.Text, out int idMarcaProducto))

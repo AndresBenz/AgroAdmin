@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  
   <div class="container mt-4">
-    <!-- Logo y bienvenida -->
+
     <div class="text-center mb-4">
         <img src="Imagenes/Icono.png" alt="Logo ProyectaComercio" class="img-fluid" style="max-width: 200px;">
         <h2 class="mt-2">Administrador</h2>
     </div>
-    <!-- Hora -->
+ 
     <div class="text-end mb-3">
         <h5 id="currentTime" class="text-muted"></h5>
     </div>
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <!-- Acceso rápido -->
+
     <div class="text-center mt-4">
         <a href="Reportes.aspx" class="btn btn-outline-primary btn-lg">Ver Reportes</a>
     </div>

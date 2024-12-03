@@ -17,7 +17,7 @@ namespace CodigoProyectaComercio
         }
         protected void btnEliminar_Command(object sender, CommandEventArgs e)
         {
-            // Obtener el IdProducto desde el CommandArgument
+           
             int idProducto = Convert.ToInt32(e.CommandArgument);
 
        

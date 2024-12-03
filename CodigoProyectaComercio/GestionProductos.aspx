@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tipoProducto">Tipo de Producto</label>
-                        <asp:TextBox ID="tipoProducto" runat="server" CssClass="form-control" TextMode="Number" placeholder="Ingrese el tipo de producto"></asp:TextBox>
+                        <asp:TextBox ID="categoriaProducto" runat="server" CssClass="form-control" TextMode="Number" placeholder="Ingrese el tipo de producto"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label for="Marca">Marca del producto</label>

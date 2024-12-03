@@ -13,7 +13,7 @@ namespace CodigoAgroAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Redirige si ya hay un usuario logueado
+           
             if (Session["usuario"] != null)
             {
                 Response.Redirect("Perfil.aspx", false);

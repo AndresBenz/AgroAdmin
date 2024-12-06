@@ -88,8 +88,8 @@ namespace Funcionalidades
   
                 accesoDatos.ejecutarLectura();
 
-   
-                if (accesoDatos.Lector.Read())
+
+                if (accesoDatos.Lector.Read() && !Convert.IsDBNull(accesoDatos.Lector["TotalVentas"]))
                 {
                     totalVentas = (decimal)accesoDatos.Lector["TotalVentas"];
                 }

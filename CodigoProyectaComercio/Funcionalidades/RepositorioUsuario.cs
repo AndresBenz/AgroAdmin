@@ -142,7 +142,7 @@ namespace Funcionalidades
                 while (datos.Lector.Read())
                 {
                     usuario.IdUsuario = (int)datos.Lector["IdUsuario"];
-                    usuario.TipoUsuario = (int)(datos.Lector["TipoUsuario"]) == 2 ? TipoUsuario.Admin : TipoUsuario.Normal;
+                    usuario.TipoUsuario = (int)(datos.Lector["TipoUsuario"]) == 1 ? TipoUsuario.Admin : TipoUsuario.Normal;
                     return true;
 
                 }

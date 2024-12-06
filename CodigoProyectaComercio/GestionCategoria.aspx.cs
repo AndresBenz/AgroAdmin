@@ -18,6 +18,8 @@ namespace CodigoAgroAdmin
         {
             if (!IsPostBack)
             {
+                MostrarLista();
+
                 CargarCategorias();
             }
         }
@@ -50,7 +52,15 @@ namespace CodigoAgroAdmin
             }
         }
 
-        protected void btnAgregarCategoria_Click(object sender, EventArgs e)
+        protected void btnAgregarNueva_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+
+            
+            MostrarFormulario();
+        }
+
+        protected void btnGuardarCategoria_Click(object sender, EventArgs e)
         {
             try
             {
@@ -62,26 +72,20 @@ namespace CodigoAgroAdmin
 
                 if (!string.IsNullOrEmpty(hfIdCategoria.Value))
                 {
-                    
                     nuevaCategoria.IdCategoria = Convert.ToInt32(hfIdCategoria.Value);
                     repositorioCategoria.EditarCategoria(nuevaCategoria);
-
                     lblMensaje.Text = "Categoría modificada correctamente.";
-                    lblMensaje.CssClass = "text-success";
                 }
                 else
                 {
-                    
                     repositorioCategoria.AgregarCategoria(nuevaCategoria);
-
                     lblMensaje.Text = "Categoría agregada correctamente.";
-                    lblMensaje.CssClass = "text-success";
                 }
 
-               
-                LimpiarFormulario();
+                lblMensaje.CssClass = "text-success";
 
-                
+                LimpiarFormulario();
+                MostrarLista();
                 CargarCategorias();
             }
             catch (Exception ex)
@@ -97,17 +101,18 @@ namespace CodigoAgroAdmin
             {
                 int idCategoria = Convert.ToInt32(e.CommandArgument);
 
-                
+
                 Categoria categoria = repositorioCategoria.ObtenerPorId(idCategoria);
 
                 if (categoria != null)
                 {
-                  
+
                     hfIdCategoria.Value = categoria.IdCategoria.ToString();
                     txtNombreCategoria.Text = categoria.Nombre;
                     chkActivo.Checked = categoria.Activo;
 
-                    btnAgregarCategoria.Text = "Guardar Cambios";
+                    btnGuardarCategoria.Text = "Guardar Cambios";
+                    MostrarFormulario();
                 }
             }
             else if (e.CommandName == "EliminarCategoria")
@@ -115,10 +120,32 @@ namespace CodigoAgroAdmin
                 int idCategoria = Convert.ToInt32(e.CommandArgument);
                 repositorioCategoria.EliminarCategoria(idCategoria);
 
-          
+                lblMensaje.Text = "Categoría eliminada correctamente.";
+                lblMensaje.CssClass = "text-success";
+
                 CargarCategorias();
             }
 
+        }
+
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            
+            LimpiarFormulario();
+            MostrarLista();
+        }
+
+        private void MostrarFormulario()
+        {
+            divFormulario.Visible = true;
+            divLista.Visible = false;
+        }
+
+        private void MostrarLista()
+        {
+            divFormulario.Visible = false;
+            divLista.Visible = true;
         }
 
         private void LimpiarFormulario()
@@ -126,7 +153,7 @@ namespace CodigoAgroAdmin
             hfIdCategoria.Value = string.Empty;
             txtNombreCategoria.Text = string.Empty;
             chkActivo.Checked = false;
-            btnAgregarCategoria.Text = "Agregar Categoría";
+            btnGuardarCategoria.Text = "Agregar Categoría";
         }
 
     }

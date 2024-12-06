@@ -15,6 +15,15 @@ namespace CodigoAgroAdmin
     {
 
         /// <summary>
+        /// Control divFormulario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFormulario;
+
+        /// <summary>
         /// Control lblNombreCategoria.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,22 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.CheckBox chkActivo;
 
         /// <summary>
-        /// Control btnAgregarCategoria.
+        /// Control btnGuardarCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarCategoria;
+        protected global::System.Web.UI.WebControls.Button btnGuardarCategoria;
+
+        /// <summary>
+        /// Control btnVolver.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVolver;
 
         /// <summary>
         /// Control hfIdCategoria.
@@ -60,6 +78,15 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.HiddenField hfIdCategoria;
 
         /// <summary>
+        /// Control divLista.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLista;
+
+        /// <summary>
         /// Control gvCategorias.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,15 @@ namespace CodigoAgroAdmin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvCategorias;
+
+        /// <summary>
+        /// Control btnAgregarNueva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAgregarNueva;
 
         /// <summary>
         /// Control lblMensaje.

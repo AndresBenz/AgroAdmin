@@ -13,10 +13,19 @@ namespace CodigoAgroAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
             if (Session["usuario"] != null)
             {
-                Response.Redirect("Perfil.aspx", false);
+                Usuario usuario = (Usuario)Session["usuario"];
+
+                if (usuario.TipoUsuario == TipoUsuario.Admin)
+                {
+                    Response.Redirect("InicioAdministrador.aspx", false);
+                }
+                else
+                {
+                    Response.Redirect("PantallaEmpleado.aspx", false);
+                }
             }
         }
 
@@ -30,16 +39,23 @@ namespace CodigoAgroAdmin
               
                 usuario = new Usuario(txtCorreoLogin.Text, int.Parse(txtDNILogin.Text), false);
 
-              
+
                 if (repousuario.Loguear(usuario))
                 {
-               
+
                     Session.Add("usuario", usuario);
-                    Response.Redirect("Perfil.aspx", false);
+                    if (usuario.TipoUsuario == TipoUsuario.Admin)
+                    {
+                        Response.Redirect("InicioAdministrador.aspx", false);
+                    }
+                    else
+                    {
+                        Response.Redirect("PantallaEmpleado.aspx", false);
+                    }
                 }
                 else
                 {
-       
+
                     lblmensajeLogin.Text = "Usuario o contraseña incorrecta";
                     lblmensajeLogin.ForeColor = System.Drawing.Color.Red;
                 }

@@ -3,8 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
           <h1>Gestion Marca</h1>
-    
-    <div id="divEditarMarca" runat="server" visible="false">
+    <!-- Formulario de edición/agregado -->
+    <div id="divEditarMarca" runat="server" visible="false" class="form-container">
         <h3>Editar Marca</h3>
         
         <asp:Label ID="lblNombreEditar" runat="server" Text="Nombre: "></asp:Label>
@@ -17,6 +17,9 @@
         
         <asp:Label ID="lblErrorEditar" runat="server" Text="El nombre de la marca es obligatorio." ForeColor="Red" Visible="false"></asp:Label>
     </div>
+     <!-- Lista de marcas -->
+      <div id="divListaMarcas" runat="server">
+        <asp:Button ID="btnAgregarMarca" runat="server" Text="Agregar Nueva Marca" OnClick="btnAgregarMarca_Click" CssClass="btn btn-primary mb-3" />
 
     <asp:GridView ID="gvMarcas" runat="server" AutoGenerateColumns="False" OnRowCommand="gvMarcas_RowCommand" CssClass="table table-bordered">
         <Columns>
@@ -32,5 +35,5 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-
+          </div>
 </asp:Content>

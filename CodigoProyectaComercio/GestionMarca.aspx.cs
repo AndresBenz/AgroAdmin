@@ -1,4 +1,5 @@
-﻿using Funcionalidades;
+﻿using Dominio;
+using Funcionalidades;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,7 +19,8 @@ namespace CodigoAgroAdmin
         {
             if (!IsPostBack)
             {
-                CargarMarcas();
+
+                MostrarLista();
             }
         }
 
@@ -27,6 +29,28 @@ namespace CodigoAgroAdmin
             var marcas = repoMarca.ListarConSp();
             gvMarcas.DataSource = marcas;
             gvMarcas.DataBind();
+        }
+
+        private void MostrarLista()
+        {
+            divListaMarcas.Visible = true;
+            divEditarMarca.Visible = false;
+            CargarMarcas();
+        }
+
+        private void MostrarFormulario()
+        {
+            divListaMarcas.Visible = false;
+            divEditarMarca.Visible = true;
+        }
+
+
+        protected void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+
+            LimpiarFormulario();
+            ViewState["IdMarcaSeleccionada"] = null;
+            MostrarFormulario();
         }
 
         protected void gvMarcas_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -39,58 +63,64 @@ namespace CodigoAgroAdmin
 
                 if (marca != null)
                 {
-                    idMarcaSeleccionada = idMarca;
-                    ViewState["IdMarcaSeleccionada"] = idMarca; 
-                    divEditarMarca.Visible = true;
 
-                    
+                    ViewState["IdMarcaSeleccionada"] = idMarca;
+
+
+
                     txtNombreEditar.Text = marca.Nombre;
-                    chkActivoEditar.Checked = marca.Activo; 
+                    chkActivoEditar.Checked = marca.Activo;
+
+                    MostrarFormulario();
                 }
             }
             else if (e.CommandName == "Eliminar")
             {
-                repoMarca.EliminarMarca(idMarca); 
+                repoMarca.EliminarMarca(idMarca);
                 CargarMarcas();
             }
         }
 
-        
+
         protected void btnGuardarEditarMarca_Click(object sender, EventArgs e)
         {
             string nombre = txtNombreEditar.Text.Trim();
             bool activo = chkActivoEditar.Checked;
 
-           
+
             int idMarcaSeleccionada = (int)(ViewState["IdMarcaSeleccionada"] ?? 0);
 
-            if (idMarcaSeleccionada > 0 && !string.IsNullOrEmpty(nombre))
+            if (!string.IsNullOrEmpty(nombre))
             {
-               
-                repoMarca.ModificarMarca(idMarcaSeleccionada, nombre, activo);
+                if (idMarcaSeleccionada > 0)
+                {
+                    repoMarca.ModificarMarca(idMarcaSeleccionada, nombre, activo);
+                }
+                else
+                {
+                    repoMarca.AgregarMarca(nombre, activo);
+                }
 
-                
-                CargarMarcas();
-                divEditarMarca.Visible = false;
-
-               
-                txtNombreEditar.Text = string.Empty;
-                chkActivoEditar.Checked = false;
-                lblErrorEditar.Visible = false; 
+                MostrarLista();
             }
             else
             {
-                lblErrorEditar.Visible = true; 
+                lblErrorEditar.Visible = true;
             }
         }
 
-       
+
         protected void btnCancelarEditar_Click(object sender, EventArgs e)
         {
-            divEditarMarca.Visible = false;  
+            MostrarLista();
 
+        }
+
+        private void LimpiarFormulario()
+        {
             txtNombreEditar.Text = string.Empty;
             chkActivoEditar.Checked = false;
+            lblErrorEditar.Visible = false;
         }
     }
 

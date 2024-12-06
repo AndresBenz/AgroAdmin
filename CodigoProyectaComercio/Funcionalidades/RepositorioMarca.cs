@@ -69,13 +69,14 @@ namespace Funcionalidades
             }
         }
 
-        public void AgregarMarca(string nombre)
+        public void AgregarMarca(string nombre, bool Activo)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
             try
             {
                 accesoDatos.setearSp("InsMarca");
                 accesoDatos.setearParametros("@Nombre", nombre);
+                accesoDatos.setearParametros("@Activo", Activo);
                 accesoDatos.ejecutarAccion();
             }
             catch (Exception ex)

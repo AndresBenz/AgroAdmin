@@ -15,18 +15,50 @@ namespace CodigoAgroAdmin
         {
             if (!IsPostBack)
             {
-                CargarDetallesVenta();
+                CargarVentas();
             }
         }
 
 
-        private void CargarDetallesVenta()
+        private void CargarVentas()
+        {
+            RepositorioVenta repositorio = new RepositorioVenta();
+            List<Venta> Venta = repositorio.ListarConSp();
+
+            GridViewVentas.DataSource = Venta;
+            GridViewVentas.DataBind();
+
+            PanelVentas.Visible = true;
+            PanelDetallesVenta.Visible = false;
+        }
+
+
+        protected void GridViewVentas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "VerDetalle")
+            {
+                int idVenta = Convert.ToInt32(e.CommandArgument);
+
+                CargarDetallesVenta(idVenta);
+
+                PanelVentas.Visible = false;
+                PanelDetallesVenta.Visible = true;
+            }
+        }
+
+        private void CargarDetallesVenta(int idVenta)
         {
             RepositorioDetalleVenta repositorio = new RepositorioDetalleVenta();
-            List<DetalleVenta> detallesVenta = repositorio.ListarConSp();
+            List<DetalleVenta> detalles = repositorio.ListarPorVenta(idVenta);
 
-            GridViewDetallesVenta.DataSource = detallesVenta;
+            GridViewDetallesVenta.DataSource = detalles;
             GridViewDetallesVenta.DataBind();
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            PanelVentas.Visible = true;
+            PanelDetallesVenta.Visible = false;
         }
     }
 }

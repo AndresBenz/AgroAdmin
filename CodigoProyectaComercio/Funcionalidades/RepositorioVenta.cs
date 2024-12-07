@@ -24,6 +24,7 @@ namespace Funcionalidades
 
                     aux.IdVenta = (int)accesoDatos.Lector["IdVenta"];
                     aux.IdCliente = (int)accesoDatos.Lector["IdCliente"];
+                    aux.NombreCliente = (string)accesoDatos.Lector["NombreCliente"];
                     aux.Fecha = (DateTime)accesoDatos.Lector["Fecha"];
                     aux.Total = (decimal)accesoDatos.Lector["Total"];
 

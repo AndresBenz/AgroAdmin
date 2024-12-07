@@ -10,7 +10,7 @@ namespace Dominio
     {
         public int IdProveedor { get; set; }
         public string Nombre { get; set; }
-        public string Direccion { get; set; }
+        public string Detalle { get; set; }
         public string CorreoElectronico { get; set; }
         public string Telefono { get; set; }
     }

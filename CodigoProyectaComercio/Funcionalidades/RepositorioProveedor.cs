@@ -24,7 +24,7 @@ namespace Funcionalidades
 
                     aux.IdProveedor = (int)accesoDatos.Lector["IdProveedor"];
                     aux.Nombre = (string)accesoDatos.Lector["Nombre"];
-                    aux.Direccion = accesoDatos.Lector["Direccion"] as string;
+                    aux.Detalle = accesoDatos.Lector["Detalle"] as string;
                     aux.CorreoElectronico = accesoDatos.Lector["CorreoElectronico"] as string;
                     aux.Telefono = accesoDatos.Lector["Telefono"] as string;
 
@@ -58,7 +58,7 @@ namespace Funcionalidades
                     {
                         IdProveedor = (int)accesoDatos.Lector["IdProveedor"],
                         Nombre = accesoDatos.Lector["Nombre"].ToString(),
-                        Direccion = accesoDatos.Lector["Direccion"].ToString(),
+                        Detalle = accesoDatos.Lector["Detalle"].ToString(),
                         CorreoElectronico = accesoDatos.Lector["CorreoElectronico"].ToString(),
                         Telefono = accesoDatos.Lector["Telefono"].ToString()
                     };
@@ -84,7 +84,7 @@ namespace Funcionalidades
             {
                 accesoDatos.setearSp("insProveedor");  
                 accesoDatos.setearParametros("@Nombre", proveedor.Nombre);
-                accesoDatos.setearParametros("@Direccion", proveedor.Direccion);
+                accesoDatos.setearParametros("@Detalle", proveedor.Detalle);
                 accesoDatos.setearParametros("@CorreoElectronico", proveedor.CorreoElectronico);
                 accesoDatos.setearParametros("@Telefono", proveedor.Telefono);
                 accesoDatos.ejecutarAccion();
@@ -137,7 +137,7 @@ namespace Funcionalidades
                 accesoDatos.setearSp("updProveedor");
                 accesoDatos.setearParametros("@IdProveedor", proveedor.IdProveedor);
                 accesoDatos.setearParametros("@Nombre", proveedor.Nombre);
-                accesoDatos.setearParametros("@Direccion", proveedor.Direccion);
+                accesoDatos.setearParametros("@Detalle", proveedor.Detalle);
                 accesoDatos.setearParametros("@CorreoElectronico", proveedor.CorreoElectronico);
                 accesoDatos.setearParametros("@Telefono", proveedor.Telefono);
                 accesoDatos.ejecutarAccion();

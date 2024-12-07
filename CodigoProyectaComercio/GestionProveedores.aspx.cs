@@ -23,70 +23,78 @@ namespace CodigoAgroAdmin
         {
             RepositorioProveedor repositorio = new RepositorioProveedor();
             List<Proveedor> proveedores = repositorio.ListarConSp();
-            RepeaterProveedores.DataSource = proveedores;
-            RepeaterProveedores.DataBind();
+            gvProveedores.DataSource = proveedores;
+            gvProveedores.DataBind();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            phFormulario.Visible = true;
+            listarProveedores.Visible = false;
+            formularioProveedor.Visible = true;
             LimpiarFormulario();
+            lblTituloFormulario.Text = "Agregar Proveedor";
         }
 
-        protected void btnEditar_Click(object sender, EventArgs e)
+        protected void gvProveedores_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int idProveedor = Convert.ToInt32((sender as LinkButton).CommandArgument);
-            CargarProveedorEnFormulario(idProveedor);
-            phFormulario.Visible = true;
+            if (e.CommandName == "Editar")
+            {
+                int idProveedor = Convert.ToInt32(e.CommandArgument);
+                CargarProveedorEnFormulario(idProveedor);
+                formularioProveedor.Visible = true;
+                listarProveedores.Visible = false;
+            }
+            else if (e.CommandName == "Eliminar")
+            {
+                int idProveedor = Convert.ToInt32(e.CommandArgument);
+                RepositorioProveedor repositorio = new RepositorioProveedor();
+                repositorio.EliminarProveedor(idProveedor);
+                CargarProveedores();
+            }
         }
+       
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            int idProveedor = Convert.ToInt32((sender as LinkButton).CommandArgument);
-            RepositorioProveedor repositorio = new RepositorioProveedor();
-            repositorio.EliminarProveedor(idProveedor);
-            CargarProveedores();
-        }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
+        protected void btnGuardarProveedor_Click(object sender, EventArgs e)
         {
             RepositorioProveedor repositorio = new RepositorioProveedor();
             Proveedor proveedor = new Proveedor
             {
-                Nombre = nombreProveedor.Text,
-                Direccion = direccionProveedor.Text,
-                CorreoElectronico = correoProveedor.Text,
-                Telefono = telefonoProveedor.Text
+                Nombre = txtNombreProveedor.Text,
+                Detalle = txtDetalleProveedor.Text,
+                CorreoElectronico = txtCorreoProveedor.Text,
+                Telefono = txtTelefonoProveedor.Text
             };
 
-            if (int.TryParse(hiddenIdProveedor.Value, out int idProveedor) && idProveedor != 0)
+            if (int.TryParse(hfIdProveedor.Value, out int idProveedor) && idProveedor != 0)
             {
-                proveedor.IdProveedor = idProveedor;
+                proveedor.IdProveedor = idProveedor; 
                 repositorio.EditarProveedor(proveedor);
             }
             else
             {
-                repositorio.AgregarProveedor(proveedor);
+                repositorio.AgregarProveedor(proveedor); 
             }
 
-            CargarProveedores();
+            CargarProveedores(); 
             LimpiarFormulario();
-            phFormulario.Visible = false;
+            listarProveedores.Visible = true;
+            formularioProveedor.Visible = false;
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void btnCancelarProveedor_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
-            phFormulario.Visible = false;
+            listarProveedores.Visible = true;
+            formularioProveedor.Visible = false;
         }
 
         private void LimpiarFormulario()
         {
-            nombreProveedor.Text = string.Empty;
-            direccionProveedor.Text = string.Empty;
-            correoProveedor.Text = string.Empty;
-            telefonoProveedor.Text = string.Empty;
-            hiddenIdProveedor.Value = string.Empty;
+            txtNombreProveedor.Text = string.Empty;
+            txtDetalleProveedor.Text = string.Empty;
+            txtCorreoProveedor.Text = string.Empty;
+            txtTelefonoProveedor.Text = string.Empty;
+            hfIdProveedor.Value = string.Empty;
         }
 
         private void CargarProveedorEnFormulario(int idProveedor)
@@ -96,11 +104,11 @@ namespace CodigoAgroAdmin
 
             if (proveedor != null)
             {
-                nombreProveedor.Text = proveedor.Nombre;
-                direccionProveedor.Text = proveedor.Direccion;
-                correoProveedor.Text = proveedor.CorreoElectronico;
-                telefonoProveedor.Text = proveedor.Telefono;
-                hiddenIdProveedor.Value = proveedor.IdProveedor.ToString();
+                txtNombreProveedor.Text = proveedor.Nombre;
+                txtDetalleProveedor.Text = proveedor.Detalle;
+                txtCorreoProveedor.Text = proveedor.CorreoElectronico;
+                txtTelefonoProveedor.Text = proveedor.Telefono;
+                hfIdProveedor.Value = proveedor.IdProveedor.ToString();
             }
         }
     }

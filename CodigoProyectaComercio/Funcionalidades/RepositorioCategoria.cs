@@ -40,6 +40,36 @@ namespace Funcionalidades
         }
 
 
+        public List<Categoria> ListarConSpActivas()
+        {
+            List<Categoria> listarCategorias = new List<Categoria>();
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("SelCategoriasActivas");
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    Categoria aux = new Categoria();
+                    aux.IdCategoria = (int)accesoDatos.Lector["IdCategoria"];
+                    aux.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    aux.Activo = (bool)accesoDatos.Lector["Activo"];
+
+                    listarCategorias.Add(aux);
+                }
+
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar las categorías: " + ex.Message);
+            }
+
+            return listarCategorias;
+        }
+
+
         public void AgregarCategoria(Categoria categoria)
             {
                 AccesoDatos accesoDatos = new AccesoDatos();

@@ -38,7 +38,34 @@ namespace Funcionalidades
             }
         }
 
+        public List<Marca> ListarConSpActivas()
+        {
+            List<Marca> listarMarcas = new List<Marca>();
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("SelMarcasActivas");
+                accesoDatos.ejecutarLectura();
 
+                while (accesoDatos.Lector.Read())
+                {
+                    Marca aux = new Marca();
+
+                    aux.IdMarca = (int)accesoDatos.Lector["IdMarca"];
+                    aux.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    aux.Activo = (bool)accesoDatos.Lector["Activo"];
+
+                    listarMarcas.Add(aux);
+                }
+
+                accesoDatos.cerrarConexion();
+                return listarMarcas;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Marca SelMarcaPorId(int idMarca)
         {
             Marca marca = null;

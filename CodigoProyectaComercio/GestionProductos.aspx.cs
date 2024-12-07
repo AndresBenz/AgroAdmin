@@ -2,6 +2,7 @@
 using Funcionalidades;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,274 +12,256 @@ namespace CodigoAgroAdmin
 {
     public partial class GestionProductos : System.Web.UI.Page
     {
+        RepositorioProducto repoProducto = new RepositorioProducto();
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!IsPostBack)
             {
-                btnGuardar.Visible = false;
-                btnCancelar.Visible = false;
+                CargarProductos();
+                CargarCategorias();
+                CargarMarcas();
+
             }
         }
-        protected void btnBuscar_Click(object sender, EventArgs e)
+
+
+        private void CargarProductos()
+        {
+            var productos = repoProducto.ListarConSpDetalle();
+            RepeaterProductos.DataSource = productos;
+            RepeaterProductos.DataBind();
+            divListado.Visible = true;
+            divFormulario.Visible = false;
+        }
+
+
+        private void CargarCategorias()
+        {
+            RepositorioCategoria categoriaNegocio = new RepositorioCategoria(); 
+            
+                var categorias = categoriaNegocio.ListarConSpActivas(); 
+                categoriaProducto.DataSource = categorias;
+                categoriaProducto.DataTextField = "Nombre"; 
+                categoriaProducto.DataValueField = "IdCategoria"; 
+                categoriaProducto.DataBind();
+
+                categoriaProducto.Items.Insert(0, new ListItem("Seleccione Categoria", ""));
+            
+           
+        }
+
+        private void CargarMarcas()
+        {
+            RepositorioMarca marcaNegocio = new RepositorioMarca(); 
+           
+                var marcas = marcaNegocio.ListarConSpActivas(); 
+                marcaProducto.DataSource = marcas;
+                marcaProducto.DataTextField = "Nombre"; 
+                marcaProducto.DataValueField = "IdMarca"; 
+                marcaProducto.DataBind();
+
+                marcaProducto.Items.Insert(0, new ListItem("Seleccione Marca", ""));
+            
+           
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            if (int.TryParse(txtBuscar.Text.Trim(), out int idProducto))
-            {
-
-                RepositorioProducto repProductos = new RepositorioProducto();
-                var producto = repProductos.ObtenerProductoPorId(idProducto);
-
-                if (producto != null)
-                {
-                    hiddenIdProducto.Value = producto.IdProducto.ToString();
-
-                    nombreProducto.Text = producto.Nombre;
-                    precioProducto.Text = producto.Precio.ToString();
-                    categoriaProducto.Text=producto.IdCategoria.ToString();
-                    marcaProducto.Text=producto.IdMarca.ToString();
-                    stockActual.Text = producto.StockActual.ToString();
-                    stockMinimo.Text = producto.StockMinimo.ToString();
-                    lblMensaje.Visible = false;
-                    phFormulario.Visible = true;
-                    phAcciones.Visible = true;
-                }
-                else
-                {
-
-                    lblMensaje.Text = "Producto no encontrado.";
-                    lblMensaje.Visible = true;
-                    ResetearFormulario();
-                    phAcciones.Visible= false;
-                }
-            }
-            else
-            {
-                lblMensaje.Text = "Por favor, ingrese un ID válido.";
-                lblMensaje.Visible = true;
-                phAcciones.Visible = false;
-                ResetearFormulario();
-            }
+            tituloFormulario.InnerText = "Agregar Producto";
+            hiddenIdProducto.Value = string.Empty;
+            LimpiarFormulario();
+            divListado.Visible = false;
+            divFormulario.Visible = true;
         }
+
+
+
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(hiddenIdProducto.Value, out int idProducto))
+            LinkButton btnEditar = (LinkButton)sender;
+            int idProducto = Convert.ToInt32(btnEditar.CommandArgument);
+            var producto = repoProducto.ObtenerProductoPorId(idProducto);
+
+            if (producto != null)
             {
-                RepositorioProducto repProductos = new RepositorioProducto();
-                var producto = repProductos.ObtenerProductoPorId(idProducto);
+                tituloFormulario.InnerText = "Editar Producto";
+                nombreProducto.Text = producto.Nombre;
+                precioProducto.Text = producto.Precio.ToString();
 
-                if (producto != null)
+                stockActual.Text = producto.StockActual.ToString();
+                stockMinimo.Text = producto.StockMinimo.ToString();
+
+
+                if (categoriaProducto.Items.FindByValue(producto.IdCategoria.ToString()) != null)
                 {
-                    nombreProducto.Text = producto.Nombre;
-                    precioProducto.Text = producto.Precio.ToString();
-                    stockActual.Text = producto.StockActual.ToString();
-                    stockMinimo.Text = producto.StockMinimo.ToString();
-
-                   
-                    phFormulario.Visible = true;
-                    btnGuardar.Visible = false; 
-                    btnConfirmarEditar.Visible = true; 
-                    btnCancelar.Visible = true; 
-                    phAcciones.Visible = false; 
+                    categoriaProducto.SelectedValue = producto.IdCategoria.ToString();
                 }
                 else
                 {
-                    lblMensajeFormulario.Text = "Producto no encontrado.";
-                    lblMensajeFormulario.Visible = true;
+                    categoriaProducto.SelectedIndex = 0; 
                 }
+
+
+                if (marcaProducto.Items.FindByValue(producto.IdMarca.ToString()) != null)
+                {
+                    marcaProducto.SelectedValue = producto.IdMarca.ToString();
+                }
+                else
+                {
+                    marcaProducto.SelectedIndex = 0; 
+                }
+                hiddenIdProducto.Value = producto.IdProducto.ToString();
+
+                divListado.Visible = false;
+                divFormulario.Visible = true;
             }
             else
             {
-                lblMensajeFormulario.Text = "No se pudo encontrar el ID del producto.";
+                lblMensajeFormulario.Text = "Producto no encontrado.";
                 lblMensajeFormulario.Visible = true;
+            }
+        }
+
+
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string criterio = txtBuscar.Text.Trim();
+
+            if (string.IsNullOrEmpty(criterio))
+            {
+                CargarProductos();
+                lblMensaje.Text = "";
+                lblMensaje.Visible = false;
+
+                return;
             }
 
 
-        }
+            Producto producto = null;
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            phFormulario.Visible = false;
-            btnGuardar.Visible = false;
-            phAcciones.Visible = false;
+            if (int.TryParse(criterio, out int idProducto))
+            {
+                
+                producto = repoProducto.ObtenerProductoPorId(idProducto);
+            }
+            else if (!string.IsNullOrEmpty(criterio))
+            {
+                producto = repoProducto.ObtenerProductoPorId(nombre: criterio);
+            }
+            else
+            {
+                lblMensaje.Text = "Por favor, ingresa un ID o un nombre válido para buscar.";
+                lblMensaje.Visible = true;
+                return;
+            }
 
+            if (producto != null)
+            {
+                
+                var productosEncontrados = new List<Producto> { producto };
+                RepeaterProductos.DataSource = productosEncontrados;
+                RepeaterProductos.DataBind();
+                divListado.Visible = true;
+                divFormulario.Visible = false;
+                lblMensaje.Text = "";
+                lblMensaje.Visible = false;
+            }
+            else
+            {
+
+                lblMensaje.Text = "No se encontró ningún producto con el criterio ingresado.";
+                lblMensaje.Visible = true;
+                RepeaterProductos.DataSource = null;
+                RepeaterProductos.DataBind();
+            }
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(hiddenIdProducto.Value, out int idProducto) && idProducto != 0)
+            try
             {
-                RepositorioProducto repProductos = new RepositorioProducto();
+              
+                LinkButton btnEliminar = (LinkButton)sender;
+                int idProducto = Convert.ToInt32(btnEliminar.CommandArgument); 
 
-                try
-                {
-                    repProductos.EliminarProducto(idProducto);
-                    lblMensajeFormulario.Text = "Producto eliminado correctamente.";
-                }
-                catch (Exception ex)
-                {
-                    lblMensajeFormulario.Text = "Error al eliminar el producto: " + ex.Message;
-                }
+               
+                repoProducto.EliminarProducto(idProducto);
 
-                lblMensajeFormulario.Visible = true;
-                ResetearFormulario();
-                phFormulario.Visible = false;
-                phAcciones.Visible = false;
+                lblMensaje.Text = "Producto eliminado correctamente.";
+                lblMensaje.Visible = true;
+
+                CargarProductos();
             }
-            else
+            catch (Exception ex)
             {
-                lblMensajeFormulario.Text = "No se pudo encontrar el ID del producto.";
-                lblMensajeFormulario.Visible = true;
+                lblMensaje.Text = "Error al eliminar el producto: " + ex.Message;
+                lblMensaje.Visible = true;
             }
         }
 
-
-
-       
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
-            phFormulario.Visible = true;
-            phAcciones.Visible = false;
-            btnGuardar.Visible=true;
-            ResetearFormulario();
+            CargarProductos();
         }
 
 
-        private void ResetearFormulario()
+        private void LimpiarFormulario()
         {
             nombreProducto.Text = string.Empty;
             precioProducto.Text = string.Empty;
-            categoriaProducto.Text = string.Empty;
+            categoriaProducto.SelectedIndex = 0;
+            marcaProducto.SelectedIndex = 0;
             stockActual.Text = string.Empty;
             stockMinimo.Text = string.Empty;
-            hiddenIdProducto.Value = string.Empty;
             lblMensajeFormulario.Visible = false;
         }
-
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            RepositorioProducto repProductos = new RepositorioProducto();
+
+            if (categoriaProducto.SelectedIndex == 0)
+            {
+                lblMensajeFormulario.Text = "Por favor, selecciona una categoría válida.";
+                lblMensajeFormulario.Visible = true;
+                return; 
+            }
+
+            if (marcaProducto.SelectedIndex == 0)
+            {
+                lblMensajeFormulario.Text = "Por favor, selecciona una marca válida.";
+                lblMensajeFormulario.Visible = true;
+                return; 
+            }
+
             Producto producto = new Producto
             {
                 Nombre = nombreProducto.Text,
+                Precio = Convert.ToDecimal(precioProducto.Text),
+                IdCategoria = Convert.ToInt32(categoriaProducto.SelectedValue),
+                IdMarca = Convert.ToInt32(marcaProducto.SelectedValue),
+                StockActual = Convert.ToInt32(stockActual.Text),
+                StockMinimo = Convert.ToInt32(stockMinimo.Text)
             };
 
-            if (!decimal.TryParse(precioProducto.Text, out decimal precio))
+            if (string.IsNullOrEmpty(hiddenIdProducto.Value))
             {
-                lblMensajeFormulario.Text = "Por favor, ingrese un precio válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
+                repoProducto.AgregarProducto(producto);
+                lblMensajeFormulario.Text = "Producto agregado correctamente.";
             }
-            producto.Precio = precio;
-
-            if (!int.TryParse(categoriaProducto.Text, out int idtipoProducto))
+            else
             {
-                lblMensajeFormulario.Text = "Por favor, ingrese un tipo de producto valido";
-                lblMensajeFormulario.Visible = true;
-                return;
+                producto.IdProducto = Convert.ToInt32(hiddenIdProducto.Value);
+                repoProducto.EditarProducto(producto);
+                lblMensajeFormulario.Text = "Producto actualizado correctamente.";
             }
-            producto.IdCategoria = idtipoProducto;
-
-
-            if (!int.TryParse(marcaProducto.Text, out int idMarcaProducto))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un tipo de producto valido";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.IdMarca = idMarcaProducto;
-
-
-
-
-            if (!int.TryParse(stockActual.Text, out int parsedStockActual))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un stock actual válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.StockActual = parsedStockActual;
-
-            if (!int.TryParse(stockMinimo.Text, out int parsedStockMinimo))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un stock mínimo válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.StockMinimo = parsedStockMinimo;
-
-            producto.IdProducto = 0;
-            repProductos.AgregarProducto(producto);
-            lblMensajeFormulario.Text = "Producto guardado correctamente.";
-
             lblMensajeFormulario.Visible = true;
-            ResetearFormulario();
-            phFormulario.Visible = false;
+            CargarProductos();
         }
 
 
 
-        protected void btnConfirmarEditar_Click(object sender, EventArgs e)
-        {
-            RepositorioProducto repProductos = new RepositorioProducto();
-            Producto producto = new Producto
-            {
-                IdProducto = int.Parse(hiddenIdProducto.Value), 
-                Nombre = nombreProducto.Text,
-            };
 
-            if (!decimal.TryParse(precioProducto.Text, out decimal precio))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un precio válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.Precio = precio;
-
-            if (!int.TryParse(categoriaProducto.Text, out int idtipoProducto))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un stock actual válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.IdCategoria = idtipoProducto;
-
-
-            if (!int.TryParse(marcaProducto.Text, out int idMarcaProducto))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un stock actual válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.IdMarca = idMarcaProducto;
-
-
-
-            if (!int.TryParse(stockActual.Text, out int parsedStockActual))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un stock actual válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.StockActual = parsedStockActual;
-
-            if (!int.TryParse(stockMinimo.Text, out int parsedStockMinimo))
-            {
-                lblMensajeFormulario.Text = "Por favor, ingrese un stock mínimo válido.";
-                lblMensajeFormulario.Visible = true;
-                return;
-            }
-            producto.StockMinimo = parsedStockMinimo;
-
-        
-            repProductos.EditarProducto(producto);
-            lblMensajeFormulario.Text = "Producto editado correctamente.";
-            lblMensajeFormulario.Visible = true;
-
-            ResetearFormulario(); 
-            phFormulario.Visible = false; 
-            phAcciones.Visible = true; 
-        }
     }
 }

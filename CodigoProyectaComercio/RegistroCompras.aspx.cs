@@ -30,10 +30,16 @@ namespace CodigoAgroAdmin
             gvCompras.DataBind();
         }
 
-        protected void gvCompras_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvCompras_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int idCompra = (int)gvCompras.SelectedDataKey.Value;
-            CargarDetallesCompra(idCompra);
+            if (e.CommandName == "VerDetalle")
+            {
+                int idCompra = Convert.ToInt32(e.CommandArgument);
+                CargarDetallesCompra(idCompra);
+
+                PanelCompras.Visible = false;
+                PanelDetallesCompra.Visible = true;
+            }
         }
 
         private void CargarDetallesCompra(int idCompra)
@@ -46,6 +52,13 @@ namespace CodigoAgroAdmin
             List<DetalleCompra> detalles = repositorioCompra.ListarDetallesCompra(idCompra);
             gvDetallesCompra.DataSource = detalles;
             gvDetallesCompra.DataBind();
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+         
+            PanelCompras.Visible = true;
+            PanelDetallesCompra.Visible = false;
         }
     }
 }

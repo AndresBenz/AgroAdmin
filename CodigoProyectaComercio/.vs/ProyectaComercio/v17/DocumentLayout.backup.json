@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\registroventas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:registroventas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\registrocompras.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:registrocompras.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\dominio\\detalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|solutionrelative:dominio\\detalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\funcionalidades\\repositoriodetalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositoriodetalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\registroventas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:registroventas.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\funcionalidades\\repositorioventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositorioventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\dominio\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|solutionrelative:dominio\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\dominio\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1A12281A-6722-4ED4-A0BA-AD7832449210}|Dominio\\Dominio.csproj|solutionrelative:dominio\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\funcionalidades\\repositoriocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositoriocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Venta.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Dominio\\Venta.cs",
-              "RelativeDocumentMoniker": "Dominio\\Venta.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Dominio\\Venta.cs",
-              "RelativeToolTip": "Dominio\\Venta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RepositorioCompra.cs",
+              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioCompra.cs",
+              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioCompra.cs",
+              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioCompra.cs",
+              "RelativeToolTip": "Funcionalidades\\RepositorioCompra.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAMwJYAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T04:41:50.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RepositorioVenta.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioVenta.cs",
-              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioVenta.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioVenta.cs",
-              "RelativeToolTip": "Funcionalidades\\RepositorioVenta.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBIAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T04:15:21.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RepositorioDetalleVenta.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioDetalleVenta.cs",
-              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioDetalleVenta.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioDetalleVenta.cs",
-              "RelativeToolTip": "Funcionalidades\\RepositorioDetalleVenta.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAuwEsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T04:14:52.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RegistroVentas.aspx.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroVentas.aspx.cs",
-              "RelativeDocumentMoniker": "RegistroVentas.aspx.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroVentas.aspx.cs",
-              "RelativeToolTip": "RegistroVentas.aspx.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowCkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T04:12:18.411Z",
+              "WhenOpened": "2024-12-07T06:08:57.818Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RegistroVentas.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroVentas.aspx",
-              "RelativeDocumentMoniker": "RegistroVentas.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroVentas.aspx",
-              "RelativeToolTip": "RegistroVentas.aspx",
+              "Title": "RegistroCompras.aspx",
+              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroCompras.aspx",
+              "RelativeDocumentMoniker": "RegistroCompras.aspx",
+              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroCompras.aspx",
+              "RelativeToolTip": "RegistroCompras.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-07T04:12:10.819Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DetalleVenta.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Dominio\\DetalleVenta.cs",
-              "RelativeDocumentMoniker": "Dominio\\DetalleVenta.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Dominio\\DetalleVenta.cs",
-              "RelativeToolTip": "Dominio\\DetalleVenta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T05:15:48.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Dominio\\Usuario.cs",
-              "RelativeDocumentMoniker": "Dominio\\Usuario.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Dominio\\Usuario.cs",
-              "RelativeToolTip": "Dominio\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T05:00:31.552Z",
+              "WhenOpened": "2024-12-07T06:08:39.887Z",
               "EditorCaption": ""
             }
           ]

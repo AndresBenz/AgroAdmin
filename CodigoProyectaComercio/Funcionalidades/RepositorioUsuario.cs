@@ -32,7 +32,7 @@ namespace Funcionalidades
                     aux.CorreoElectronico = (string)AccesoDatos.Lector["CorreoElectronico"];
                     aux.Telefono = (string)AccesoDatos.Lector["Telefono"];
                     aux.TipoUsuario = (TipoUsuario)(int)AccesoDatos.Lector["TipoUsuario"];
-
+                    aux.Activo = (bool)AccesoDatos.Lector["Activo"];
                     listarUsuario.Add(aux);
                 }
 
@@ -68,7 +68,7 @@ namespace Funcionalidades
                     usuario.CorreoElectronico = (string)accesoDatos.Lector["CorreoElectronico"];
                     usuario.Telefono = (string)accesoDatos.Lector["Telefono"];
                     usuario.TipoUsuario = (TipoUsuario)(int)accesoDatos.Lector["TipoUsuario"];
-
+                    usuario.Activo = (bool)accesoDatos.Lector["Activo"];
                 }
 
                 accesoDatos.cerrarConexion();
@@ -112,6 +112,7 @@ namespace Funcionalidades
                 accesoDatos.setearParametros("@DNI", usuario.DNI);
                 accesoDatos.setearParametros("@Telefono", usuario.Telefono);
                 accesoDatos.setearParametros("@TipoUsuario", usuario.TipoUsuario);
+               
                 accesoDatos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -131,7 +132,7 @@ namespace Funcionalidades
 
             try
             {
-                datos.setearConsulta("SELECT IdUsuario, Nombre, TipoUsuario FROM USUARIOS where  CorreoElectronico = @Nombre and DNI = @Contra");
+                datos.setearConsulta("SELECT IdUsuario, Nombre, TipoUsuario FROM USUARIOS WHERE CorreoElectronico = @Nombre AND DNI = @Contra AND Activo = 1");
 
                 datos.setearParametros("@Contra", usuario.DNI);
                 datos.setearParametros("@Nombre", usuario.CorreoElectronico);

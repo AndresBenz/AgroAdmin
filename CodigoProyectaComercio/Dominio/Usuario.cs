@@ -18,7 +18,7 @@ namespace Dominio
 
     
         public string Telefono { get; set; }
-
+        public bool Activo { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
 
         public Usuario() {

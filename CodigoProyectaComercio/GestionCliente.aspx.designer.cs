@@ -15,22 +15,13 @@ namespace CodigoAgroAdmin
     {
 
         /// <summary>
-        /// Control ScriptManager1.
+        /// Control listarClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
-        /// Control UpdatePanel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl listarClientes;
 
         /// <summary>
         /// Control btnAgregar.
@@ -42,76 +33,121 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.Button btnAgregar;
 
         /// <summary>
-        /// Control RepeaterClientes.
+        /// Control gvClientes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterClientes;
+        protected global::System.Web.UI.WebControls.GridView gvClientes;
 
         /// <summary>
-        /// Control phFormulario.
+        /// Control lblMensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phFormulario;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
-        /// Control nombreCliente.
+        /// Control formularioCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombreCliente;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl formularioCliente;
 
         /// <summary>
-        /// Control DNICliente.
+        /// Control lblTituloFormulario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DNICliente;
+        protected global::System.Web.UI.WebControls.Label lblTituloFormulario;
 
         /// <summary>
-        /// Control direccionCliente.
+        /// Control hfIdCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox direccionCliente;
+        protected global::System.Web.UI.WebControls.HiddenField hfIdCliente;
 
         /// <summary>
-        /// Control correoCliente.
+        /// Control lblNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox correoCliente;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
-        /// Control telefonoCliente.
+        /// Control txtNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox telefonoCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
-        /// Control hiddenIdCliente.
+        /// Control lblDNI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hiddenIdCliente;
+        protected global::System.Web.UI.WebControls.Label lblDNI;
+
+        /// <summary>
+        /// Control txtDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDNI;
+
+        /// <summary>
+        /// Control lblCorreo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCorreo;
+
+        /// <summary>
+        /// Control txtCorreo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
+
+        /// <summary>
+        /// Control lblTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTelefono;
+
+        /// <summary>
+        /// Control txtTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
         /// <summary>
         /// Control btnGuardar.

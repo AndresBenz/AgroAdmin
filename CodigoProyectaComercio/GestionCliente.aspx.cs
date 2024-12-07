@@ -24,57 +24,65 @@ namespace CodigoAgroAdmin
         private void CargarClientes()
         {
             var clientes = repositorioCliente.ListarConSp();
-            RepeaterClientes.DataSource = clientes;
-            RepeaterClientes.DataBind();
+            gvClientes.DataSource = clientes;
+            gvClientes.DataBind();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            phFormulario.Visible = true;
-            btnGuardar.Text = "Guardar Cliente";
+            listarClientes.Visible = false;
+            formularioCliente.Visible = true;
+
+            
+            lblTituloFormulario.Text = "Agregar Cliente";
             LimpiarFormulario();
         }
 
-        protected void btnEditar_Click(object sender, EventArgs e)
+        protected void gvClientes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            string dniCliente = ((LinkButton)sender).CommandArgument; 
-            var cliente = repositorioCliente.ObtenerClientePorId(dniCliente);
-
-            if (cliente != null)
+            string dniCliente = e.CommandArgument.ToString();
+            if (e.CommandName == "Modificar")
             {
-                nombreCliente.Text = cliente.Nombre;
-                direccionCliente.Text = cliente.Direccion;
-                correoCliente.Text = cliente.CorreoElectronico;
-                telefonoCliente.Text = cliente.Telefono;
-                DNICliente.Text = cliente.DNI;
+                var cliente = repositorioCliente.ObtenerClientePorId(dniCliente);
+                if (cliente != null)
+                {
+                    txtNombre.Text = cliente.Nombre;
+                    txtDNI.Text = cliente.DNI;
+                    txtCorreo.Text = cliente.CorreoElectronico;
+                    txtTelefono.Text = cliente.Telefono;
 
-                phFormulario.Visible = true;
-                btnGuardar.Text = "Modificar Cliente";
-                hiddenIdCliente.Value = cliente.DNI; 
+                    
+                    hfIdCliente.Value = cliente.DNI;
+                    listarClientes.Visible = false;
+                    formularioCliente.Visible = true;
+                    lblTituloFormulario.Text = "Modificar Cliente";
+                }
+            }
+            else if (e.CommandName == "Eliminar")
+            {
+                repositorioCliente.EliminarCliente(dniCliente);
+                CargarClientes();
             }
         }
+    
+    
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            string dniCliente = ((LinkButton)sender).CommandArgument; 
-            repositorioCliente.EliminarCliente(dniCliente);
-            CargarClientes();
-        }
+        
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente
             {
-                Nombre = nombreCliente.Text,
-                Direccion = direccionCliente.Text,
-                CorreoElectronico = correoCliente.Text,
-                Telefono = telefonoCliente.Text,
-                DNI = DNICliente.Text 
+                Nombre = txtNombre.Text,
+                Direccion = txtCorreo.Text,
+                CorreoElectronico = txtCorreo.Text,
+                Telefono = txtTelefono.Text,
+                DNI = txtDNI.Text 
             };
 
-            if (btnGuardar.Text == "Modificar Cliente")
+            if (!string.IsNullOrEmpty(hfIdCliente.Value))
             {
-                cliente.DNI = hiddenIdCliente.Value; 
+                cliente.DNI = hfIdCliente.Value;
                 repositorioCliente.EditarCliente(cliente);
             }
             else
@@ -82,24 +90,24 @@ namespace CodigoAgroAdmin
                 repositorioCliente.AgregarCliente(cliente);
             }
 
-            phFormulario.Visible = false;
+            listarClientes.Visible = true;
+            formularioCliente.Visible = false;
             CargarClientes();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            phFormulario.Visible = false;
-            LimpiarFormulario();
+            listarClientes.Visible = true;
+            formularioCliente.Visible = false;
         }
 
         private void LimpiarFormulario()
         {
-            nombreCliente.Text = string.Empty;
-            direccionCliente.Text = string.Empty;
-            correoCliente.Text = string.Empty;
-            telefonoCliente.Text = string.Empty;
-            hiddenIdCliente.Value = string.Empty;
-            DNICliente.Text = string.Empty; 
+            txtNombre.Text = string.Empty;
+            txtDNI.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            hfIdCliente.Value = string.Empty;
         }
     }
 }

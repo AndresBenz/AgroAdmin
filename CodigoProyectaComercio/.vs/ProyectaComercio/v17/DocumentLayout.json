@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\registrocompras.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:registrocompras.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\gestioncliente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:gestioncliente.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\funcionalidades\\repositoriocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositoriocompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\gestioncliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:gestioncliente.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RepositorioCompra.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioCompra.cs",
-              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioCompra.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioCompra.cs",
-              "RelativeToolTip": "Funcionalidades\\RepositorioCompra.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAAAMwJYAAABLAAAAAAAAAA==",
+              "Title": "GestionCliente.aspx.cs",
+              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\GestionCliente.aspx.cs",
+              "RelativeDocumentMoniker": "GestionCliente.aspx.cs",
+              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\GestionCliente.aspx.cs",
+              "RelativeToolTip": "GestionCliente.aspx.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwBsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T06:08:57.818Z",
+              "WhenOpened": "2024-12-07T06:26:23.092Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RegistroCompras.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroCompras.aspx",
-              "RelativeDocumentMoniker": "RegistroCompras.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroCompras.aspx",
-              "RelativeToolTip": "RegistroCompras.aspx",
+              "Title": "GestionCliente.aspx",
+              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\GestionCliente.aspx",
+              "RelativeDocumentMoniker": "GestionCliente.aspx",
+              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\GestionCliente.aspx",
+              "RelativeToolTip": "GestionCliente.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-07T06:08:39.887Z",
+              "WhenOpened": "2024-12-07T06:20:02.401Z",
               "EditorCaption": ""
             }
           ]

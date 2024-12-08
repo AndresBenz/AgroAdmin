@@ -108,7 +108,7 @@ namespace Funcionalidades
                 }
                 else
                 {
-                    throw new ArgumentException("Debe especificar al menos un parámetro: idProducto o nombre.");
+                    accesoDatos.setearSp("SelProducto");
                 }
 
                 accesoDatos.ejecutarLectura();

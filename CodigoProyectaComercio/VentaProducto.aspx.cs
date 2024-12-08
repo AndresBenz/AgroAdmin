@@ -17,7 +17,7 @@ namespace CodigoAgroAdmin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            CargarProductos();
         }
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
@@ -81,6 +81,48 @@ namespace CodigoAgroAdmin
         {
             
             formularioCliente.Visible = false;
+        }
+
+
+        private void CargarProductos(string filtro = "")
+        {
+            RepositorioProducto repositorioProducto = new RepositorioProducto();
+            List<Producto> productos = new List<Producto>();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                productos = repositorioProducto.ListarConSp();
+            }
+            else
+            {
+              
+                Producto producto = repositorioProducto.ObtenerProductoPorId(null, filtro);  
+                if (producto != null)
+                {
+                    productos.Add(producto);
+                }
+            }
+
+            ddlProductos.DataSource = productos;
+            ddlProductos.DataTextField = "Nombre";  
+            ddlProductos.DataValueField = "IdProducto";  
+            ddlProductos.DataBind();
+
+            
+            ddlProductos.Items.Insert(0, new ListItem("Seleccione un producto", ""));
+
+          
+        }
+
+        protected void txtBuscarProducto_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscarProducto.Text.Trim();
+            CargarProductos(filtro);
+        }
+
+        protected void ddlProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string productoId = ddlProductos.SelectedValue;
         }
 
     }

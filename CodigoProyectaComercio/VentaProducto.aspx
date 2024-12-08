@@ -28,6 +28,13 @@
         <asp:Label ID="lblCorreo" runat="server" CssClass="ml-2"></asp:Label>
     </asp:Panel>
 
+       <!-- Sección de productos activos -->
+    <div class="form-group mt-4">
+        <label for="ddlProductos">Seleccione Producto:</label>
+        <asp:TextBox ID="txtBuscarProducto" runat="server" CssClass="form-control" placeholder="Buscar producto..." OnTextChanged="txtBuscarProducto_TextChanged" AutoPostBack="true"></asp:TextBox>
+        <asp:DropDownList ID="ddlProductos" runat="server" CssClass="form-control mt-2" AutoPostBack="true" OnSelectedIndexChanged="ddlProductos_SelectedIndexChanged">
+        </asp:DropDownList>
+    </div>
 
     <!--Agregar cliente -->
     <div class="edit-container" id="formularioCliente" runat="server" visible="false">

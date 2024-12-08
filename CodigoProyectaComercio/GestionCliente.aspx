@@ -72,7 +72,7 @@
 
         <asp:GridView ID="gvClientes" runat="server" AutoGenerateColumns="False" OnRowCommand="gvClientes_RowCommand" CssClass="table table-striped">
 
-                     <Columns>
+            <Columns>
                 <asp:BoundField DataField="DNI" HeaderText="DNI" SortExpression="DNI" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                 <asp:BoundField DataField="CorreoElectronico" HeaderText="Correo Electrónico" SortExpression="CorreoElectronico" />
@@ -89,7 +89,8 @@
     </div>
 
     <div class="edit-container" id="formularioCliente" runat="server" visible="false">
-        <h2><asp:Label ID="lblTituloFormulario" runat="server" Text="Agregar/Modificar Cliente" /></h2>
+        <h2>
+            <asp:Label ID="lblTituloFormulario" runat="server" Text="Agregar/Modificar Cliente" /></h2>
 
         <asp:HiddenField ID="hfIdCliente" runat="server" />
         <div>
@@ -103,6 +104,10 @@
         <div>
             <asp:Label ID="lblCorreo" runat="server" Text="Correo Electrónico:" CssClass="label-style"></asp:Label>
             <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+        </div>
+        <div>
+            <asp:Label ID="lblDireccion" runat="server" Text="Direccion:" CssClass="label-style"></asp:Label>
+            <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
         </div>
         <div>
             <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" CssClass="label-style"></asp:Label>

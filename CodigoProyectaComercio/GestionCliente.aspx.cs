@@ -74,7 +74,7 @@ namespace CodigoAgroAdmin
             Cliente cliente = new Cliente
             {
                 Nombre = txtNombre.Text,
-                Direccion = txtCorreo.Text,
+                Direccion = txtDireccion.Text,
                 CorreoElectronico = txtCorreo.Text,
                 Telefono = txtTelefono.Text,
                 DNI = txtDNI.Text 

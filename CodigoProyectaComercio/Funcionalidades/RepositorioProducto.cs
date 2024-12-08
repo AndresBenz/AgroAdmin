@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Funcionalidades
 {
@@ -206,6 +207,45 @@ namespace Funcionalidades
 
             return totalProductos;
         }
+
+        public List<Producto> ListarProductosBajoStock()
+        {
+            List<Producto> listarProductos = new List<Producto>();
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("ObtenerProductosBajoStock");
+
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    Producto aux = new Producto();
+
+                    aux.IdProducto = (int)accesoDatos.Lector["IdProducto"];
+                    aux.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    aux.IdCategoria = (int)accesoDatos.Lector["IdCategoria"];
+                    aux.IdMarca = (int)accesoDatos.Lector["IdMarca"];
+                    aux.Precio = (decimal)accesoDatos.Lector["Precio"];
+                    aux.StockActual = (int)accesoDatos.Lector["StockActual"];
+                    aux.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+
+                    listarProductos.Add(aux);
+                }
+
+                accesoDatos.cerrarConexion();
+
+                return listarProductos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al listar productos con bajo stock", ex);
+            }
+        }
+
+
+
+        
 
         public void EditarProducto(Producto producto)
         {

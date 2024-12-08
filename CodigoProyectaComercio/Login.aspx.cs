@@ -24,7 +24,7 @@ namespace CodigoAgroAdmin
                 }
                 else
                 {
-                    Response.Redirect("PantallaEmpleado.aspx", false);
+                    Response.Redirect("InicioEmpleado.aspx", false);
                 }
             }
         }
@@ -50,7 +50,7 @@ namespace CodigoAgroAdmin
                     }
                     else
                     {
-                        Response.Redirect("PantallaEmpleado.aspx", false);
+                        Response.Redirect("InicioEmpleado.aspx", false);
                     }
                 }
                 else

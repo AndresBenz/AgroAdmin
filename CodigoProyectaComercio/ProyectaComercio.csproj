@@ -78,11 +78,11 @@
     <Content Include="InicioAdministrador.aspx" />
     <Content Include="InicioEmpleado.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="PantallaEmpleado.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="RegistroCompras.aspx" />
     <Content Include="RegistroVentas.aspx" />
     <Content Include="RegistroUsuario.aspx" />
+    <Content Include="VentaProducto.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -173,13 +173,6 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
-    <Compile Include="PantallaEmpleado.aspx.cs">
-      <DependentUpon>PantallaEmpleado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PantallaEmpleado.aspx.designer.cs">
-      <DependentUpon>PantallaEmpleado.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -208,6 +201,13 @@
     </Compile>
     <Compile Include="RegistroUsuario.aspx.designer.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VentaProducto.aspx.cs">
+      <DependentUpon>VentaProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VentaProducto.aspx.designer.cs">
+      <DependentUpon>VentaProducto.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -273,5 +273,55 @@ namespace Funcionalidades
                 accesoDatos.cerrarConexion();
             }
         }
+
+
+        public List<Producto> ObtenerProductos(int? idProducto = null, string nombre = null)
+        {
+            List<Producto> productos = new List<Producto>();
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                if (idProducto.HasValue)
+                {
+                    accesoDatos.setearSp("SelProductoPorId");
+                    accesoDatos.setearParametros("@IdProducto", idProducto);
+                }
+                else if (!string.IsNullOrEmpty(nombre))
+                {
+                    accesoDatos.setearSp("SelProductosPorNombre");
+                    accesoDatos.setearParametros("@Nombre", "%" + nombre + "%"); 
+                }
+                else
+                {
+                    accesoDatos.setearSp("SelProductos"); 
+                }
+
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read()) 
+                {
+                    Producto producto = new Producto
+                    {
+                        IdProducto = (int)accesoDatos.Lector["IdProducto"],
+                        Nombre = (string)accesoDatos.Lector["Nombre"],
+                        IdCategoria = (int)accesoDatos.Lector["IdCategoria"],
+                        IdMarca = (int)accesoDatos.Lector["IdMarca"],
+                        Precio = (decimal)accesoDatos.Lector["Precio"],
+                        StockActual = (int)accesoDatos.Lector["StockActual"],
+                        StockMinimo = (int)accesoDatos.Lector["StockMinimo"]
+                    };
+
+                    productos.Add(producto);
+                }
+
+                accesoDatos.cerrarConexion();
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

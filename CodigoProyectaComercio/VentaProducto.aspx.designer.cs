@@ -87,22 +87,40 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.Label lblCorreo;
 
         /// <summary>
-        /// Control txtBuscarProducto.
+        /// Control txtfiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuscarProducto;
+        protected global::System.Web.UI.WebControls.TextBox txtfiltro;
 
         /// <summary>
-        /// Control ddlProductos.
+        /// Control dgvProductos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProductos;
+        protected global::System.Web.UI.WebControls.GridView dgvProductos;
+
+        /// <summary>
+        /// Control btnVerSeleccionados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerSeleccionados;
+
+        /// <summary>
+        /// Control dgvSeleccionados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvSeleccionados;
 
         /// <summary>
         /// Control formularioCliente.

@@ -28,13 +28,44 @@
         <asp:Label ID="lblCorreo" runat="server" CssClass="ml-2"></asp:Label>
     </asp:Panel>
 
-       <!-- Sección de productos activos -->
-    <div class="form-group mt-4">
-        <label for="ddlProductos">Seleccione Producto:</label>
-        <asp:TextBox ID="txtBuscarProducto" runat="server" CssClass="form-control" placeholder="Buscar producto..." OnTextChanged="txtBuscarProducto_TextChanged" AutoPostBack="true"></asp:TextBox>
-        <asp:DropDownList ID="ddlProductos" runat="server" CssClass="form-control mt-2" AutoPostBack="true" OnSelectedIndexChanged="ddlProductos_SelectedIndexChanged">
-        </asp:DropDownList>
-    </div>
+  <!-- Filtrar producto -->
+    <h2>Lista Productos</h2>
+    <asp:Label Text="Filtrar" runat="server" />
+    <asp:TextBox runat="server" ID="txtfiltro" CssClass="form-control" AutoPostBack="true" OnTextChanged="filtro_TextChanged"/>
+   <asp:GridView ID="dgvProductos" runat="server" OnRowCommand="dgvProductos_RowCommand" AutoGenerateColumns="false" 
+    CssClass="table table-striped table-bordered" AllowPaging="true" PageSize="5" DataKeyNames="IdProducto">
+    <Columns>
+        <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+        <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" DataFormatString="${0:F2}" />
+        <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" SortExpression="StockActual" />
+        <asp:TemplateField HeaderText="Acciones">
+            <ItemTemplate>
+                <asp:Button ID="btnSumar" runat="server" Text="+" CssClass="btn btn-success btn-sm"
+                    CommandName="Incrementar" CommandArgument='<%# Eval("IdProducto") %>' />
+                <asp:Button ID="btnRestar" runat="server" Text="-" CssClass="btn btn-danger btn-sm"
+                    CommandName="Decrementar" CommandArgument='<%# Eval("IdProducto") %>' />
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+
+    
+
+
+<!-- GridView para mostrar productos seleccionados -->
+    <asp:Button ID="btnVerSeleccionados" runat="server" Text="Ver Seleccionados" 
+    CssClass="btn btn-primary mt-3" OnClick="btnVerSeleccionados_Click" />
+<asp:GridView ID="dgvSeleccionados" runat="server" AutoGenerateColumns="false" 
+    CssClass="table mt-3">
+    <Columns>
+        <asp:BoundField DataField="IdProducto" HeaderText="ID" />
+        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+        <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" />
+         <asp:BoundField DataField="CantidadSeleccionada" HeaderText="Cantidad Seleccionada" SortExpression="CantidadSeleccionada" />
+    </Columns>
+</asp:GridView>
+
+
 
     <!--Agregar cliente -->
     <div class="edit-container" id="formularioCliente" runat="server" visible="false">

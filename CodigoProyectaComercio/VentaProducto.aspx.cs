@@ -1,4 +1,4 @@
-﻿using CodigoProyectaComercio;
+﻿
 using Dominio;
 using Funcionalidades;
 using System;
@@ -38,6 +38,16 @@ namespace CodigoAgroAdmin
         {
             string id = dgvProductos.SelectedDataKey.Value.ToString();
             Response.Redirect("GestionCategoria.aspx?id=" + id);
+        }
+
+        protected void dgvProductos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            
+            dgvProductos.PageIndex = e.NewPageIndex;
+            List<Producto> listaProductos = (List<Producto>)Session["listaFiltrada"] ?? (List<Producto>)Session["listaProductos"];
+            dgvProductos.DataSource = listaProductos;
+            dgvProductos.DataBind();
+
         }
 
 

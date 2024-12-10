@@ -67,7 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Carrito.aspx" />
     <Content Include="GestionCategoria.aspx" />
     <Content Include="GestionCliente.aspx" />
     <Content Include="GestionMarca.aspx" />
@@ -82,17 +81,11 @@
     <Content Include="RegistroCompras.aspx" />
     <Content Include="RegistroVentas.aspx" />
     <Content Include="RegistroUsuario.aspx" />
+    <Content Include="ReportedeVentas.aspx" />
     <Content Include="VentaProducto.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Carrito.aspx.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Carrito.aspx.designer.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Empleado.Master.cs">
       <DependentUpon>Empleado.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +194,13 @@
     </Compile>
     <Compile Include="RegistroUsuario.aspx.designer.cs">
       <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportedeVentas.aspx.cs">
+      <DependentUpon>ReportedeVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportedeVentas.aspx.designer.cs">
+      <DependentUpon>ReportedeVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="VentaProducto.aspx.cs">
       <DependentUpon>VentaProducto.aspx</DependentUpon>

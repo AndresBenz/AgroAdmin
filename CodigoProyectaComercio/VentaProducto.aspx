@@ -32,7 +32,7 @@
     <h2>Lista Productos</h2>
     <asp:Label Text="Filtrar" runat="server" />
     <asp:TextBox runat="server" ID="txtfiltro" CssClass="form-control" AutoPostBack="true" OnTextChanged="filtro_TextChanged"/>
-   <asp:GridView ID="dgvProductos" runat="server" OnRowCommand="dgvProductos_RowCommand" AutoGenerateColumns="false" 
+   <asp:GridView ID="dgvProductos" runat="server" OnPageIndexChanging="dgvProductos_PageIndexChanging" OnRowCommand="dgvProductos_RowCommand" AutoGenerateColumns="false" 
     CssClass="table table-striped table-bordered" AllowPaging="true" PageSize="5" DataKeyNames="IdProducto">
     <Columns>
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />

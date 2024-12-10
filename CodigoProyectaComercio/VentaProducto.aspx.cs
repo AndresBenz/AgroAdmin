@@ -245,21 +245,39 @@ namespace CodigoAgroAdmin
                 {
                     IdCliente = idCliente,
                     Fecha = DateTime.Now,
-                    Total = CalcularTotal(), // Lógica para calcular el total de la venta
+                    Total = CalcularTotal(), 
                 };
 
-                // Insertar la venta
                 RepositorioVenta repositorioVenta = new RepositorioVenta();
                 repositorioVenta.Insertar(nuevaVenta);
 
-                // Mostrar un mensaje de éxito
+                List<DetalleVenta> listaDetallesVenta = new List<DetalleVenta>();
+                List<Producto> listaSeleccionados = Session["listaSeleccionados"] as List<Producto>;
+
+                foreach (var producto in listaSeleccionados)
+                {
+                    DetalleVenta detalle = new DetalleVenta
+                    {
+                        IdProducto = producto.IdProducto,
+                        Cantidad = producto.CantidadSeleccionada,
+                        PrecioUnitario = producto.Precio,
+                        Subtotal = producto.Precio * producto.CantidadSeleccionada
+                    };
+
+                    listaDetallesVenta.Add(detalle);
+                }
+                RepositorioDetalleVenta repositorioDetalleVenta =new RepositorioDetalleVenta();
+                repositorioDetalleVenta.InsertarDetallesVenta(listaDetallesVenta);
+
+               
+               
                 lblMensaje.Text = "Venta registrada exitosamente.";
                 lblMensaje.ForeColor = System.Drawing.Color.Green;
                 lblMensaje.Visible = true;
             }
             else
             {
-                // Mostrar un mensaje si no se ha seleccionado un cliente
+               
                 lblMensaje.Text = "Debe buscar y seleccionar un cliente antes de registrar la venta.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 lblMensaje.Visible = true;
@@ -270,7 +288,7 @@ namespace CodigoAgroAdmin
 
         private decimal CalcularTotal()
         {
-            // Recuperar la lista de productos desde la sesión
+           
             List<Producto> listaSeleccionados = Session["listaSeleccionados"] as List<Producto>;
         
             return listaSeleccionados.Sum(p => p.Precio * p.CantidadSeleccionada);

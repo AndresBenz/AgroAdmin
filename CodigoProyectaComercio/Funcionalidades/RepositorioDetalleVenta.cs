@@ -103,6 +103,12 @@ namespace Funcionalidades
             {
                 throw ex;
             }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+
+
         }
     }
 }

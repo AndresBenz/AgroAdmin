@@ -261,6 +261,7 @@ namespace CodigoAgroAdmin
                 RepositorioVenta repositorioVenta = new RepositorioVenta();
                 repositorioVenta.Insertar(nuevaVenta);
 
+
                 List<DetalleVenta> listaDetallesVenta = new List<DetalleVenta>();
                 List<Producto> listaSeleccionados = Session["listaSeleccionados"] as List<Producto>;
 
@@ -279,7 +280,9 @@ namespace CodigoAgroAdmin
                 RepositorioDetalleVenta repositorioDetalleVenta =new RepositorioDetalleVenta();
                 repositorioDetalleVenta.InsertarDetallesVenta(listaDetallesVenta);
 
-                
+                Session["DetallesVenta"] = listaDetallesVenta;
+                Session["IdVenta"] = nuevaVenta.IdVenta;
+
 
                 lblMensaje.Text = "Venta registrada exitosamente.";
                 lblMensaje.ForeColor = System.Drawing.Color.Green;
@@ -298,7 +301,22 @@ namespace CodigoAgroAdmin
 
         protected void btnVerDetalle_Click(object sender, EventArgs e)
         {
-            Response.Redirect("DetalleCompra.aspx");
+            int? idVenta = Session["IdVenta"] as int?;
+
+            if (idVenta.HasValue)
+            {
+                // Redirigir a DetalleVenta.aspx pasando el ID de la venta
+                Response.Redirect("DetalleDeLaVenta.aspx?idVenta=" + idVenta.Value);
+            }
+            else
+            {
+                // Si no se ha registrado una venta, mostrar un mensaje o redirigir a otra página
+                lblMensaje.Text = "No se ha registrado ninguna venta.";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                lblMensaje.Visible = true;
+            }
+
+
         }
 
         private decimal CalcularTotal()

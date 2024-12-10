@@ -40,6 +40,38 @@ namespace Funcionalidades
             }
         }
 
+        public Venta ObtenerVentaPorId(int idVenta)
+        {
+            Venta venta = null;
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("SelVentaPorId");
+                accesoDatos.setearParametros("@IdVenta", idVenta);
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    venta = new Venta
+                    {
+                        IdVenta = (int)accesoDatos.Lector["IdVenta"],
+                        IdCliente = (int)accesoDatos.Lector["IdCliente"],
+                        NombreCliente = (string)accesoDatos.Lector["NombreCliente"],
+                        Fecha = (DateTime)accesoDatos.Lector["Fecha"],
+                        Total = (decimal)accesoDatos.Lector["Total"]
+                    };
+                }
+
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return venta;
+        }
+
         public void Insertar(Venta venta)
         {
             AccesoDatos accesoDatos = new AccesoDatos();

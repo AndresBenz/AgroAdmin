@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DetalleDeLaVenta.aspx" />
     <Content Include="GestionCategoria.aspx" />
     <Content Include="GestionCliente.aspx" />
     <Content Include="GestionMarca.aspx" />
@@ -86,6 +87,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetalleDeLaVenta.aspx.cs">
+      <DependentUpon>DetalleDeLaVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleDeLaVenta.aspx.designer.cs">
+      <DependentUpon>DetalleDeLaVenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empleado.Master.cs">
       <DependentUpon>Empleado.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

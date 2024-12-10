@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 
 namespace Funcionalidades
@@ -34,6 +35,26 @@ namespace Funcionalidades
             comando.CommandText = sp;
 
         }
+
+
+        public void resetearComando()
+        {
+            if (comando != null)
+            {
+                comando.Parameters.Clear();
+                comando.CommandText = string.Empty;
+            }
+        }
+
+
+        public void abrirConexion()
+        {
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+        }
+
 
 
         public void setearConsulta(string consulta)
@@ -73,13 +94,15 @@ namespace Funcionalidades
             comando.Connection = conexion;
             try
             {
-
-                conexion.Open();
+                // Solo abre la conexión si no está ya abierta
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
                 comando.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

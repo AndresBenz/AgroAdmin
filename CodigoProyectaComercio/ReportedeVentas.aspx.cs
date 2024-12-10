@@ -51,13 +51,10 @@ namespace CodigoAgroAdmin
 
         protected void GridViewVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            // Obtén la lista de ventas desde la sesión
             List<Venta> ventas = (List<Venta>)Session["Ventas"];
 
-            // Establece el nuevo índice de la página
             GridViewVentas.PageIndex = e.NewPageIndex;
 
-            // Vuelve a asignar la lista al GridView y realiza el DataBind
             GridViewVentas.DataSource = ventas;
             GridViewVentas.DataBind();
         }

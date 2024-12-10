@@ -279,11 +279,12 @@ namespace CodigoAgroAdmin
                 RepositorioDetalleVenta repositorioDetalleVenta =new RepositorioDetalleVenta();
                 repositorioDetalleVenta.InsertarDetallesVenta(listaDetallesVenta);
 
-               
-               
+                
+
                 lblMensaje.Text = "Venta registrada exitosamente.";
                 lblMensaje.ForeColor = System.Drawing.Color.Green;
                 lblMensaje.Visible = true;
+                pnlVentaExitoso.Visible = true;
             }
             else
             {
@@ -295,6 +296,10 @@ namespace CodigoAgroAdmin
         
     }
 
+        protected void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DetalleCompra.aspx");
+        }
 
         private decimal CalcularTotal()
         {

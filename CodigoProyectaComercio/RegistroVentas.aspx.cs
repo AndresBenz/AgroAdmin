@@ -24,6 +24,7 @@ namespace CodigoAgroAdmin
         {
             RepositorioVenta repositorio = new RepositorioVenta();
             List<Venta> Venta = repositorio.ListarConSp();
+            Session["Ventas"] = Venta;
 
             GridViewVentas.DataSource = Venta;
             GridViewVentas.DataBind();
@@ -45,6 +46,17 @@ namespace CodigoAgroAdmin
                 PanelDetallesVenta.Visible = true;
             }
         }
+
+        protected void GridViewVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            List<Venta> ventas = (List<Venta>)Session["Ventas"];
+
+            GridViewVentas.PageIndex = e.NewPageIndex;
+
+            GridViewVentas.DataSource = ventas;
+            GridViewVentas.DataBind();
+        }
+
 
         private void CargarDetallesVenta(int idVenta)
         {

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado.Master" AutoEventWireup="true" CodeBehind="VentaProducto.aspx.cs" Inherits="CodigoAgroAdmin.VentaProducto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Venta de Productos</h1>
@@ -74,7 +75,13 @@
     CssClass="btn btn-primary mt-3" OnClick="btnComprarTodos_Click" />
     
 
-
+    <asp:Panel ID="pnlVentaExitoso" runat="server" CssClass="alert alert-success" Visible="false" 
+    Style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background-color: rgba(0, 128, 0, 0.8); color: white; text-align: center; padding: 20px; border-radius: 10px;">
+    <div>
+        <h2>¡Compra registrada exitosamente!</h2>
+        <asp:Button ID="btnVerDetalle" runat="server" Text="Ver Detalle de la Compra" CssClass="btn btn-light" OnClick="btnVerDetalle_Click" />
+    </div>
+</asp:Panel>
 
 
     <!--Agregar cliente -->

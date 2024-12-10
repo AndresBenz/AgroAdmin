@@ -55,6 +55,7 @@
 <!-- GridView para mostrar productos seleccionados -->
     <asp:Button ID="btnVerSeleccionados" runat="server" Text="Ver Seleccionados" 
     CssClass="btn btn-primary mt-3" OnClick="btnVerSeleccionados_Click" />
+    <asp:Label ID="lblMensaje" runat="server" Text="" ForeColor="Red" Visible="false" />
 <asp:GridView ID="dgvSeleccionados" runat="server" AutoGenerateColumns="false" 
     CssClass="table mt-3">
     <Columns>
@@ -62,8 +63,17 @@
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
         <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" />
          <asp:BoundField DataField="CantidadSeleccionada" HeaderText="Cantidad Seleccionada" SortExpression="CantidadSeleccionada" />
+           <asp:BoundField DataField="Precio" HeaderText="Precio" />
+
+        
     </Columns>
+
 </asp:GridView>
+    <asp:Label ID="lblTotal" runat="server" Text="Total: $0.00" CssClass="total-label"></asp:Label>
+    <asp:Button ID="btnComprarTodos" runat="server" Text="Comprar Todos" 
+    CssClass="btn btn-primary mt-3" OnClick="btnComprarTodos_Click" />
+    
+
 
 
 

@@ -58,6 +58,29 @@ namespace Funcionalidades
             }
         }
 
+
+        public int ObtenerUltimoIdVenta()
+        {
+            int idVenta = 0;
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("SelUltimaVenta"); 
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    idVenta = (int)accesoDatos.Lector["IdVenta"];
+                }
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return idVenta;
+        }
+
         public void Actualizar(Venta venta)
         {
             AccesoDatos accesoDatos = new AccesoDatos();

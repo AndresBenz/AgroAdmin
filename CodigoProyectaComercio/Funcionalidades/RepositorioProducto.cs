@@ -323,5 +323,31 @@ namespace Funcionalidades
             }
         }
 
+        public int ObtenerStockDesdeBD(int idProducto)
+        {
+            int stockActual = 0;
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("SelProductoPorId");
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    stockActual = (int)accesoDatos.Lector["StockActual"];
+                }
+
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el stock desde la base de datos", ex);
+            }
+
+            return stockActual;
+        }
+
     }
 }

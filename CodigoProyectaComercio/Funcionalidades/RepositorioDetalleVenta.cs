@@ -76,5 +76,33 @@ namespace Funcionalidades
                 throw ex;
             }
         }
+
+
+        public void InsertarDetallesVenta(List<DetalleVenta> listaDetallesVenta)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                // Obtén el ID de la venta insertada previamente
+                RepositorioVenta repositorio = new RepositorioVenta();
+                int idVenta = repositorio.ObtenerUltimoIdVenta();
+
+                foreach (var detalle in listaDetallesVenta)
+                {
+                    // Insertar cada detalle de venta
+                    accesoDatos.setearSp("InsDetalleVenta");
+                    accesoDatos.setearParametros("IdVenta", idVenta);
+                    accesoDatos.setearParametros("IdProducto", detalle.IdProducto);
+                    accesoDatos.setearParametros("Cantidad", detalle.Cantidad);
+                    accesoDatos.setearParametros("PrecioUnitario", detalle.PrecioUnitario);
+                    accesoDatos.setearParametros("Subtotal", detalle.Subtotal);
+                    accesoDatos.ejecutarAccion();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

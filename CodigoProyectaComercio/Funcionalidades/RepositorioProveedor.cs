@@ -24,9 +24,9 @@ namespace Funcionalidades
 
                     aux.IdProveedor = (int)accesoDatos.Lector["IdProveedor"];
                     aux.Nombre = (string)accesoDatos.Lector["Nombre"];
-                    aux.Detalle = accesoDatos.Lector["Detalle"] as string;
-                    aux.CorreoElectronico = accesoDatos.Lector["CorreoElectronico"] as string;
-                    aux.Telefono = accesoDatos.Lector["Telefono"] as string;
+                    aux.Detalle = accesoDatos.Lector["Detalle"].ToString();
+                    aux.CorreoElectronico = accesoDatos.Lector["CorreoElectronico"].ToString();
+                    aux.Telefono = accesoDatos.Lector["Telefono"].ToString();
 
                     listarProveedores.Add(aux);
                 }
@@ -170,6 +170,43 @@ namespace Funcionalidades
                 accesoDatos.cerrarConexion();
             }
         }
+
+
+        public List<Producto> ObtenerProductosPorProveedor(int idProveedor)
+        {
+            List<Producto> productos = new List<Producto>();
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearSp("SelProductosPorProveedor");
+                accesoDatos.setearParametros("@IdProveedor", idProveedor);
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    Producto producto = new Producto
+                    {
+                        IdProducto = (int)accesoDatos.Lector["IdProducto"],
+                        Nombre = accesoDatos.Lector["Nombre"].ToString()
+                    };
+
+                    productos.Add(producto);
+                }
+
+                accesoDatos.cerrarConexion();
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los productos del proveedor", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
 
     }
 }

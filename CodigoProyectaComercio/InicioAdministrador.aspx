@@ -73,7 +73,7 @@
     </div>
 
     <div class="text-center mt-4">
-        <a href="Reportes.aspx" class="btn btn-outline-primary btn-lg">Ver Reportes</a>
+        <a href="Reporte.aspx" class="btn btn-outline-primary btn-lg">Ver Reportes</a>
     </div>
 </div>
 

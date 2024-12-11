@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionCategoria.aspx.cs" Inherits="CodigoAgroAdmin.GestionCategoria" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   <link href="Gestion.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <h1 class="page-title">Gestión de Categorías</h1>
+    <h1 class="page-title">Gestión de Categorías</h1>
 
     <!--Agregar categoría -->
     <div id="divFormulario" class="form-container" runat="server" visible="false">
@@ -13,7 +15,7 @@
         <div class="form-group">
             <asp:CheckBox ID="chkActivo" runat="server" Text="Activo" CssClass="form-check-input" />
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <asp:Button ID="btnGuardarCategoria" runat="server" Text="Guardar" OnClick="btnGuardarCategoria_Click" CssClass="btn btn-primary" />
             <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="btn btn-secondary" />
         </div>
@@ -24,7 +26,7 @@
 
     <!-- Lista de categorías -->
     <div id="divLista" class="list-container" runat="server">
-        <asp:GridView ID="gvCategorias" runat="server" AutoGenerateColumns="False" OnRowCommand="gvCategorias_RowCommand" CssClass="table table-bordered">
+        <asp:GridView ID="gvCategorias" runat="server" AutoGenerateColumns="False" OnRowCommand="gvCategorias_RowCommand" CssClass="custom-table">
             <Columns>
                 <asp:BoundField DataField="IdCategoria" HeaderText="ID Categoria" SortExpression="IdCategoria" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />

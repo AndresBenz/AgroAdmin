@@ -12,49 +12,34 @@
         <div id="divListado" runat="server">
             <!-- Buscador -->
             <div class="form-group">
-                <label for="txtBuscar">Buscar Producto por ID o Nombre</label>
-                <asp:TextBox ID="txtBuscar" runat="server" CssClass="form-control" placeholder="Ingrese el ID o nombre del producto"></asp:TextBox>
-                <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-secondary mt-2" Text="Buscar" OnClick="btnBuscar_Click" />
+                <label for="lblBuscar">Buscar Producto por ID o Nombre</label>
+                <asp:TextBox ID="txtfiltro" runat="server" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtfiltro_TextChanged"/>
             </div>
 
             <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
 
 
-            <asp:Repeater ID="RepeaterProductos" runat="server">
-    <HeaderTemplate>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Categoría</th>
-                    <th>Marca</th>
-                    <th>Stock Actual</th>
-                    <th>Stock Mínimo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-    </HeaderTemplate>
+     <asp:GridView ID="dgvProductos" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False" OnRowCommand="GridViewProductos_RowCommand">
+    <Columns>
+        <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+        <asp:BoundField DataField="Precio" HeaderText="Precio" DataFormatString="{0:C}" />
+        <asp:BoundField DataField="NombreCategoria" HeaderText="Categoría" />
+        <asp:BoundField DataField="NombreMarca" HeaderText="Marca" />
+        <asp:BoundField DataField="StockActual" HeaderText="Stock Actual" />
+        <asp:BoundField DataField="StockMinimo" HeaderText="Stock Mínimo" />
+<asp:TemplateField>
     <ItemTemplate>
-        <tr>
-            <td><%# Eval("Nombre") %></td>
-            <td>$<%# Eval("Precio") %></td>
-            <td><%# Eval("NombreCategoria") %></td>
-            <td><%# Eval("NombreMarca") %></td>
-            <td><%# Eval("StockActual") %></td>
-            <td><%# Eval("StockMinimo") %></td>
-            <td>
-                <asp:LinkButton ID="btnEditar" runat="server" CommandArgument='<%# Eval("IdProducto") %>' OnClick="btnEditar_Click" CssClass="btn btn-primary btn-sm me-2">Editar</asp:LinkButton>
-                <asp:LinkButton ID="btnEliminar" runat="server" CommandArgument='<%# Eval("IdProducto") %>' OnClick="btnEliminar_Click" CssClass="btn btn-danger btn-sm">Eliminar</asp:LinkButton>
-            </td>
-        </tr>
+        <asp:Button ID="btnEditar" runat="server" Text="Editar" CommandName="Editar" CommandArgument='<%# Eval("IdProducto") %>' CssClass="btn btn-primary btn-sm me-2" />
     </ItemTemplate>
-    <FooterTemplate>
-            </tbody>
-        </table>
-    </FooterTemplate>
-</asp:Repeater>
+</asp:TemplateField>
+<asp:TemplateField>
+    <ItemTemplate>
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CommandName="Eliminar" CommandArgument='<%# Eval("IdProducto") %>' CssClass="btn btn-danger btn-sm" />
+    </ItemTemplate>
+</asp:TemplateField>
+
+    </Columns>
+</asp:GridView>
 
             <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-success mt-4" Text="Agregar Producto" OnClick="btnAgregar_Click" />
         </div>

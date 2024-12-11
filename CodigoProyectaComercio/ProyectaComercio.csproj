@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DetalleDeLaVenta.aspx" />
+    <Content Include="Gestion.css" />
     <Content Include="GestionCategoria.aspx" />
     <Content Include="GestionCliente.aspx" />
     <Content Include="GestionMarca.aspx" />

@@ -28,9 +28,11 @@ namespace CodigoAgroAdmin
 
         private void CargarProductos()
         {
-            var productos = repoProducto.ListarConSpDetalle();
-            RepeaterProductos.DataSource = productos;
-            RepeaterProductos.DataBind();
+            RepositorioProducto repositorioProductos = new RepositorioProducto();
+            Session.Add("listaProductos", repositorioProductos.ListarConSpDetalle());
+            
+            dgvProductos.DataSource = Session["listaProductos"];
+            dgvProductos.DataBind();
             divListado.Visible = true;
             divFormulario.Visible = false;
         }
@@ -66,6 +68,79 @@ namespace CodigoAgroAdmin
            
         }
 
+
+
+
+        protected void GridViewProductos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                if (e.CommandName == "Eliminar")
+                {
+                    int idProducto = Convert.ToInt32(e.CommandArgument);
+
+                    repoProducto.EliminarProducto(idProducto);
+
+                    lblMensaje.Text = "Producto eliminado correctamente.";
+                    lblMensaje.CssClass = "alert alert-success";
+                    lblMensaje.Visible = true;
+
+                    CargarProductos();
+                }
+                else if (e.CommandName == "Editar")
+                {
+                    int idProducto = Convert.ToInt32(e.CommandArgument);
+
+                    var producto = repoProducto.ObtenerProductoPorId(idProducto);
+
+                    if (producto != null)
+                    {
+                        tituloFormulario.InnerText = "Editar Producto";
+                        nombreProducto.Text = producto.Nombre;
+                        precioProducto.Text = producto.Precio.ToString();
+                        stockActual.Text = producto.StockActual.ToString();
+                        stockMinimo.Text = producto.StockMinimo.ToString();
+
+                        if (categoriaProducto.Items.FindByValue(producto.IdCategoria.ToString()) != null)
+                        {
+                            categoriaProducto.SelectedValue = producto.IdCategoria.ToString();
+                        }
+                        else
+                        {
+                            categoriaProducto.SelectedIndex = 0;
+                        }
+
+                        if (marcaProducto.Items.FindByValue(producto.IdMarca.ToString()) != null)
+                        {
+                            marcaProducto.SelectedValue = producto.IdMarca.ToString();
+                        }
+                        else
+                        {
+                            marcaProducto.SelectedIndex = 0;
+                        }
+
+                        hiddenIdProducto.Value = producto.IdProducto.ToString();
+
+                        divListado.Visible = false;
+                        divFormulario.Visible = true;
+                    }
+                    else
+                    {
+                        lblMensaje.Text = "Producto no encontrado.";
+                        lblMensaje.CssClass = "alert alert-warning";
+                        lblMensaje.Visible = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Ocurrió un error: " + ex.Message;
+                lblMensaje.CssClass = "alert alert-danger";
+                lblMensaje.Visible = true;
+            }
+        }
+
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
 
@@ -78,129 +153,13 @@ namespace CodigoAgroAdmin
 
 
 
-        protected void btnEditar_Click(object sender, EventArgs e)
-        {
-            LinkButton btnEditar = (LinkButton)sender;
-            int idProducto = Convert.ToInt32(btnEditar.CommandArgument);
-            var producto = repoProducto.ObtenerProductoPorId(idProducto);
-
-            if (producto != null)
-            {
-                tituloFormulario.InnerText = "Editar Producto";
-                nombreProducto.Text = producto.Nombre;
-                precioProducto.Text = producto.Precio.ToString();
-
-                stockActual.Text = producto.StockActual.ToString();
-                stockMinimo.Text = producto.StockMinimo.ToString();
-
-
-                if (categoriaProducto.Items.FindByValue(producto.IdCategoria.ToString()) != null)
-                {
-                    categoriaProducto.SelectedValue = producto.IdCategoria.ToString();
-                }
-                else
-                {
-                    categoriaProducto.SelectedIndex = 0; 
-                }
-
-
-                if (marcaProducto.Items.FindByValue(producto.IdMarca.ToString()) != null)
-                {
-                    marcaProducto.SelectedValue = producto.IdMarca.ToString();
-                }
-                else
-                {
-                    marcaProducto.SelectedIndex = 0; 
-                }
-                hiddenIdProducto.Value = producto.IdProducto.ToString();
-
-                divListado.Visible = false;
-                divFormulario.Visible = true;
-            }
-            else
-            {
-                lblMensajeFormulario.Text = "Producto no encontrado.";
-                lblMensajeFormulario.Visible = true;
-            }
-        }
+       
 
 
 
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string criterio = txtBuscar.Text.Trim();
+        
 
-            if (string.IsNullOrEmpty(criterio))
-            {
-                CargarProductos();
-                lblMensaje.Text = "";
-                lblMensaje.Visible = false;
-
-                return;
-            }
-
-
-            Producto producto = null;
-
-            if (int.TryParse(criterio, out int idProducto))
-            {
-                
-                producto = repoProducto.ObtenerProductoPorId(idProducto);
-            }
-            else if (!string.IsNullOrEmpty(criterio))
-            {
-                producto = repoProducto.ObtenerProductoPorId(nombre: criterio);
-            }
-            else
-            {
-                lblMensaje.Text = "Por favor, ingresa un ID o un nombre válido para buscar.";
-                lblMensaje.Visible = true;
-                return;
-            }
-
-            if (producto != null)
-            {
-                
-                var productosEncontrados = new List<Producto> { producto };
-                RepeaterProductos.DataSource = productosEncontrados;
-                RepeaterProductos.DataBind();
-                divListado.Visible = true;
-                divFormulario.Visible = false;
-                lblMensaje.Text = "";
-                lblMensaje.Visible = false;
-            }
-            else
-            {
-
-                lblMensaje.Text = "No se encontró ningún producto con el criterio ingresado.";
-                lblMensaje.Visible = true;
-                RepeaterProductos.DataSource = null;
-                RepeaterProductos.DataBind();
-            }
-        }
-
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-              
-                LinkButton btnEliminar = (LinkButton)sender;
-                int idProducto = Convert.ToInt32(btnEliminar.CommandArgument); 
-
-               
-                repoProducto.EliminarProducto(idProducto);
-
-                lblMensaje.Text = "Producto eliminado correctamente.";
-                lblMensaje.Visible = true;
-
-                CargarProductos();
-            }
-            catch (Exception ex)
-            {
-                lblMensaje.Text = "Error al eliminar el producto: " + ex.Message;
-                lblMensaje.Visible = true;
-            }
-        }
+       
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -260,8 +219,12 @@ namespace CodigoAgroAdmin
             CargarProductos();
         }
 
-
-
-
+        protected void txtfiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Producto> lista = (List<Producto>)Session["listaProductos"];
+            List<Producto> listafiltrada = lista.FindAll(x => x.Nombre.ToUpper().Contains(txtfiltro.Text.ToUpper()));
+            dgvProductos.DataSource = listafiltrada;
+            dgvProductos.DataBind();
+        }
     }
 }

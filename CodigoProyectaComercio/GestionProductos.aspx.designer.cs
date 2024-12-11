@@ -24,22 +24,13 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divListado;
 
         /// <summary>
-        /// Control txtBuscar.
+        /// Control txtfiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
-
-        /// <summary>
-        /// Control btnBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
+        protected global::System.Web.UI.WebControls.TextBox txtfiltro;
 
         /// <summary>
         /// Control lblMensaje.
@@ -51,13 +42,13 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
-        /// Control RepeaterProductos.
+        /// Control dgvProductos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterProductos;
+        protected global::System.Web.UI.WebControls.GridView dgvProductos;
 
         /// <summary>
         /// Control btnAgregar.

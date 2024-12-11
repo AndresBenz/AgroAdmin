@@ -349,7 +349,30 @@ namespace Funcionalidades
             return stockActual;
         }
 
-
+        public int ObtenerStockProducto(int idProducto)
+        {
+            int stock = 0;
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("SelStockProducto"); 
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+                accesoDatos.ejecutarLectura();
+                if (accesoDatos.Lector.Read())
+                {
+                    stock = (int)accesoDatos.Lector["StockActual"];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el stock del producto", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+            return stock;
+        }
         public void ActualizarStock(int idProducto, int nuevoStock)
         {
             AccesoDatos accesoDatos = new AccesoDatos();

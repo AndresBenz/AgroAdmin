@@ -195,6 +195,12 @@ namespace CodigoAgroAdmin
 
                 foreach (Producto producto in productosSeleccionados)
                 {
+                    RepositorioProducto repositorioProduct  = new RepositorioProducto();
+                    int stockActual = repositorioProduct.ObtenerStockProducto(producto.IdProducto);
+                    int nuevoStock = stockActual + producto.CantidadSeleccionada;
+                    repositorioProduct.ActualizarStock(producto.IdProducto, nuevoStock);
+
+
                     DetalleCompra detalle = new DetalleCompra
                     {
                         IdCompra = idCompra,

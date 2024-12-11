@@ -25,7 +25,8 @@ namespace Funcionalidades
                         IdCompra = (int)accesoDatos.Lector["IdCompra"],
                         IdProveedor = (int)accesoDatos.Lector["IdProveedor"],
                         NombreProveedor = (string)accesoDatos.Lector["NombreProveedor"],
-                        FechaCompra = (DateTime)accesoDatos.Lector["FechaCompra"]
+                        FechaCompra = (DateTime)accesoDatos.Lector["FechaCompra"],
+                        TipoPago = (string)accesoDatos.Lector["TipoPago"]
                     };
 
                     listarCompras.Add(compra);
@@ -150,7 +151,9 @@ namespace Funcionalidades
                         IdProducto = (int)accesoDatos.Lector["IdProducto"],
                         NombreProducto = (string)accesoDatos.Lector["Nombre"],
                         Cantidad = (int)accesoDatos.Lector["Cantidad"],
-                        PrecioCompra = (decimal)accesoDatos.Lector["PrecioCompra"]
+                        PrecioCompra = (decimal)accesoDatos.Lector["PrecioCompra"],
+                        Subtotal = (decimal)accesoDatos.Lector["Subtotal"]
+
                     };
 
                     listarDetalles.Add(detalle);

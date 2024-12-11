@@ -1,71 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\ventaproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:ventaproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\ventaproducto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:ventaproducto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\funcionalidades\\repositorioproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C9987B3-E6A5-4746-9144-FCFF75AA5A39}|Funcionalidades\\Funcionalidades.csproj|solutionrelative:funcionalidades\\repositorioproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RepositorioProducto.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioProducto.cs",
-              "RelativeDocumentMoniker": "Funcionalidades\\RepositorioProducto.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Funcionalidades\\RepositorioProducto.cs",
-              "RelativeToolTip": "Funcionalidades\\RepositorioProducto.cs",
-              "ViewState": "AgIAAFkBAAAAAAAAAAAwwGoBAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T00:49:56.824Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "VentaProducto.aspx.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx.cs",
-              "RelativeDocumentMoniker": "VentaProducto.aspx.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx.cs",
-              "RelativeToolTip": "VentaProducto.aspx.cs",
-              "ViewState": "AgIAAAoBAAAAAAAAAADwvxkBAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T00:08:42.986Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "VentaProducto.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx",
-              "RelativeDocumentMoniker": "VentaProducto.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx",
-              "RelativeToolTip": "VentaProducto.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-11T00:08:39.874Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

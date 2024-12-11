@@ -136,6 +136,25 @@ namespace CodigoAgroAdmin
         }
 
 
+        protected void gvSeleccionados_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Eliminar")
+            {
+                int idProducto = Convert.ToInt32(e.CommandArgument);
+
+                List<Producto> productosSeleccionados = (List<Producto>)Session["productosSeleccionados"];
+
+                Producto productoAEliminar = productosSeleccionados.FirstOrDefault(p => p.IdProducto == idProducto);
+                if (productoAEliminar != null)
+                {
+                    productosSeleccionados.Remove(productoAEliminar);
+                    Session["productosSeleccionados"] = productosSeleccionados; 
+                }
+
+                ActualizarVistaSeleccionados();
+            }
+        }
+
 
     }
 }

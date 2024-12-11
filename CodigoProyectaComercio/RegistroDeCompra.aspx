@@ -11,11 +11,11 @@
 
 
 
-   <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="false" Width="100%">
+   <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="false" Width="100%" OnRowCommand="gvProductos_RowCommand">
     <Columns>
         <asp:BoundField DataField="IdProducto" HeaderText="ID Producto" />
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-        <asp:TemplateField HeaderText="Cantidad">
+        <asp:TemplateField  HeaderText="Cantidad">
             <ItemTemplate>
                 <asp:TextBox ID="txtCantidad" runat="server" Width="50px"></asp:TextBox>
             </ItemTemplate>
@@ -30,11 +30,11 @@
 
 
     <h3>Productos Seleccionados</h3>
-<asp:GridView ID="gvSeleccionados" runat="server" AutoGenerateColumns="false" Width="100%">
+<asp:GridView ID="gvSeleccionados" runat="server" AutoGenerateColumns="false" Width="100%" OnRowCommand="gvSeleccionados_RowCommand">
     <Columns>
         <asp:BoundField DataField="IdProducto" HeaderText="ID Producto" />
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
+        <asp:BoundField DataField="CantidadSeleccionada" HeaderText="Cantidad" />
     
         <asp:TemplateField HeaderText="Acciones">
             <ItemTemplate>

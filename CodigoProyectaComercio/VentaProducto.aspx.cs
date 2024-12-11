@@ -309,12 +309,10 @@ namespace CodigoAgroAdmin
 
             if (idVenta.HasValue)
             {
-                // Redirigir a DetalleVenta.aspx pasando el ID de la venta
                 Response.Redirect("DetalleDeLaVenta.aspx?idVenta=" + idVenta.Value);
             }
             else
             {
-                // Si no se ha registrado una venta, mostrar un mensaje o redirigir a otra página
                 lblMensaje.Text = "No se ha registrado ninguna venta.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 lblMensaje.Visible = true;

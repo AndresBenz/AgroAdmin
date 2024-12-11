@@ -168,7 +168,9 @@
     <Content Include="InicioEmpleado.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="PerfilEmpleado.aspx" />
     <Content Include="RegistroCompras.aspx" />
+    <Content Include="RegistroDeCompra.aspx" />
     <Content Include="RegistroVentas.aspx" />
     <Content Include="RegistroUsuario.aspx" />
     <Content Include="ReportedeVentas.aspx" />
@@ -270,6 +272,13 @@
     <Compile Include="Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PerfilEmpleado.aspx.cs">
+      <DependentUpon>PerfilEmpleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilEmpleado.aspx.designer.cs">
+      <DependentUpon>PerfilEmpleado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroCompras.aspx.cs">
       <DependentUpon>RegistroCompras.aspx</DependentUpon>
@@ -277,6 +286,13 @@
     </Compile>
     <Compile Include="RegistroCompras.aspx.designer.cs">
       <DependentUpon>RegistroCompras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroDeCompra.aspx.cs">
+      <DependentUpon>RegistroDeCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroDeCompra.aspx.designer.cs">
+      <DependentUpon>RegistroDeCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistroVentas.aspx.cs">
       <DependentUpon>RegistroVentas.aspx</DependentUpon>

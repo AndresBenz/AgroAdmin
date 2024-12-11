@@ -349,5 +349,27 @@ namespace Funcionalidades
             return stockActual;
         }
 
+
+        public void ActualizarStock(int idProducto, int nuevoStock)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("UpdStockProducto");
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+                accesoDatos.setearParametros("@StockActual", nuevoStock);
+
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el stock del producto", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
     }
 }

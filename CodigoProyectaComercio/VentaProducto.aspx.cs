@@ -276,6 +276,10 @@ namespace CodigoAgroAdmin
                     };
 
                     listaDetallesVenta.Add(detalle);
+                    RepositorioProducto repositorioProducto = new RepositorioProducto();
+                    int stockActual = repositorioProducto.ObtenerStockDesdeBD(producto.IdProducto);
+                    int nuevoStock = stockActual - producto.CantidadSeleccionada;
+                    repositorioProducto.ActualizarStock(producto.IdProducto, nuevoStock);
                 }
                 RepositorioDetalleVenta repositorioDetalleVenta =new RepositorioDetalleVenta();
                 repositorioDetalleVenta.InsertarDetallesVenta(listaDetallesVenta);

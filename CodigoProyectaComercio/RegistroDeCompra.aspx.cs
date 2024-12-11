@@ -134,6 +134,9 @@ namespace CodigoAgroAdmin
         private void ActualizarVistaSeleccionados()
         {
             List<Producto> productosSeleccionados = (List<Producto>)Session["productosSeleccionados"];
+            decimal totalGeneral = productosSeleccionados.Sum(p => p.Precio * p.CantidadSeleccionada);
+            lblTotal.Text = totalGeneral.ToString("F2");
+
             gvSeleccionados.DataSource = productosSeleccionados;
             gvSeleccionados.DataBind();
         }
@@ -168,7 +171,56 @@ namespace CodigoAgroAdmin
             }
         }
 
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int idProveedor = Convert.ToInt32(ddlProveedores.SelectedValue);
+                string metodoPago = rblMetodoPago.SelectedValue;
 
+                Compra compra = new Compra
+                {
+                    IdProveedor = idProveedor,
+                    FechaCompra = DateTime.Now,
+                    TipoPago = metodoPago
+                };
+
+                RepositorioCompra repositorioCompra = new RepositorioCompra();
+                repositorioCompra.AgregarCompra(compra);
+
+                int idCompra = repositorioCompra.ObtenerUltimoIdCompra();
+
+                List<Producto> productosSeleccionados = (List<Producto>)Session["productosSeleccionados"];
+                List<DetalleCompra> detallesCompra = new List<DetalleCompra>();
+
+                foreach (Producto producto in productosSeleccionados)
+                {
+                    DetalleCompra detalle = new DetalleCompra
+                    {
+                        IdCompra = idCompra,
+                        IdProducto = producto.IdProducto,
+                        Cantidad = producto.CantidadSeleccionada,
+                        PrecioCompra = producto.Precio,
+                        Subtotal = producto.Precio * producto.CantidadSeleccionada
+                    };
+
+                    detallesCompra.Add(detalle);
+                }
+
+                RepositorioCompra repositorioDetalleCompra = new RepositorioCompra();
+                repositorioDetalleCompra.AgregarDetallesCompra(detallesCompra);
+
+                lblMensaje.Text = "Compra registrada exitosamente.";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
+                Session["productosSeleccionados"] = new List<Producto>(); 
+                ActualizarVistaSeleccionados();
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Error al registrar la compra: " + ex.Message;
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }
 

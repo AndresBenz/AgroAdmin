@@ -79,6 +79,7 @@ namespace Funcionalidades
                 accesoDatos.setearSp("insCompra");
                 accesoDatos.setearParametros("@IdProveedor", compra.IdProveedor);
                 accesoDatos.setearParametros("@FechaCompra", compra.FechaCompra);
+                accesoDatos.setearParametros("@TipoPago", compra.TipoPago);
                 accesoDatos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -88,6 +89,33 @@ namespace Funcionalidades
             finally
             {
                 accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void AgregarDetallesCompra(List<DetalleCompra> detallesCompra)
+        {
+            foreach (DetalleCompra detalle in detallesCompra)
+            {
+                AccesoDatos accesoDatos = new AccesoDatos();
+                try
+                {
+                    accesoDatos.setearSp("InsDetalleCompra");
+                    accesoDatos.setearParametros("@IdCompra", detalle.IdCompra);
+                    accesoDatos.setearParametros("@IdProducto", detalle.IdProducto);
+                    accesoDatos.setearParametros("@Cantidad", detalle.Cantidad);
+                    accesoDatos.setearParametros("@PrecioCompra", detalle.PrecioCompra);
+                    accesoDatos.setearParametros("@Subtotal", detalle.Subtotal);
+
+                    accesoDatos.ejecutarAccion();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al agregar detalles de compra", ex);
+                }
+                finally
+                {
+                    accesoDatos.cerrarConexion();
+                }
             }
         }
 
@@ -130,6 +158,35 @@ namespace Funcionalidades
                 accesoDatos.cerrarConexion();
             }
         }
+
+
+        public int ObtenerUltimoIdCompra()
+        {
+            int idCompra = 0;
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearSp("ObtenerUltimoIdCompra");
+
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read())
+                {
+                    idCompra = (int)accesoDatos.Lector["IdCompra"];
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el último IdCompra", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+
+            return idCompra;
+        }
+
 
         public List<DetalleCompra> ListarDetallesCompra(int idCompra)
         {

@@ -50,6 +50,7 @@
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
+    <h4>Total General: $<asp:Label ID="lblTotal" runat="server" Text="0"></asp:Label></h4>
     <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" Visible="false"></asp:Label>
 
 
@@ -59,6 +60,9 @@
 </asp:RadioButtonList>
 
 <asp:Label ID="lblMetodoPagoSeleccionado" runat="server" Text="Selecciona un método de pago." />
+
+    <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Compra" OnClick="btnConfirmar_Click" />
+
 
 
 

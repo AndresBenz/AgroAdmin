@@ -16,6 +16,14 @@ namespace Dominio
         public int IdMarca { get; set; } 
         public decimal Precio { get; set; }
 
+        public decimal PrecioTotal
+        {
+            get
+            {
+                return Precio * CantidadSeleccionada;
+            }
+        }
+
         public int CantidadSeleccionada { get; set; }
         public int StockActual { get; set; }
         public int StockMinimo { get; set; }

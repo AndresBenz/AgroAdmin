@@ -61,6 +61,15 @@ namespace CodigoAgroAdmin
         }
 
 
+        protected void rblMetodoPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string metodoPagoSeleccionado = rblMetodoPago.SelectedValue;
+
+            lblMetodoPagoSeleccionado.Text = "Método de pago seleccionado: " + metodoPagoSeleccionado;
+
+
+        }
+
 
 
 
@@ -68,10 +77,8 @@ namespace CodigoAgroAdmin
         {
             try
             {
-                // Obtener productos del proveedor
                 List<Producto> productos = repositorioProveedor.ObtenerProductosPorProveedor(idProveedor);
 
-                // Vincular datos al GridView
                 gvProductos.DataSource = productos;
                 gvProductos.DataBind();
             }
@@ -89,8 +96,10 @@ namespace CodigoAgroAdmin
                 int idProducto = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = (GridViewRow)((Button)e.CommandSource).NamingContainer;
                 TextBox txtCantidad = (TextBox)row.FindControl("txtCantidad");
+                TextBox txtPrecio = (TextBox)row.FindControl("txtPrecio");
 
-                if (int.TryParse(txtCantidad.Text, out int cantidad) && cantidad > 0)
+                if (int.TryParse(txtCantidad.Text, out int cantidad) && cantidad > 0 &&
+            decimal.TryParse(txtPrecio.Text, out decimal precio) && precio >= 0)
                 {
                     List<Producto> productosSeleccionados = (List<Producto>)Session["productosSeleccionados"];
                     RepositorioProducto repositorioProducto = new RepositorioProducto();
@@ -98,16 +107,20 @@ namespace CodigoAgroAdmin
 
                     if (producto != null)
                     {
+                        producto.Precio = precio;
+                        producto.CantidadSeleccionada = cantidad;
                         Producto existente = productosSeleccionados.FirstOrDefault(p => p.IdProducto == idProducto);
 
                         if (existente == null)
                         {
-                            producto.CantidadSeleccionada = cantidad;
+
+                       
                             productosSeleccionados.Add(producto);
                         }
                         else
                         {
                             existente.CantidadSeleccionada += cantidad;
+                            existente.Precio = precio;
                         }
 
                         Session["productosSeleccionados"] = productosSeleccionados;

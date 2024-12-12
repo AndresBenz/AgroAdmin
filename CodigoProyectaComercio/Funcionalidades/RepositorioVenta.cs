@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using iText.Layout.Borders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -174,6 +175,72 @@ namespace Funcionalidades
             {
                 throw ex;
             }
+        }
+
+
+        public decimal CalcularPrecioVenta(int idProducto)
+        {
+            decimal precioCompra = ObtenerPrecioCompraMasReciente(idProducto);
+            decimal porcentajeGanancia = ObtenerPorcentajeGanancia(idProducto);
+
+            decimal precioVenta = precioCompra * (1 + (porcentajeGanancia / 100));
+            return precioVenta;
+        }
+
+        public decimal ObtenerPrecioCompraMasReciente(int idProducto)
+        {
+            decimal precioCompra = 0;
+            string consulta = "SELECT TOP 1 dc.PrecioCompra FROM DetalleCompra dc INNER JOIN Compras c ON dc.IdCompra = c.IdCompra WHERE dc.IdProducto = @IdProducto ORDER BY c.FechaCompra DESC";
+
+
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearConsulta(consulta);
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read() && !Convert.IsDBNull(accesoDatos.Lector["PrecioCompra"]))
+                {
+                    precioCompra = Convert.ToDecimal(accesoDatos.Lector["PrecioCompra"]);
+                }
+
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return precioCompra;
+        }
+
+        public decimal ObtenerPorcentajeGanancia(int idProducto)
+        {
+            decimal porcentajeGanancia = 0;
+            string consulta = "SELECT PorcentajeGanancia FROM Productos WHERE IdProducto = @IdProducto";
+
+
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                accesoDatos.setearConsulta(consulta);
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+                accesoDatos.ejecutarLectura();
+
+                if (accesoDatos.Lector.Read() && !Convert.IsDBNull(accesoDatos.Lector["PorcentajeGanancia"]))
+                {
+                    porcentajeGanancia = Convert.ToDecimal(accesoDatos.Lector["PorcentajeGanancia"]);
+                }
+
+                accesoDatos.cerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return porcentajeGanancia;
         }
     }
 }

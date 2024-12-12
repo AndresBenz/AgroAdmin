@@ -123,15 +123,6 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.DropDownList marcaProducto;
 
         /// <summary>
-        /// Control precioProducto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox precioProducto;
-
-        /// <summary>
         /// Control stockActual.
         /// </summary>
         /// <remarks>
@@ -148,6 +139,15 @@ namespace CodigoAgroAdmin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox stockMinimo;
+
+        /// <summary>
+        /// Control porcentajeGanancia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox porcentajeGanancia;
 
         /// <summary>
         /// Control btnGuardar.

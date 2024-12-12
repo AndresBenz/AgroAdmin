@@ -97,9 +97,9 @@ namespace CodigoAgroAdmin
                     {
                         tituloFormulario.InnerText = "Editar Producto";
                         nombreProducto.Text = producto.Nombre;
-                        precioProducto.Text = producto.Precio.ToString();
                         stockActual.Text = producto.StockActual.ToString();
                         stockMinimo.Text = producto.StockMinimo.ToString();
+                        porcentajeGanancia.Text = producto.PorcentajeGanancia.ToString("F2");
 
                         if (categoriaProducto.Items.FindByValue(producto.IdCategoria.ToString()) != null)
                         {
@@ -170,11 +170,11 @@ namespace CodigoAgroAdmin
         private void LimpiarFormulario()
         {
             nombreProducto.Text = string.Empty;
-            precioProducto.Text = string.Empty;
             categoriaProducto.SelectedIndex = 0;
             marcaProducto.SelectedIndex = 0;
             stockActual.Text = string.Empty;
             stockMinimo.Text = string.Empty;
+            porcentajeGanancia.Text = string.Empty;
             lblMensajeFormulario.Visible = false;
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -197,11 +197,12 @@ namespace CodigoAgroAdmin
             Producto producto = new Producto
             {
                 Nombre = nombreProducto.Text,
-                Precio = Convert.ToDecimal(precioProducto.Text),
                 IdCategoria = Convert.ToInt32(categoriaProducto.SelectedValue),
                 IdMarca = Convert.ToInt32(marcaProducto.SelectedValue),
                 StockActual = Convert.ToInt32(stockActual.Text),
-                StockMinimo = Convert.ToInt32(stockMinimo.Text)
+                StockMinimo = Convert.ToInt32(stockMinimo.Text),
+                PorcentajeGanancia = Convert.ToDecimal(porcentajeGanancia.Text),
+
             };
 
             if (string.IsNullOrEmpty(hiddenIdProducto.Value))

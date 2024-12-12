@@ -292,6 +292,11 @@ namespace CodigoAgroAdmin
                 lblMensaje.ForeColor = System.Drawing.Color.Green;
                 lblMensaje.Visible = true;
                 pnlVentaExitoso.Visible = true;
+
+                Session["listaSeleccionados"] = null; 
+                dgvSeleccionados.DataSource = null;  
+                dgvSeleccionados.DataBind();         
+                Session["IdClienteSeleccionado"] = null; 
             }
             else
             {

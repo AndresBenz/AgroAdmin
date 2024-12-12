@@ -23,15 +23,17 @@ namespace Funcionalidades
 
                 while (accesoDatos.Lector.Read())
                 {
+                    RepositorioVenta repositorioVenta = new RepositorioVenta();
                     Producto aux = new Producto();
 
                     aux.IdProducto = (int)accesoDatos.Lector["IdProducto"];
                     aux.Nombre = (string)accesoDatos.Lector["Nombre"];
                     aux.IdCategoria = (int)accesoDatos.Lector["IdCategoria"];
                     aux.IdMarca = (int)accesoDatos.Lector["IdMarca"];
-                    aux.Precio = (decimal)accesoDatos.Lector["Precio"];
+                    aux.Precio = repositorioVenta.CalcularPrecioVenta(aux.IdProducto);
                     aux.StockActual = (int)accesoDatos.Lector["StockActual"];
                     aux.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                    aux.PorcentajeGanancia = (decimal)accesoDatos.Lector["PorcentajeGanancia"];
 
                     listarProductos.Add(aux);
                 }
@@ -67,6 +69,8 @@ namespace Funcionalidades
                     aux.Precio = (decimal)accesoDatos.Lector["Precio"];
                     aux.StockActual = (int)accesoDatos.Lector["StockActual"];
                     aux.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                    aux.PorcentajeGanancia = (decimal)accesoDatos.Lector["PorcentajeGanancia"];
+
 
 
                     aux.NombreCategoria = (string)accesoDatos.Lector["NombreCategoria"];
@@ -123,6 +127,7 @@ namespace Funcionalidades
                     producto.Precio = (decimal)accesoDatos.Lector["Precio"];
                     producto.StockActual = (int)accesoDatos.Lector["StockActual"];
                     producto.StockMinimo = (int)accesoDatos.Lector["StockMinimo"];
+                    producto.PorcentajeGanancia = (decimal)accesoDatos.Lector["PorcentajeGanancia"];
                 }
 
                 accesoDatos.cerrarConexion();
@@ -149,6 +154,8 @@ namespace Funcionalidades
                 accesoDatos.setearParametros("@StockMinimo", producto.StockMinimo);
                 accesoDatos.setearParametros("@IdCategoria", producto.IdCategoria);
                 accesoDatos.setearParametros("@IdMarca", producto.IdMarca);
+                accesoDatos.setearParametros("@PorcentajeGanancia", producto.PorcentajeGanancia);
+
 
                 accesoDatos.ejecutarAccion();
             }
@@ -261,6 +268,8 @@ namespace Funcionalidades
                 accesoDatos.setearParametros("@StockMinimo", producto.StockMinimo);
                 accesoDatos.setearParametros("@IdCategoria", producto.IdCategoria);
                 accesoDatos.setearParametros("@IdMarca", producto.IdMarca);
+                accesoDatos.setearParametros("@PorcentajeGanancia", producto.PorcentajeGanancia);
+
 
                 accesoDatos.ejecutarAccion();
             }

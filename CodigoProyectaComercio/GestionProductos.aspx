@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionProductos.aspx.cs" Inherits="CodigoAgroAdmin.GestionProductos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+  
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mt-4">
@@ -15,7 +17,9 @@
                 <label for="lblBuscar">Buscar Producto por ID o Nombre</label>
                 <asp:TextBox ID="txtfiltro" runat="server" CssClass="form-control" AutoPostBack="true" OnTextChanged="txtfiltro_TextChanged" />
             </div>
-
+            <div class="d-flex justify-content-center align-items-center" style="height: 20vh;">
+                        <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-success mt-4" Text="Agregar Producto" OnClick="btnAgregar_Click" />
+              </div>
             <asp:Label ID="lblMensaje" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
 
 
@@ -42,7 +46,6 @@
                 </Columns>
             </asp:GridView>
 
-            <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-success mt-4" Text="Agregar Producto" OnClick="btnAgregar_Click" />
         </div>
         <!-- Agregar o editar -->
 

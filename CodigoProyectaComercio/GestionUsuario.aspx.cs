@@ -37,6 +37,8 @@ namespace CodigoAgroAdmin
                 repositorio.EliminarUsuario(idUsuario);
 
                 CargarUsuarios();
+                lblMensaje.Text = "El usuario se elimino correctamente";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
             }
 
 
@@ -101,6 +103,12 @@ namespace CodigoAgroAdmin
         {
             try
             {
+                if (ddlTipoUsuario.SelectedIndex == 0 || string.IsNullOrEmpty(ddlTipoUsuario.SelectedValue))
+                {
+                    lblMensajeFormulario.Text = "Por favor, seleccione un tipo de usuario válido.";
+                    lblMensajeFormulario.ForeColor = System.Drawing.Color.Red;
+                    return; 
+                }
                 RepositorioUsuario repo = new RepositorioUsuario();
 
                 Usuario usuario = new Usuario
@@ -130,7 +138,14 @@ namespace CodigoAgroAdmin
             }
         }
 
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            formularioUsuario.Visible = false;
 
+            listarUsuarios.Visible = true;
+
+          
+        }
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             try

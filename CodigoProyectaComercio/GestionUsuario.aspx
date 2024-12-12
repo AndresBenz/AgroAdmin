@@ -67,9 +67,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+         <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" />
     <div id="listarUsuarios" runat="server">
-        <asp:Button ID="btnAgregar" runat="server" Text="Agregar Usuario" OnClick="btnAgregar_Click" CssClass="btn btn-primary" />
-
+        <div class="d-flex justify-content-center align-items-center" style="height: 20vh;">
+            <asp:Button ID="btnAgregar" runat="server" Text="Agregar Usuario" OnClick="btnAgregar_Click" CssClass="btn btn-primary" />
+        </div>
         <asp:GridView ID="gvUsuarios" runat="server" AutoGenerateColumns="False" OnRowCommand="gvUsuarios_RowCommand" CssClass="table table-striped">
             <Columns>
                 <asp:BoundField DataField="IdUsuario" HeaderText="ID" SortExpression="IdUsuario" />
@@ -86,10 +88,13 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" />
+       
     </div>
     <div class="edit-container" id="formularioUsuario" runat="server" visible="false">
-            <h2><asp:Label ID="lblTituloFormulario" runat="server" Text="Agregar/Modificar Usuario" /></h2>
+        <h2>
+            <asp:Label ID="lblTituloFormulario" runat="server" Text="Agregar/Modificar Usuario" /></h2>
+                <asp:Label ID="lblMensajeFormulario" runat="server" ForeColor="Red" />
+
 
         <asp:HiddenField ID="hfIdUsuario" runat="server" />
         <div>
@@ -111,6 +116,7 @@
         <div>
             <asp:Label ID="lblTipoUsuario" runat="server" Text="Tipo de Usuario:" CssClass="label-style"></asp:Label>
             <asp:DropDownList ID="ddlTipoUsuario" runat="server" CssClass="dropdown-style">
+                <asp:ListItem Text="Seleccione Un Tipo de Usuario" ></asp:ListItem>
                 <asp:ListItem Text="Administrador" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Normal" Value="0"></asp:ListItem>
             </asp:DropDownList>
@@ -118,7 +124,7 @@
         <div>
             <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
             <asp:Button ID="btnActualizar" runat="server" Text="Actualizar" OnClick="btnActualizar_Click" Visible="false" />
-
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-secondary" OnClick="btnCancelar_Click" />
 
         </div>
     </div>

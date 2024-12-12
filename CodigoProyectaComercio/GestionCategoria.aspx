@@ -26,6 +26,9 @@
 
     <!-- Lista de categorías -->
     <div id="divLista" class="list-container" runat="server">
+        <div class="mt-3">
+    <asp:Button ID="btnAgregarNueva" runat="server" Text="Agregar Nueva Categoría" OnClick="btnAgregarNueva_Click" CssClass="btn btn-success" />
+</div>
         <asp:GridView ID="gvCategorias" runat="server" AutoGenerateColumns="False" OnRowCommand="gvCategorias_RowCommand" CssClass="custom-table">
             <Columns>
                 <asp:BoundField DataField="IdCategoria" HeaderText="ID Categoria" SortExpression="IdCategoria" />
@@ -40,9 +43,7 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        <div class="mt-3">
-            <asp:Button ID="btnAgregarNueva" runat="server" Text="Agregar Nueva Categoría" OnClick="btnAgregarNueva_Click" CssClass="btn btn-success" />
-        </div>
+        
     </div>
 
     <asp:Label ID="lblMensaje" runat="server" CssClass="text-success mt-3"></asp:Label>

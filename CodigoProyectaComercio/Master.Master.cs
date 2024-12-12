@@ -11,7 +11,10 @@ namespace CodigoAgroAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["usuario"] == null || ((Dominio.Usuario)Session["usuario"]).TipoUsuario != Dominio.TipoUsuario.Admin)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
     }
 }

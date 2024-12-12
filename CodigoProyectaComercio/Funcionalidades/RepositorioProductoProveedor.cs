@@ -36,5 +36,49 @@ namespace Funcionalidades
                 throw ex;
             }
         }
+
+        public void AgregarProductoAProveedor(int idProducto,int idProveedor )
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                string consulta = "INSERT INTO ProductoProveedor (IdProducto,IdProveedor) VALUES (@IdProducto, @IdProveedor )";
+                accesoDatos.setearConsulta(consulta);
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+                accesoDatos.setearParametros("@IdProveedor", idProveedor);
+               
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al agregar el producto al proveedor.", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+
+        public void EliminarProductoDeProveedor(int idProveedor, int idProducto)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            try
+            {
+                string consulta = "DELETE FROM ProductoProveedor WHERE IdProveedor = @IdProveedor AND IdProducto = @IdProducto";
+                accesoDatos.setearConsulta(consulta);
+                accesoDatos.setearParametros("@IdProveedor", idProveedor);
+                accesoDatos.setearParametros("@IdProducto", idProducto);
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al eliminar el producto del proveedor.", ex);
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
     }
 }

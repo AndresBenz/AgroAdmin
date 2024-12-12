@@ -83,10 +83,52 @@
                         <asp:LinkButton ID="btnEliminar" runat="server" CommandName="Eliminar" CommandArgument='<%# Eval("IdProveedor") %>' CssClass="btn btn-danger">Eliminar</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField>
+    <ItemTemplate>
+        <asp:LinkButton ID="btnProductosProveedores" runat="server" CommandName="ProductosProveedores" CommandArgument='<%# Eval("IdProveedor") %>' CssClass="btn btn-info">Productos</asp:LinkButton>
+    </ItemTemplate>
+</asp:TemplateField>
             </Columns>
         </asp:GridView>
         <asp:Label ID="lblMensaje" runat="server" ForeColor="Red" />
     </div>
+
+
+<asp:Panel ID="panelProductos" runat="server" Visible="false">
+    <h2>Productos del Proveedor</h2>
+        <!-- Dropdown para seleccionar productos existentes -->
+        <asp:Button ID="btnAgregarProducto" runat="server" Text="Agregar Producto" OnClick="btnAgregarProducto_Click" CssClass="btn btn-success mb-3" />
+
+    
+
+
+    <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" OnRowCommand="gvProductos_RowCommand">
+        <Columns>
+            <asp:BoundField DataField="IdProducto" HeaderText="ID Producto" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre del Producto" />
+            <asp:TemplateField HeaderText="Acciones">
+                <ItemTemplate>
+                    <asp:LinkButton ID="btnEliminarProducto" runat="server" CommandName="EliminarProducto" CommandArgument='<%# Eval("IdProducto") %>' CssClass="btn btn-danger">Eliminar</asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+    <asp:Button ID="btnVolver" runat="server" Text="Volver a Proveedores" OnClick="btnVolver_Click" CssClass="btn btn-secondary" />
+</asp:Panel>
+
+
+    <asp:Panel ID="panelAgregarProducto" runat="server" Visible="false">
+    <h2>Seleccionar Producto Existente</h2>
+
+    <div class="mb-3">
+        <label for="ddlProductosExistentes">Seleccionar un producto:</label>
+        <asp:DropDownList ID="ddlProductosExistentes" runat="server" CssClass="form-control"></asp:DropDownList>
+    </div>
+
+    <asp:Button ID="btnAgregarProductoSeleccionado" runat="server" Text="Agregar Producto" OnClick="btnAgregarProductoSeleccionado_Click" CssClass="btn btn-primary" />
+
+    <asp:Button ID="btnCancelarAgregar" runat="server" Text="Cancelar" OnClick="btnCancelarAgregar_Click" CssClass="btn btn-danger" />
+</asp:Panel>
 
     <div class="edit-container" id="formularioProveedor" runat="server" visible="false">
         <h2>

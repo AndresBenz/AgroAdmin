@@ -51,8 +51,63 @@ namespace CodigoAgroAdmin
                 repositorio.EliminarProveedor(idProveedor);
                 CargarProveedores();
             }
+            else if (e.CommandName == "ProductosProveedores")
+            {
+                int idProveedor = Convert.ToInt32(e.CommandArgument);
+                hfIdProveedor.Value = idProveedor.ToString();
+                RepositorioProveedor repositorioproveedor = new RepositorioProveedor();
+
+                List<Producto> productos = repositorioproveedor.ObtenerProductosPorProveedor(idProveedor);
+                gvProductos.DataSource = productos;
+                gvProductos.DataBind();
+
+                listarProveedores.Visible = false;
+                formularioProveedor.Visible = false;
+                panelProductos.Visible = true; 
+            }
+
         }
-       
+
+
+        protected void gvProductos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int idProducto = Convert.ToInt32(e.CommandArgument);
+            int idProveedor = Convert.ToInt32(hfIdProveedor.Value);
+
+            RepositorioProductoProveedor repositorio = new RepositorioProductoProveedor();
+
+            
+           if (e.CommandName == "EliminarProducto")
+            {
+                try
+                {
+                    repositorio.EliminarProductoDeProveedor(idProveedor, idProducto);
+                    lblMensaje.Text = "Producto eliminado correctamente.";
+                }
+                catch (Exception ex)
+                {
+                    lblMensaje.Text = "Error al eliminar el producto: " + ex.Message;
+                }
+            }
+
+            CargarProductosProveedor(idProveedor);
+        }
+
+        private void CargarProductosProveedor(int idProveedor)
+        {
+            RepositorioProveedor repositorio = new RepositorioProveedor();
+            gvProductos.DataSource = repositorio.ObtenerProductosPorProveedor(idProveedor);
+            gvProductos.DataBind();
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            panelProductos.Visible = false;
+            listarProveedores.Visible = true;
+        }
+
+
+
 
         protected void btnGuardarProveedor_Click(object sender, EventArgs e)
         {
@@ -110,6 +165,59 @@ namespace CodigoAgroAdmin
                 txtTelefonoProveedor.Text = proveedor.Telefono;
                 hfIdProveedor.Value = proveedor.IdProveedor.ToString();
             }
+        }
+
+
+        protected void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            panelAgregarProducto.Visible = true;
+            panelProductos.Visible = false;
+            CargarProductosExistentes();
+        }
+
+        private void CargarProductosExistentes()
+        {
+            RepositorioProducto repositorio = new RepositorioProducto();
+            List<Producto> productos = repositorio.ListarConSp();
+
+            ddlProductosExistentes.DataSource = productos;
+            ddlProductosExistentes.DataTextField = "Nombre"; 
+            ddlProductosExistentes.DataValueField = "IdProducto"; 
+            ddlProductosExistentes.DataBind();
+
+            ddlProductosExistentes.Items.Insert(0, new ListItem("Seleccione un producto", "0"));
+        }
+
+
+        protected void btnAgregarProductoSeleccionado_Click(object sender, EventArgs e)
+        {
+            int idProducto = Convert.ToInt32(ddlProductosExistentes.SelectedValue);
+            int idProveedor = Convert.ToInt32(hfIdProveedor.Value); 
+
+            if (idProducto == 0)
+            {
+                
+                return;
+            }
+
+            
+            RepositorioProductoProveedor repositorio = new RepositorioProductoProveedor();
+            repositorio.AgregarProductoAProveedor(idProducto, idProveedor); 
+
+            
+            lblMensaje.Text = "Producto agregado correctamente.";
+
+            
+            panelAgregarProducto.Visible = false;
+            panelProductos.Visible = true;
+
+            CargarProductosProveedor(idProveedor);
+        }
+
+        protected void btnCancelarAgregar_Click(object sender, EventArgs e)
+        {
+            panelAgregarProducto.Visible = false;
+            panelProductos.Visible = true;
         }
     }
 }

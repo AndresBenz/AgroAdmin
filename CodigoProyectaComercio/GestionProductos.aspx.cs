@@ -146,9 +146,9 @@ namespace CodigoAgroAdmin
 
             tituloFormulario.InnerText = "Agregar Producto";
             hiddenIdProducto.Value = string.Empty;
-            LimpiarFormulario();
             divListado.Visible = false;
             divFormulario.Visible = true;
+            LimpiarFormulario();
         }
 
 
@@ -179,45 +179,49 @@ namespace CodigoAgroAdmin
         }
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            if (categoriaProducto.SelectedIndex == 0)
+            if (Page.IsValid)
             {
-                lblMensajeFormulario.Text = "Por favor, selecciona una categoría válida.";
+                if (categoriaProducto.SelectedIndex == 0)
+                {
+                    lblMensajeFormulario.Text = "Por favor, selecciona una categoría válida.";
+                    lblMensajeFormulario.Visible = true;
+                    return;
+                }
+
+                if (marcaProducto.SelectedIndex == 0)
+                {
+                    lblMensajeFormulario.Text = "Por favor, selecciona una marca válida.";
+                    lblMensajeFormulario.Visible = true;
+                    return;
+                }
+
+                Producto producto = new Producto
+                {
+                    Nombre = nombreProducto.Text,
+                    IdCategoria = Convert.ToInt32(categoriaProducto.SelectedValue),
+                    IdMarca = Convert.ToInt32(marcaProducto.SelectedValue),
+                    StockActual = Convert.ToInt32(stockActual.Text),
+                    StockMinimo = Convert.ToInt32(stockMinimo.Text),
+                    PorcentajeGanancia = Convert.ToDecimal(porcentajeGanancia.Text),
+
+                };
+
+                if (string.IsNullOrEmpty(hiddenIdProducto.Value))
+                {
+                    repoProducto.AgregarProducto(producto);
+                    lblMensajeFormulario.Text = "Producto agregado correctamente.";
+                }
+
+                else
+                {
+                    producto.IdProducto = Convert.ToInt32(hiddenIdProducto.Value);
+                    repoProducto.EditarProducto(producto);
+                    lblMensajeFormulario.Text = "Producto actualizado correctamente.";
+                }
                 lblMensajeFormulario.Visible = true;
-                return; 
+                CargarProductos();
+            
             }
-
-            if (marcaProducto.SelectedIndex == 0)
-            {
-                lblMensajeFormulario.Text = "Por favor, selecciona una marca válida.";
-                lblMensajeFormulario.Visible = true;
-                return; 
-            }
-
-            Producto producto = new Producto
-            {
-                Nombre = nombreProducto.Text,
-                IdCategoria = Convert.ToInt32(categoriaProducto.SelectedValue),
-                IdMarca = Convert.ToInt32(marcaProducto.SelectedValue),
-                StockActual = Convert.ToInt32(stockActual.Text),
-                StockMinimo = Convert.ToInt32(stockMinimo.Text),
-                PorcentajeGanancia = Convert.ToDecimal(porcentajeGanancia.Text),
-
-            };
-
-            if (string.IsNullOrEmpty(hiddenIdProducto.Value))
-            {
-                repoProducto.AgregarProducto(producto);
-                lblMensajeFormulario.Text = "Producto agregado correctamente.";
-            }
-            else
-            {
-                producto.IdProducto = Convert.ToInt32(hiddenIdProducto.Value);
-                repoProducto.EditarProducto(producto);
-                lblMensajeFormulario.Text = "Producto actualizado correctamente.";
-            }
-            lblMensajeFormulario.Visible = true;
-            CargarProductos();
         }
 
         protected void txtfiltro_TextChanged(object sender, EventArgs e)

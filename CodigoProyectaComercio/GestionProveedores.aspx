@@ -66,7 +66,9 @@
     <div class="mb-3">
         <label for="ddlProductosExistentes">Seleccionar un producto:</label>
         <asp:DropDownList ID="ddlProductosExistentes" runat="server" CssClass="form-control"></asp:DropDownList>
-    </div>
+       <asp:RequiredFieldValidator ID="rfvProductosExistentes" runat="server" ControlToValidate="ddlProductosExistentes" InitialValue="" ErrorMessage="Debe seleccionar un producto." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar" />
+
+        </div>
         <div class="d-flex justify-content-center align-items-center" style="height: 20vh;">
     <asp:Button ID="btnAgregarProductoSeleccionado" runat="server" Text="Agregar Producto" OnClick="btnAgregarProductoSeleccionado_Click" CssClass="btn btn-primary" />
             </div>
@@ -81,21 +83,32 @@
         <div>
             <asp:Label ID="lblNombreProveedor" runat="server" Text="Nombre del Proveedor:" CssClass="form-label"></asp:Label>
             <asp:TextBox ID="txtNombreProveedor" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvNombreProveedor" runat="server" ControlToValidate="txtNombreProveedor" InitialValue="" ErrorMessage="El nombre del proveedor es obligatorio." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+            <asp:RegularExpressionValidator ID="revNombreProveedor" runat="server" ControlToValidate="txtNombreProveedor" ValidationExpression="^[a-zA-Z\s]+$" ErrorMessage="El nombre solo puede contener letras." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar" />
+
         </div>
         <div>
             <asp:Label ID="lblDetalleProveedor" runat="server" Text="Detalle:" CssClass="form-label"></asp:Label>
             <asp:TextBox ID="txtDetalleProveedor" runat="server" CssClass="form-control"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvDetalleProveedor" runat="server" ControlToValidate="txtDetalleProveedor" InitialValue="" ErrorMessage="El detalle es obligatorio." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+
         </div>
         <div>
             <asp:Label ID="lblCorreoProveedor" runat="server" Text="Correo Electrónico:" CssClass="form-label"></asp:Label>
             <asp:TextBox ID="txtCorreoProveedor" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvCorreoProveedor" runat="server" ControlToValidate="txtCorreoProveedor" InitialValue="" ErrorMessage="El correo electrónico es obligatorio." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+            <asp:RegularExpressionValidator ID="revCorreoProveedor" runat="server" ControlToValidate="txtCorreoProveedor" ValidationExpression="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" ErrorMessage="El correo electrónico no es válido." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+
         </div>
         <div>
             <asp:Label ID="lblTelefonoProveedor" runat="server" Text="Teléfono:" CssClass="form-label"></asp:Label>
             <asp:TextBox ID="txtTelefonoProveedor" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvTelefonoProveedor" runat="server" ControlToValidate="txtTelefonoProveedor" InitialValue="" ErrorMessage="El teléfono es obligatorio." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+            <asp:RegularExpressionValidator ID="revTelefonoProveedor" runat="server" ControlToValidate="txtTelefonoProveedor" ValidationExpression="^\+?[1-9]\d{1,14}$" ErrorMessage="El teléfono no es válido." ForeColor="Red" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+
         </div>
         <div>
-            <asp:Button ID="btnGuardarProveedor" runat="server" Text="Guardar Proveedor" OnClick="btnGuardarProveedor_Click" CssClass="btn btn-success" />
+            <asp:Button ID="btnGuardarProveedor" runat="server" Text="Guardar Proveedor" OnClick="btnGuardarProveedor_Click" CssClass="btn btn-success" ValidationGroup="grupoGuardar"/>
             <asp:Button ID="btnCancelarProveedor" runat="server" Text="Cancelar" OnClick="btnCancelarProveedor_Click" CssClass="btn btn-secondary" />
         </div>
     </div>

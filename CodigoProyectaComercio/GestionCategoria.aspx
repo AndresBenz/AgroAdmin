@@ -11,12 +11,14 @@
         <div class="form-group">
             <asp:Label ID="lblNombreCategoria" runat="server" Text="Nombre:" CssClass="form-label" />
             <asp:TextBox ID="txtNombreCategoria" runat="server" CssClass="form-control" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombreCategoria" ErrorMessage="El nombre de la categoría es obligatorio." CssClass="text-danger" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombreCategoria" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ErrorMessage="El nombre solo puede contener letras." CssClass="text-danger" Display="Dynamic" ValidationGroup="grupoGuardar"/>
         </div>
         <div class="form-group">
             <asp:CheckBox ID="chkActivo" runat="server" Text="Activo" CssClass="form-check-input" />
         </div>
         <div class="form-group">
-            <asp:Button ID="btnGuardarCategoria" runat="server" Text="Guardar" OnClick="btnGuardarCategoria_Click" CssClass="btn btn-primary" />
+            <asp:Button ID="btnGuardarCategoria" runat="server" Text="Guardar" OnClick="btnGuardarCategoria_Click" CssClass="btn btn-primary"  ValidationGroup="grupoGuardar" />
             <asp:Button ID="btnVolver" runat="server" Text="Volver" OnClick="btnVolver_Click" CssClass="btn btn-secondary" />
         </div>
         <asp:HiddenField ID="hfIdCategoria" runat="server" />
@@ -33,6 +35,7 @@
             <Columns>
                 <asp:BoundField DataField="IdCategoria" HeaderText="ID Categoria" SortExpression="IdCategoria" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
+              
                 <asp:BoundField DataField="Activo" HeaderText="Activo" SortExpression="Activo" />
 
                 <asp:TemplateField>

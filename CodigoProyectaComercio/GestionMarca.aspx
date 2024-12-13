@@ -11,10 +11,13 @@
         
         <asp:Label ID="lblNombreEditar" runat="server" Text="Nombre: "></asp:Label>
         <asp:TextBox ID="txtNombreEditar" runat="server"></asp:TextBox><br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombreEditar" ErrorMessage="El nombre de la categoría es obligatorio." CssClass="text-danger" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNombreEditar" ValidationExpression="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$" ErrorMessage="El nombre solo puede contener letras." CssClass="text-danger" Display="Dynamic" ValidationGroup="grupoGuardar"/>
+       <div>
         <asp:Label ID="lblActivoEditar" runat="server" Text="Activo: "></asp:Label>
         <asp:CheckBox ID="chkActivoEditar" runat="server" CssClass="form-check-input" /><br />
-
-        <asp:Button ID="btnGuardarEditarMarca" runat="server" Text="Guardar" OnClick="btnGuardarEditarMarca_Click" CssClass="btn btn-success" />
+           </div>
+        <asp:Button ID="btnGuardarEditarMarca" runat="server" Text="Guardar" OnClick="btnGuardarEditarMarca_Click" CssClass="btn btn-success" ValidationGroup="grupoGuardar"/>
         <asp:Button ID="btnCancelarEditar" runat="server" Text="Cancelar" OnClick="btnCancelarEditar_Click" CssClass="btn btn-secondary" />
         
         <asp:Label ID="lblErrorEditar" runat="server" Text="El nombre de la marca es obligatorio." ForeColor="Red" Visible="false"></asp:Label>

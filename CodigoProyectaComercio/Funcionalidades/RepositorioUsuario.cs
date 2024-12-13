@@ -207,6 +207,39 @@ namespace Funcionalidades
 
         }
 
+
+        public bool ExisteEmail(string email)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            accesoDatos.setearConsulta("SELECT COUNT(*) AS Existe FROM [dbo].[Usuarios] WHERE CorreoElectronico = @CorreoElectronico");
+            accesoDatos.setearParametros("@CorreoElectronico", email);
+            accesoDatos.ejecutarLectura();
+
+            if (accesoDatos.Lector.Read())
+            {
+                int existe = (int)accesoDatos.Lector["Existe"];
+                return existe > 0; 
+            }
+
+            return false; 
+        }
+
+        public bool ExisteDNI(int dni)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            accesoDatos.setearConsulta("SELECT COUNT(*) AS Existe FROM [dbo].[Usuarios] WHERE DNI = @DNI");
+            accesoDatos.setearParametros("@DNI", dni);
+            accesoDatos.ejecutarLectura();
+
+            if (accesoDatos.Lector.Read())
+            {
+                int existe = (int)accesoDatos.Lector["Existe"];
+                return existe > 0; 
+            }
+
+            return false; 
+        }
+
     }
 }
 

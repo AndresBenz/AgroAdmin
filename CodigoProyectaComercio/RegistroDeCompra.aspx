@@ -21,16 +21,20 @@
             <asp:TemplateField HeaderText="Precio">
                 <ItemTemplate>
                     <asp:TextBox ID="txtPrecio" runat="server" Text="0" Width="100px" class="form-control" />
+                    <asp:RegularExpressionValidator ID="revPrecio" runat="server" ControlToValidate="txtPrecio" ValidationExpression="^\d+(\.\d{1,2})?$" ErrorMessage="Ingrese numeros" ForeColor="Red" ValidationGroup="grupoGuardar" Display="Dynamic" />
+                    <asp:RequiredFieldValidator ID="rfvPrecio" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Debe ingresar un precio." ForeColor="Red" ValidationGroup="grupoGuardar" Display="Dynamic" />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Cantidad">
                 <ItemTemplate>
                     <asp:TextBox ID="txtCantidad" runat="server" Width="100px" class="form-control"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvCantidad" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Debe ingresar una cantidad." ForeColor="Red" ValidationGroup="grupoGuardar" Display="Dynamic" />
+                    <asp:RegularExpressionValidator ID="revCantidad" runat="server" ControlToValidate="txtCantidad" ValidationExpression="^\d+$" ErrorMessage="Ingrese numeros" ForeColor="Red" ValidationGroup="grupoGuardar" Display="Dynamic" />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CommandName="Agregar" CommandArgument='<%# Eval("IdProducto") %>' class="btn-add" />
+                    <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CommandName="Agregar" CommandArgument='<%# Eval("IdProducto") %>' class="btn-add" ValidationGroup="grupoGuardar" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -63,8 +67,9 @@
     </asp:RadioButtonList>
 
     <asp:Label ID="lblMetodoPagoSeleccionado" runat="server" Text="Selecciona un método de pago." class="form-label" />
+    <asp:RequiredFieldValidator ID="rfvMetodoPago" runat="server" ControlToValidate="rblMetodoPago" InitialValue="" ErrorMessage="Debe seleccionar un método de pago." ForeColor="Red" ValidationGroup="grupoGuardar" Display="Dynamic" />
 
-    <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Compra" OnClick="btnConfirmar_Click" class="btn-primary mt-3" />
+    <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar Compra" OnClick="btnConfirmar_Click" class="btn-primary mt-3" ValidationGroup="grupoGuardar"/>
 
 
     <asp:Panel ID="pnlVentaExitoso" runat="server" CssClass="alert alert-success" Visible="false"

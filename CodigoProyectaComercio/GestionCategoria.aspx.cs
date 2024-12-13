@@ -64,29 +64,32 @@ namespace CodigoAgroAdmin
         {
             try
             {
-                Categoria nuevaCategoria = new Categoria
+                if (Page.IsValid)
                 {
-                    Nombre = txtNombreCategoria.Text,
-                    Activo = chkActivo.Checked
-                };
+                    Categoria nuevaCategoria = new Categoria
+                    {
+                        Nombre = txtNombreCategoria.Text,
+                        Activo = chkActivo.Checked
+                    };
 
-                if (!string.IsNullOrEmpty(hfIdCategoria.Value))
-                {
-                    nuevaCategoria.IdCategoria = Convert.ToInt32(hfIdCategoria.Value);
-                    repositorioCategoria.EditarCategoria(nuevaCategoria);
-                    lblMensaje.Text = "Categoría modificada correctamente.";
+                    if (!string.IsNullOrEmpty(hfIdCategoria.Value))
+                    {
+                        nuevaCategoria.IdCategoria = Convert.ToInt32(hfIdCategoria.Value);
+                        repositorioCategoria.EditarCategoria(nuevaCategoria);
+                        lblMensaje.Text = "Categoría modificada correctamente.";
+                    }
+                    else
+                    {
+                        repositorioCategoria.AgregarCategoria(nuevaCategoria);
+                        lblMensaje.Text = "Categoría agregada correctamente.";
+                    }
+
+                    lblMensaje.CssClass = "text-success";
+
+                    LimpiarFormulario();
+                    MostrarLista();
+                    CargarCategorias();
                 }
-                else
-                {
-                    repositorioCategoria.AgregarCategoria(nuevaCategoria);
-                    lblMensaje.Text = "Categoría agregada correctamente.";
-                }
-
-                lblMensaje.CssClass = "text-success";
-
-                LimpiarFormulario();
-                MostrarLista();
-                CargarCategorias();
             }
             catch (Exception ex)
             {

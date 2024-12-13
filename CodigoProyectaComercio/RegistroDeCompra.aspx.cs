@@ -29,19 +29,19 @@ namespace CodigoAgroAdmin
         {
             try
             {
-                
+
                 List<Proveedor> proveedores = repositorioProveedor.ListarConSp();
 
-                
+
                 ddlProveedores.DataSource = proveedores;
-                ddlProveedores.DataTextField = "Nombre"; 
-                ddlProveedores.DataValueField = "IdProveedor"; 
+                ddlProveedores.DataTextField = "Nombre";
+                ddlProveedores.DataValueField = "IdProveedor";
                 ddlProveedores.DataBind();
                 ddlProveedores.Items.Insert(0, new ListItem("Seleccione un proveedor", "0"));
             }
             catch (Exception ex)
             {
-               
+
                 Response.Write("Error al cargar proveedores: " + ex.Message);
             }
         }
@@ -49,7 +49,7 @@ namespace CodigoAgroAdmin
         protected void ddlProveedores_SelectedIndexChanged(object sender, EventArgs e)
         {
             int idProveedor = Convert.ToInt32(ddlProveedores.SelectedValue);
-            if (idProveedor != 0) 
+            if (idProveedor != 0)
             {
                 CargarProductosPorProveedor(idProveedor);
             }
@@ -114,7 +114,7 @@ namespace CodigoAgroAdmin
                         if (existente == null)
                         {
 
-                       
+
                             productosSeleccionados.Add(producto);
                         }
                         else
@@ -141,7 +141,7 @@ namespace CodigoAgroAdmin
             gvSeleccionados.DataBind();
         }
 
-       
+
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -164,7 +164,7 @@ namespace CodigoAgroAdmin
                 if (productoAEliminar != null)
                 {
                     productosSeleccionados.Remove(productoAEliminar);
-                    Session["productosSeleccionados"] = productosSeleccionados; 
+                    Session["productosSeleccionados"] = productosSeleccionados;
                 }
 
                 ActualizarVistaSeleccionados();
@@ -173,59 +173,63 @@ namespace CodigoAgroAdmin
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
-            try
+            if (Page.IsValid)
             {
-                int idProveedor = Convert.ToInt32(ddlProveedores.SelectedValue);
-                string metodoPago = rblMetodoPago.SelectedValue;
-
-                Compra compra = new Compra
+                try
                 {
-                    IdProveedor = idProveedor,
-                    FechaCompra = DateTime.Now,
-                    TipoPago = metodoPago
-                };
+                    int idProveedor = Convert.ToInt32(ddlProveedores.SelectedValue);
+                    string metodoPago = rblMetodoPago.SelectedValue;
 
-                RepositorioCompra repositorioCompra = new RepositorioCompra();
-                repositorioCompra.AgregarCompra(compra);
-
-                int idCompra = repositorioCompra.ObtenerUltimoIdCompra();
-
-                List<Producto> productosSeleccionados = (List<Producto>)Session["productosSeleccionados"];
-                List<DetalleCompra> detallesCompra = new List<DetalleCompra>();
-
-                foreach (Producto producto in productosSeleccionados)
-                {
-                    RepositorioProducto repositorioProduct  = new RepositorioProducto();
-                    int stockActual = repositorioProduct.ObtenerStockProducto(producto.IdProducto);
-                    int nuevoStock = stockActual + producto.CantidadSeleccionada;
-                    repositorioProduct.ActualizarStock(producto.IdProducto, nuevoStock);
-
-
-                    DetalleCompra detalle = new DetalleCompra
+                    Compra compra = new Compra
                     {
-                        IdCompra = idCompra,
-                        IdProducto = producto.IdProducto,
-                        Cantidad = producto.CantidadSeleccionada,
-                        PrecioCompra = producto.Precio,
-                        Subtotal = producto.Precio * producto.CantidadSeleccionada
+                        IdProveedor = idProveedor,
+                        FechaCompra = DateTime.Now,
+                        TipoPago = metodoPago
                     };
 
-                    detallesCompra.Add(detalle);
+                    RepositorioCompra repositorioCompra = new RepositorioCompra();
+                    repositorioCompra.AgregarCompra(compra);
+
+                    int idCompra = repositorioCompra.ObtenerUltimoIdCompra();
+
+                    List<Producto> productosSeleccionados = (List<Producto>)Session["productosSeleccionados"];
+                    List<DetalleCompra> detallesCompra = new List<DetalleCompra>();
+
+                    foreach (Producto producto in productosSeleccionados)
+                    {
+                        RepositorioProducto repositorioProduct = new RepositorioProducto();
+                        int stockActual = repositorioProduct.ObtenerStockProducto(producto.IdProducto);
+                        int nuevoStock = stockActual + producto.CantidadSeleccionada;
+                        repositorioProduct.ActualizarStock(producto.IdProducto, nuevoStock);
+
+
+                        DetalleCompra detalle = new DetalleCompra
+                        {
+                            IdCompra = idCompra,
+                            IdProducto = producto.IdProducto,
+                            Cantidad = producto.CantidadSeleccionada,
+                            PrecioCompra = producto.Precio,
+                            Subtotal = producto.Precio * producto.CantidadSeleccionada
+                        };
+
+                        detallesCompra.Add(detalle);
+                    }
+
+                    RepositorioCompra repositorioDetalleCompra = new RepositorioCompra();
+                    repositorioDetalleCompra.AgregarDetallesCompra(detallesCompra);
+
+                    pnlVentaExitoso.Visible = true;
+                    lblMensaje.Text = "Compra registrada exitosamente.";
+                    lblMensaje.ForeColor = System.Drawing.Color.Green;
+                    Session["productosSeleccionados"] = new List<Producto>();
+                    ActualizarVistaSeleccionados();
                 }
 
-                RepositorioCompra repositorioDetalleCompra = new RepositorioCompra();
-                repositorioDetalleCompra.AgregarDetallesCompra(detallesCompra);
-
-                pnlVentaExitoso.Visible = true;
-                lblMensaje.Text = "Compra registrada exitosamente.";
-                lblMensaje.ForeColor = System.Drawing.Color.Green;
-                Session["productosSeleccionados"] = new List<Producto>(); 
-                ActualizarVistaSeleccionados();
-            }
-            catch (Exception ex)
-            {
-                lblMensaje.Text = "Error al registrar la compra: " + ex.Message;
-                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                catch (Exception ex)
+                {
+                    lblMensaje.Text = "Error al registrar la compra: " + ex.Message;
+                    lblMensaje.ForeColor = System.Drawing.Color.Red;
+                }
             }
         }
         protected void btnCerrar_Click(object sender, EventArgs e)
@@ -235,4 +239,4 @@ namespace CodigoAgroAdmin
     }
 }
 
-    
+

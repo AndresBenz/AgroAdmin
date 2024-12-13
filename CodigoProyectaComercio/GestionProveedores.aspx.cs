@@ -111,29 +111,32 @@ namespace CodigoAgroAdmin
 
         protected void btnGuardarProveedor_Click(object sender, EventArgs e)
         {
-            RepositorioProveedor repositorio = new RepositorioProveedor();
-            Proveedor proveedor = new Proveedor
+            if (Page.IsValid)
             {
-                Nombre = txtNombreProveedor.Text,
-                Detalle = txtDetalleProveedor.Text,
-                CorreoElectronico = txtCorreoProveedor.Text,
-                Telefono = txtTelefonoProveedor.Text
-            };
+                RepositorioProveedor repositorio = new RepositorioProveedor();
+                Proveedor proveedor = new Proveedor
+                {
+                    Nombre = txtNombreProveedor.Text,
+                    Detalle = txtDetalleProveedor.Text,
+                    CorreoElectronico = txtCorreoProveedor.Text,
+                    Telefono = txtTelefonoProveedor.Text
+                };
 
-            if (int.TryParse(hfIdProveedor.Value, out int idProveedor) && idProveedor != 0)
-            {
-                proveedor.IdProveedor = idProveedor; 
-                repositorio.EditarProveedor(proveedor);
-            }
-            else
-            {
-                repositorio.AgregarProveedor(proveedor); 
-            }
+                if (int.TryParse(hfIdProveedor.Value, out int idProveedor) && idProveedor != 0)
+                {
+                    proveedor.IdProveedor = idProveedor;
+                    repositorio.EditarProveedor(proveedor);
+                }
+                else
+                {
+                    repositorio.AgregarProveedor(proveedor);
+                }
 
-            CargarProveedores(); 
-            LimpiarFormulario();
-            listarProveedores.Visible = true;
-            formularioProveedor.Visible = false;
+                CargarProveedores();
+                LimpiarFormulario();
+                listarProveedores.Visible = true;
+                formularioProveedor.Visible = false;
+            }
         }
 
         protected void btnCancelarProveedor_Click(object sender, EventArgs e)
@@ -191,27 +194,31 @@ namespace CodigoAgroAdmin
 
         protected void btnAgregarProductoSeleccionado_Click(object sender, EventArgs e)
         {
-            int idProducto = Convert.ToInt32(ddlProductosExistentes.SelectedValue);
-            int idProveedor = Convert.ToInt32(hfIdProveedor.Value); 
-
-            if (idProducto == 0)
+            if (Page.IsValid)
             {
-                
-                return;
+                int idProducto = Convert.ToInt32(ddlProductosExistentes.SelectedValue);
+                int idProveedor = Convert.ToInt32(hfIdProveedor.Value);
+
+                if (idProducto == 0)
+                {
+
+                    return;
+                }
+
+
+                RepositorioProductoProveedor repositorio = new RepositorioProductoProveedor();
+                repositorio.AgregarProductoAProveedor(idProducto, idProveedor);
+
+
+                lblMensaje.Text = "Producto agregado correctamente.";
+                lblMensaje.ForeColor = System.Drawing.Color.Green;
+
+
+                panelAgregarProducto.Visible = false;
+                panelProductos.Visible = true;
+
+                CargarProductosProveedor(idProveedor);
             }
-
-            
-            RepositorioProductoProveedor repositorio = new RepositorioProductoProveedor();
-            repositorio.AgregarProductoAProveedor(idProducto, idProveedor); 
-
-            
-            lblMensaje.Text = "Producto agregado correctamente.";
-
-            
-            panelAgregarProducto.Visible = false;
-            panelProductos.Visible = true;
-
-            CargarProductosProveedor(idProveedor);
         }
 
         protected void btnCancelarAgregar_Click(object sender, EventArgs e)

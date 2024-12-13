@@ -62,27 +62,30 @@ namespace CodigoAgroAdmin
 
         protected void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            string dni = txtDNI.Text.Trim();
-            RepositorioCliente repositorioCliente = new RepositorioCliente();
-
-            Cliente cliente = repositorioCliente.ObtenerClientePorId(dni);
-
-            pnlClienteNoExiste.Visible = false;
-            pnlClienteEncontrado.Visible = false;
-
-            if (cliente == null)
+            if (Page.IsValid)
             {
-                pnlClienteNoExiste.Visible = true;
+                string dni = txtDNI.Text.Trim();
+                RepositorioCliente repositorioCliente = new RepositorioCliente();
 
-            }
-            else
-            {
-                pnlClienteEncontrado.Visible = true;
+                Cliente cliente = repositorioCliente.ObtenerClientePorId(dni);
 
-                lblNombre.Text = cliente.Nombre;
-                lblDireccion.Text = cliente.Direccion;
-                lblCorreo.Text = cliente.CorreoElectronico;
-                Session["IdClienteSeleccionado"] = cliente.IdCliente;
+                pnlClienteNoExiste.Visible = false;
+                pnlClienteEncontrado.Visible = false;
+
+                if (cliente == null)
+                {
+                    pnlClienteNoExiste.Visible = true;
+
+                }
+                else
+                {
+                    pnlClienteEncontrado.Visible = true;
+
+                    lblNombre.Text = cliente.Nombre;
+                    lblDireccion.Text = cliente.Direccion;
+                    lblCorreo.Text = cliente.CorreoElectronico;
+                    Session["IdClienteSeleccionado"] = cliente.IdCliente;
+                }
             }
         }
 

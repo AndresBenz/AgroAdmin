@@ -84,7 +84,9 @@ namespace CodigoAgroAdmin
 
         protected void btnGuardarEditarMarca_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombreEditar.Text.Trim();
+            if (Page.IsValid)
+            {
+                string nombre = txtNombreEditar.Text.Trim();
             bool activo = chkActivoEditar.Checked;
 
 
@@ -103,10 +105,12 @@ namespace CodigoAgroAdmin
 
                 MostrarLista();
             }
+            }
             else
             {
                 lblErrorEditar.Visible = true;
             }
+
         }
 
 

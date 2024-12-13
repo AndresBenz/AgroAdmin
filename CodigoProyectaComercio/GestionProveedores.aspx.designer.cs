@@ -105,6 +105,15 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.DropDownList ddlProductosExistentes;
 
         /// <summary>
+        /// Control rfvProductosExistentes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductosExistentes;
+
+        /// <summary>
         /// Control btnAgregarProductoSeleccionado.
         /// </summary>
         /// <remarks>
@@ -168,6 +177,24 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.TextBox txtNombreProveedor;
 
         /// <summary>
+        /// Control rfvNombreProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNombreProveedor;
+
+        /// <summary>
+        /// Control revNombreProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revNombreProveedor;
+
+        /// <summary>
         /// Control lblDetalleProveedor.
         /// </summary>
         /// <remarks>
@@ -184,6 +211,15 @@ namespace CodigoAgroAdmin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDetalleProveedor;
+
+        /// <summary>
+        /// Control rfvDetalleProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDetalleProveedor;
 
         /// <summary>
         /// Control lblCorreoProveedor.
@@ -204,6 +240,24 @@ namespace CodigoAgroAdmin
         protected global::System.Web.UI.WebControls.TextBox txtCorreoProveedor;
 
         /// <summary>
+        /// Control rfvCorreoProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCorreoProveedor;
+
+        /// <summary>
+        /// Control revCorreoProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCorreoProveedor;
+
+        /// <summary>
         /// Control lblTelefonoProveedor.
         /// </summary>
         /// <remarks>
@@ -220,6 +274,24 @@ namespace CodigoAgroAdmin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefonoProveedor;
+
+        /// <summary>
+        /// Control rfvTelefonoProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTelefonoProveedor;
+
+        /// <summary>
+        /// Control revTelefonoProveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revTelefonoProveedor;
 
         /// <summary>
         /// Control btnGuardarProveedor.

@@ -71,28 +71,31 @@ namespace CodigoAgroAdmin
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente
+            if (Page.IsValid)
             {
-                Nombre = txtNombre.Text,
-                Direccion = txtDireccion.Text,
-                CorreoElectronico = txtCorreo.Text,
-                Telefono = txtTelefono.Text,
-                DNI = txtDNI.Text 
-            };
+                Cliente cliente = new Cliente
+                {
+                    Nombre = txtNombre.Text,
+                    Direccion = txtDireccion.Text,
+                    CorreoElectronico = txtCorreo.Text,
+                    Telefono = txtTelefono.Text,
+                    DNI = txtDNI.Text
+                };
 
-            if (!string.IsNullOrEmpty(hfIdCliente.Value))
-            {
-                cliente.DNI = hfIdCliente.Value;
-                repositorioCliente.EditarCliente(cliente);
-            }
-            else
-            {
-                repositorioCliente.AgregarCliente(cliente);
-            }
+                if (!string.IsNullOrEmpty(hfIdCliente.Value))
+                {
+                    cliente.DNI = hfIdCliente.Value;
+                    repositorioCliente.EditarCliente(cliente);
+                }
+                else
+                {
+                    repositorioCliente.AgregarCliente(cliente);
+                }
 
-            listarClientes.Visible = true;
-            formularioCliente.Visible = false;
-            CargarClientes();
+                listarClientes.Visible = true;
+                formularioCliente.Visible = false;
+                CargarClientes();
+            }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -106,6 +109,7 @@ namespace CodigoAgroAdmin
             txtNombre.Text = string.Empty;
             txtDNI.Text = string.Empty;
             txtCorreo.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
             txtTelefono.Text = string.Empty;
             hfIdCliente.Value = string.Empty;
         }

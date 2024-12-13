@@ -41,9 +41,9 @@ namespace CodigoAgroAdmin
                         return;
                     }
 
-                    lblTotal.Text = $"Total de la Venta: ${venta.Total:N2}";
-                    lblCliente.Text = $"Cliente: {venta.NombreCliente}";
-                    lblFecha.Text = $"Fecha: {venta.Fecha:dd/MM/yyyy}";
+                    lblTotal.Text = $" ${venta.Total:N2}";
+                    lblCliente.Text = $" {venta.NombreCliente}";
+                    lblFecha.Text = $"{venta.Fecha:dd/MM/yyyy}";
 
                     RepositorioDetalleVenta repositorioDetalle = new RepositorioDetalleVenta();
                     List<DetalleVenta> detallesVenta = repositorioDetalle.ListarPorVenta(idVenta);

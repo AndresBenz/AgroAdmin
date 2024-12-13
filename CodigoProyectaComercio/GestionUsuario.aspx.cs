@@ -103,33 +103,52 @@ namespace CodigoAgroAdmin
         {
             try
             {
-                if (ddlTipoUsuario.SelectedIndex == 0 || string.IsNullOrEmpty(ddlTipoUsuario.SelectedValue))
+                if (Page.IsValid)
                 {
-                    lblMensajeFormulario.Text = "Por favor, seleccione un tipo de usuario válido.";
-                    lblMensajeFormulario.ForeColor = System.Drawing.Color.Red;
-                    return; 
+                    if (ddlTipoUsuario.SelectedIndex == 0 || string.IsNullOrEmpty(ddlTipoUsuario.SelectedValue))
+                    {
+                        lblMensajeFormulario.Text = "Por favor, seleccione un tipo de usuario válido.";
+                        lblMensajeFormulario.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+                    RepositorioUsuario repo = new RepositorioUsuario();
+
+                    int dni = int.Parse(txtDNI.Text);
+                    string email = txtEmail.Text;
+
+                    if (repo.ExisteDNI(dni))
+                    {
+                        lblMensajeFormulario.Text = "El DNI ingresado ya existe.";
+                        lblMensajeFormulario.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+
+                    if (repo.ExisteEmail(email))
+                    {
+                        lblMensajeFormulario.Text = "El correo electrónico ingresado ya está registrado.";
+                        lblMensajeFormulario.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+                    Usuario usuario = new Usuario
+                    {
+                        NombreUsuario = txtUsuario.Text,
+                        CorreoElectronico = txtEmail.Text,
+                        DNI = int.Parse(txtDNI.Text),
+                        Telefono = txtTelefono.Text,
+                        TipoUsuario = (TipoUsuario)int.Parse(ddlTipoUsuario.SelectedValue)
+                    };
+
+                    repo.InsUsuario(usuario);
+
+                    lblMensaje.Text = "Usuario guardado correctamente.";
+                    lblMensaje.ForeColor = System.Drawing.Color.Green;
+
+                    CargarUsuarios();
+                    LimpiarCampos();
+
+                    formularioUsuario.Visible = false;
+                    listarUsuarios.Visible = true;
                 }
-                RepositorioUsuario repo = new RepositorioUsuario();
-
-                Usuario usuario = new Usuario
-                {
-                    NombreUsuario = txtUsuario.Text,
-                    CorreoElectronico = txtEmail.Text,
-                    DNI = int.Parse(txtDNI.Text),
-                    Telefono = txtTelefono.Text,
-                    TipoUsuario = (TipoUsuario)int.Parse(ddlTipoUsuario.SelectedValue)
-                };
-
-                repo.InsUsuario(usuario);
-
-                lblMensaje.Text = "Usuario guardado correctamente.";
-                lblMensaje.ForeColor = System.Drawing.Color.Green;
-
-                CargarUsuarios();
-                LimpiarCampos();
-
-                formularioUsuario.Visible = false;
-                listarUsuarios.Visible = true;
             }
             catch (Exception ex)
             {

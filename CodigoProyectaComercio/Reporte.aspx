@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Reporte.aspx.cs" Inherits="CodigoAgroAdmin.Reporte" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+               <link href="Gestion.css" rel="stylesheet" type="text/css" />
+
         <title>Reporte de Ventas</title>
 
 </asp:Content>
@@ -9,21 +11,22 @@
         <asp:Button ID="btnReporteCompras" runat="server" Text="Generar Reporte de Compras" OnClick="btnReporteCompras_Click" CssClass="btn btn-primary" style="width: 250px; height: 50px; font-size: 18px; margin-left: 20px;"/>
 </div>
 <asp:Panel ID="pnlVentas" runat="server" Visible="false">
-     <h1>Reporte de Ventas por Cliente</h1>
-    <asp:Label ID="lblIdCliente" runat="server" Text="ID Cliente (opcional):"></asp:Label>
+     <h1 class="page-title">Reporte de Ventas por Cliente</h1>
+    <div class="form-container">
+    <asp:Label ID="lblIdCliente" runat="server" Text="ID Cliente (opcional):" CssClass="form-label"></asp:Label>
 <asp:TextBox ID="txtIdCliente" runat="server" CssClass="form-control"></asp:TextBox>
 
-     <asp:Label ID="lblFechaInicio" runat="server" Text="Fecha Inicio:"></asp:Label>
+     <asp:Label ID="lblFechaInicio" runat="server" Text="Fecha Inicio:" CssClass="form-label"></asp:Label>
     <asp:TextBox ID="txtFechaInicio" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
 
-    <asp:Label ID="lblFechaFin" runat="server" Text="Fecha Fin:"></asp:Label>
+    <asp:Label ID="lblFechaFin" runat="server" Text="Fecha Fin:" CssClass="form-label"></asp:Label>
     <asp:TextBox ID="txtFechaFin" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
 
-    <asp:Button ID="btnGenerarReporte" runat="server" Text="Generar Reporte" OnClick="btnGenerarReporte_Click" CssClass="btn btn-primary" />
-    <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+    <asp:Button ID="btnGenerarReporte" runat="server" Text="Generar Reporte" OnClick="btnGenerarReporte_Click" CssClass="btn btn-primary"  />
+    <asp:Label ID="lblError" runat="server" ForeColor="Red" Visible="false" CssClass="form-label"></asp:Label>
+        </div>
 
-
-   <asp:GridView ID="gvVentas" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered" CellPadding="4" ForeColor="#333333" GridLines="None">
+   <asp:GridView ID="gvVentas" runat="server" AutoGenerateColumns="False" CssClass="custom-table" CellPadding="4" ForeColor="#333333" GridLines="None">
         <Columns>
             <asp:BoundField DataField="IdVenta" HeaderText="Id Venta" SortExpression="IdVenta" />
         <asp:BoundField DataField="Cliente" HeaderText="Cliente" SortExpression="Cliente" />
@@ -36,21 +39,21 @@
     </asp:Panel>
 
     <asp:Panel ID="pnlCompras" runat="server" Visible="false">
-          <h1>Reporte de Compras por Proveedor</h1>
-        
-        <asp:Label ID="lblProveedor" runat="server" Text="ID Proveedor (opcional):"></asp:Label>
+          <h1 class="page-title">Reporte de Compras por Proveedor</h1>
+        <div class="form-container">
+        <asp:Label ID="lblProveedor" runat="server" Text="ID Proveedor (opcional):" CssClass="form-label"></asp:Label>
         <asp:TextBox ID="txtProveedor" runat="server" CssClass="form-control"></asp:TextBox>
 
-        <asp:Label ID="lblFechaInicioCompra" runat="server" Text="Fecha Inicio:"></asp:Label>
+        <asp:Label ID="lblFechaInicioCompra" runat="server" Text="Fecha Inicio:" CssClass="form-label"></asp:Label>
         <asp:TextBox ID="txtFechaInicioCompra" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
 
-        <asp:Label ID="lblFechaFinCompra" runat="server" Text="Fecha Fin:"></asp:Label>
+        <asp:Label ID="lblFechaFinCompra" runat="server" Text="Fecha Fin:" CssClass="form-label"></asp:Label>
         <asp:TextBox ID="txtFechaFinCompra" runat="server" TextMode="Date" CssClass="form-control"></asp:TextBox>
 
         <asp:Button ID="btnGenerarReporteCompras" runat="server" Text="Generar Reporte" OnClick="btnGenerarReporteCompras_Click" CssClass="btn btn-primary" />
-        <asp:Label ID="lblErrorCompra" runat="server" ForeColor="Red" Visible="false"></asp:Label>
-
-        <asp:GridView ID="gvCompras" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:Label ID="lblErrorCompra" runat="server" ForeColor="Red" Visible="false" CssClass="form-label"></asp:Label>
+            </div>
+        <asp:GridView ID="gvCompras" runat="server" AutoGenerateColumns="False" CssClass="custom-table" CellPadding="4" ForeColor="#333333" GridLines="None">
             <Columns>
                 <asp:BoundField DataField="IdCompra" HeaderText="Id Compra" SortExpression="IdCompra" />
                 <asp:BoundField DataField="Proveedor" HeaderText="Proveedor" SortExpression="Proveedor" />

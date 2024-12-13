@@ -156,7 +156,6 @@ namespace CodigoAgroAdmin
                         producto.StockActual += 1;
                     }
 
-                    // Obtener la lista completa de productos (asegurarse de que no sea null)
                     List<Producto> listaCompleta = (List<Producto>)Session["listaProductos"] ?? new List<Producto>();
                     Producto productoCompleto = listaCompleta.FirstOrDefault(p => p.IdProducto == idProducto);
                     if (productoCompleto != null)
@@ -164,7 +163,6 @@ namespace CodigoAgroAdmin
                         productoCompleto.StockActual = producto.StockActual;
                     }
 
-                    // Buscar y modificar el producto seleccionado
                     Producto productoSeleccionado = listaSeleccionados.FirstOrDefault(p => p.IdProducto == idProducto);
 
                     if (e.CommandName == "Incrementar")
@@ -189,7 +187,6 @@ namespace CodigoAgroAdmin
                             }
                         }
                     }
-                    // Si el comando es "Decrementar", decrementa la cantidad seleccionada
                     else if (e.CommandName == "Decrementar" && productoSeleccionado != null)
                     {
                         if (productoSeleccionado.CantidadSeleccionada > 1)
@@ -204,11 +201,9 @@ namespace CodigoAgroAdmin
                         productoSeleccionado.StockActual = producto.StockActual;
                     }
 
-                    // Actualizar las listas de sesión con los cambios realizados
                     Session["listaSeleccionados"] = listaSeleccionados;
                     Session["listaProductos"] = listaCompleta;
 
-                    // Actualizar la grilla de productos
                     dgvProductos.DataSource = listaActual;
                     dgvProductos.DataBind();
                 }

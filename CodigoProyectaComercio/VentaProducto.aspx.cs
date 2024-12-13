@@ -288,9 +288,7 @@ namespace CodigoAgroAdmin
                 Session["IdVenta"] = nuevaVenta.IdVenta;
 
 
-                lblMensaje.Text = "Venta registrada exitosamente.";
-                lblMensaje.ForeColor = System.Drawing.Color.Green;
-                lblMensaje.Visible = true;
+            
                 pnlVentaExitoso.Visible = true;
 
                 Session["listaSeleccionados"] = null; 
@@ -332,6 +330,20 @@ namespace CodigoAgroAdmin
             List<Producto> listaSeleccionados = Session["listaSeleccionados"] as List<Producto>;
         
             return listaSeleccionados.Sum(p => p.Precio * p.CantidadSeleccionada);
+        }
+
+        protected void btnCancelarTodo_Click(object sender, EventArgs e)
+        {
+
+            Session["listaSeleccionados"] = null;
+            dgvSeleccionados.DataSource = null;
+            dgvSeleccionados.DataBind();
+            lblTotal.Text = "Total: $0.00";
+            lblTotal.Visible = false;
+            Session["IdClienteSeleccionado"] = null;
+            txtDNI.Text = "";
+            pnlClienteNoExiste.Visible = false;
+            pnlClienteEncontrado.Visible = false;
         }
     }
 }

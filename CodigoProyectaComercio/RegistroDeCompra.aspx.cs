@@ -216,6 +216,7 @@ namespace CodigoAgroAdmin
                 RepositorioCompra repositorioDetalleCompra = new RepositorioCompra();
                 repositorioDetalleCompra.AgregarDetallesCompra(detallesCompra);
 
+                pnlVentaExitoso.Visible = true;
                 lblMensaje.Text = "Compra registrada exitosamente.";
                 lblMensaje.ForeColor = System.Drawing.Color.Green;
                 Session["productosSeleccionados"] = new List<Producto>(); 
@@ -226,6 +227,10 @@ namespace CodigoAgroAdmin
                 lblMensaje.Text = "Error al registrar la compra: " + ex.Message;
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
             }
+        }
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            pnlVentaExitoso.Visible = false;
         }
     }
 }

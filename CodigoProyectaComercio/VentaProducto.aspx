@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado.Master" AutoEventWireup="true" CodeBehind="VentaProducto.aspx.cs" Inherits="CodigoAgroAdmin.VentaProducto" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+           <link href="Gestion.css" rel="stylesheet" type="text/css" />
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+      <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <h1>Venta de Productos</h1>
 
     <!-- Formulario para ingresar el DNI del cliente -->
@@ -29,12 +31,47 @@
         <asp:Label ID="lblCorreo" runat="server" CssClass="ml-2"></asp:Label>
     </asp:Panel>
 
+      <!--Agregar cliente -->
+  <div class="form-container" id="formularioCliente" runat="server" visible="false">
+      <h2>
+          <asp:Label ID="lblTituloFormulario" runat="server" Text="Agregar Cliente" /></h2>
+
+      <asp:HiddenField ID="hfIdCliente" runat="server" />
+      <div>
+          <asp:Label ID="lblNombre2" runat="server" Text="Nombre del Cliente:" CssClass="form-label"></asp:Label>
+          <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+      </div>
+      <div>
+          <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="form-label"></asp:Label>
+          <asp:TextBox ID="txtDNI2" CssClass="form-control" runat="server"></asp:TextBox>
+      </div>
+      <div>
+          <asp:Label ID="lblCorreo2" runat="server" Text="Correo Electrónico:" CssClass="form-label"></asp:Label>
+          <asp:TextBox ID="txtCorreo" CssClass="form-control" runat="server"></asp:TextBox>
+      </div>
+      <div>
+          <asp:Label ID="lblDireccion2" runat="server" Text="Direccion:" CssClass="form-label"></asp:Label>
+          <asp:TextBox ID="txtDireccion" CssClass="form-control" runat="server"></asp:TextBox>
+      </div>
+      <div>
+          <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" CssClass="form-label"></asp:Label>
+          <asp:TextBox ID="txtTelefono" runat="server" CssClass="form-control"></asp:TextBox>
+      </div>
+      <div>
+          <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" CssClass="btn btn-success" />
+          <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CssClass="btn btn-secondary" />
+      </div>
+  </div>
+
   <!-- Filtrar producto -->
+    <asp:UpdatePanel ID="UpdProductos" runat="server">
+    <ContentTemplate>
+
     <h2>Lista Productos</h2>
     <asp:Label Text="Filtrar" runat="server" />
     <asp:TextBox runat="server" ID="txtfiltro" CssClass="form-control" AutoPostBack="true" OnTextChanged="filtro_TextChanged"/>
-   <asp:GridView ID="dgvProductos" runat="server" OnPageIndexChanging="dgvProductos_PageIndexChanging" OnRowCommand="dgvProductos_RowCommand" AutoGenerateColumns="false" 
-    CssClass="table table-striped table-bordered" AllowPaging="true" PageSize="5" DataKeyNames="IdProducto">
+   <asp:GridView ID="dgvProductos"  runat="server" OnPageIndexChanging="dgvProductos_PageIndexChanging" OnRowCommand="dgvProductos_RowCommand" AutoGenerateColumns="false" 
+    CssClass="custom-table table-striped table-bordered" AllowPaging="true" PageSize="5" DataKeyNames="IdProducto">
     <Columns>
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
         <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" DataFormatString="${0:F2}" />
@@ -49,10 +86,13 @@
         </asp:TemplateField>
     </Columns>
 </asp:GridView>
+          </ContentTemplate>
+</asp:UpdatePanel>
 
     
 
-
+     <asp:UpdatePanel ID="UpdSeleccionados" runat="server">
+ <ContentTemplate>
 <!-- GridView para mostrar productos seleccionados -->
     <asp:Button ID="btnVerSeleccionados" runat="server" Text="Ver Seleccionados" 
     CssClass="btn btn-primary mt-3" OnClick="btnVerSeleccionados_Click" />
@@ -70,50 +110,25 @@
     </Columns>
 
 </asp:GridView>
-    <asp:Label ID="lblTotal" runat="server" Text="Total: $0.00" CssClass="total-label"></asp:Label>
-    <asp:Button ID="btnComprarTodos" runat="server" Text="Comprar Todos" 
-    CssClass="btn btn-primary mt-3" OnClick="btnComprarTodos_Click" />
-    
-
+    <asp:Label ID="lblTotal" runat="server" Text="Total: $0.00" CssClass="total-label"  Style="font-size: 2em; font-weight: bold; text-align: center; display: block; margin: 20px 0;"></asp:Label>
+  
+              </ContentTemplate>
+</asp:UpdatePanel>
+         <div class="d-flex justify-content-center align-items-center" style="height: 20vh;">
+  <asp:Button ID="btnComprarTodos" runat="server" Text="Comprar Todos" 
+  CssClass="btn btn-primary" OnClick="btnComprarTodos_Click" />
+               <asp:Button ID="btnCancelarTodo" runat="server" Text="Cancelar Todo" 
+        CssClass="btn btn-secondary" OnClick="btnCancelarTodo_Click" />
+         </div>
     <asp:Panel ID="pnlVentaExitoso" runat="server" CssClass="alert alert-success" Visible="false" 
-    Style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; background-color: rgba(0, 128, 0, 0.8); color: white; text-align: center; padding: 20px; border-radius: 10px;">
+    Style="position: fixed; top: 35%; left: 65%; transform: translate(-50%, -50%); z-index: 1000; background-color: rgba(0, 128, 0, 0.8); color: white; text-align: center; padding: 20px; border-radius: 10px;">
     <div>
         <h2>¡Compra registrada exitosamente!</h2>
         <asp:Button ID="btnVerDetalle" runat="server" Text="Ver Detalle de la Compra" CssClass="btn btn-light" OnClick="btnVerDetalle_Click" />
     </div>
 </asp:Panel>
 
-
-    <!--Agregar cliente -->
-    <div class="edit-container" id="formularioCliente" runat="server" visible="false">
-        <h2>
-            <asp:Label ID="lblTituloFormulario" runat="server" Text="Agregar Cliente" /></h2>
-
-        <asp:HiddenField ID="hfIdCliente" runat="server" />
-        <div>
-            <asp:Label ID="lblNombre2" runat="server" Text="Nombre del Cliente:" CssClass="label-style"></asp:Label>
-            <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Label ID="lblDNI" runat="server" Text="DNI:" CssClass="label-style"></asp:Label>
-            <asp:TextBox ID="txtDNI2" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Label ID="lblCorreo2" runat="server" Text="Correo Electrónico:" CssClass="label-style"></asp:Label>
-            <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Label ID="lblDireccion2" runat="server" Text="Direccion:" CssClass="label-style"></asp:Label>
-            <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Label ID="lblTelefono" runat="server" Text="Teléfono:" CssClass="label-style"></asp:Label>
-            <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" CssClass="btn btn-success" />
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CssClass="btn btn-secondary" />
-        </div>
-    </div>
+    
+  
 
 </asp:Content>

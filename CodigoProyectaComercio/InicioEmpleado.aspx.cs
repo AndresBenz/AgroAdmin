@@ -36,5 +36,17 @@ namespace CodigoAgroAdmin
                 lblError.Text = "Error al cargar los productos: " + ex.Message;
             }
         }
+
+        protected void gvProductosBajoStock_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+           
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+               
+
+                    e.Row.Cells[2].ForeColor = System.Drawing.Color.Red; 
+                
+            }
+        }
     }
 }

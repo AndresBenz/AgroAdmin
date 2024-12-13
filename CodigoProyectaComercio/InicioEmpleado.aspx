@@ -1,11 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado.Master" AutoEventWireup="true" CodeBehind="InicioEmpleado.aspx.cs" Inherits="CodigoAgroAdmin.InicioEmpleado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+       <link href="Gestion.css" rel="stylesheet" type="text/css" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-       <h1>Productos con Stock Bajo o Agotado</h1>
+       <h1 class="page-title">Productos con Stock Bajo o Agotado</h1>
     
 
-    <asp:GridView ID="gvProductosBajoStock" runat="server" AutoGenerateColumns="False" CssClass="table"  EmptyDataText="No hay productos con bajo stock">
+    <asp:GridView ID="gvProductosBajoStock" runat="server" AutoGenerateColumns="False" CssClass="custom-table" EmptyDataText="No hay productos con bajo stock" OnRowDataBound="gvProductosBajoStock_RowDataBound">
         <Columns>
             <asp:BoundField DataField="IdProducto" HeaderText="ID Producto" SortExpression="IdProducto" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />

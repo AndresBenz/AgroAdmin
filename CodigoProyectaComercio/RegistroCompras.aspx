@@ -1,12 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RegistroCompras.aspx.cs" Inherits="CodigoAgroAdmin.RegistroCompras" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+           <link href="Gestion.css" rel="stylesheet" type="text/css" />
+
     <title>Registro de Compras</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Registro de Compras</h2>
+    <h2 class="page-title">Registro de Compras</h2>
     <asp:Panel ID="PanelCompras" runat="server">
-        <asp:GridView ID="gvCompras" runat="server" DataKeyNames="IdCompra" AutoGenerateColumns="False" CssClass="table" OnRowCommand="gvCompras_RowCommand">
+        <asp:GridView ID="gvCompras" runat="server" DataKeyNames="IdCompra" AutoGenerateColumns="False" CssClass="custom-table" OnRowCommand="gvCompras_RowCommand">
             <Columns>
                 <asp:BoundField DataField="IdCompra" HeaderText="ID Compra" />
                 <asp:BoundField DataField="NombreProveedor" HeaderText="Nombre Proveedor" />
@@ -14,7 +16,7 @@
                 <asp:BoundField DataField="TipoPago" HeaderText="Tipo de pago" />
                 <asp:TemplateField HeaderText="Acciones">
                     <ItemTemplate>
-                        <asp:Button ID="btnVerDetalle" runat="server" Text="Ver Detalle" CommandName="VerDetalle" CommandArgument='<%# Eval("IdCompra") %>' CssClass="btn btn-info" />
+                        <asp:Button ID="btnVerDetalle" runat="server" Text="Ver Detalle" CommandName="VerDetalle" CommandArgument='<%# Eval("IdCompra") %>' CssClass="btn-action" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -22,8 +24,8 @@
     </asp:Panel>
 
     <asp:Panel ID="PanelDetallesCompra" runat="server" Visible="false">
-        <h3>Detalles de la Compra</h3>
-        <asp:GridView ID="gvDetallesCompra" runat="server" AutoGenerateColumns="False" CssClass="table">
+        <h3 class="page-title">Detalles de la Compra</h3>
+        <asp:GridView ID="gvDetallesCompra" runat="server" AutoGenerateColumns="False" CssClass="custom-table">
             <Columns>
                 <asp:BoundField DataField="IdDetalleCompra" HeaderText="ID Detalle" />
                 <asp:BoundField DataField="NombreProducto" HeaderText="Nombre Producto" />
@@ -33,7 +35,8 @@
 
             </Columns>
         </asp:GridView>
+         <div style="display: flex; justify-content: center; margin-top: 20px;">
         <asp:Button ID="btnVolver" runat="server" Text="Volver a Compras" OnClick="btnVolver_Click" CssClass="btn btn-secondary" />
-
+             </div>
     </asp:Panel>
 </asp:Content>

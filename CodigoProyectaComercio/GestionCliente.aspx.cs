@@ -50,7 +50,7 @@ namespace CodigoAgroAdmin
                     txtDNI.Text = cliente.DNI;
                     txtCorreo.Text = cliente.CorreoElectronico;
                     txtTelefono.Text = cliente.Telefono;
-
+                    txtDireccion.Text = cliente.Direccion;
                     
                     hfIdCliente.Value = cliente.DNI;
                     listarClientes.Visible = false;

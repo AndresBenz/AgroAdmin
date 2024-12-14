@@ -3,48 +3,8 @@
   "WorkspaceRootPath": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\inicioadministrador.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:inicioadministrador.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\inicioadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:inicioadministrador.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\master.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:master.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\ventaproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:ventaproducto.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\reporte.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:reporte.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\ventaproducto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:ventaproducto.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\registroventas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:registroventas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\reportedeventas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:reportedeventas.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\reporte.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:reporte.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|d:\\proyectos\\proyectacomercio\\codigoproyectacomercio\\gestioncategoria.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{6D503846-29F6-44AA-B4F8-1ED0BA5A3C8C}|ProyectaComercio.csproj|solutionrelative:gestioncategoria.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,50 +14,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InicioAdministrador.aspx.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\InicioAdministrador.aspx.cs",
-              "RelativeDocumentMoniker": "InicioAdministrador.aspx.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\InicioAdministrador.aspx.cs",
-              "RelativeToolTip": "InicioAdministrador.aspx.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBUAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T20:10:42.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InicioAdministrador.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\InicioAdministrador.aspx",
-              "RelativeDocumentMoniker": "InicioAdministrador.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\InicioAdministrador.aspx",
-              "RelativeToolTip": "InicioAdministrador.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-13T20:10:29.673Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Master.Master.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Master.Master.cs",
-              "RelativeDocumentMoniker": "Master.Master.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Master.Master.cs",
-              "RelativeToolTip": "Master.Master.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T20:08:59.847Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Login.aspx",
               "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Login.aspx",
               "RelativeDocumentMoniker": "Login.aspx",
@@ -105,98 +26,7 @@
               "RelativeToolTip": "Login.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-13T20:08:46.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VentaProducto.aspx.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx.cs",
-              "RelativeDocumentMoniker": "VentaProducto.aspx.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx.cs",
-              "RelativeToolTip": "VentaProducto.aspx.cs",
-              "ViewState": "AgIAAKkAAAAAAAAAAAAuwJAAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T19:34:57.367Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "VentaProducto.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx",
-              "RelativeDocumentMoniker": "VentaProducto.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\VentaProducto.aspx",
-              "RelativeToolTip": "VentaProducto.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-13T19:34:48.65Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RegistroVentas.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroVentas.aspx",
-              "RelativeDocumentMoniker": "RegistroVentas.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\RegistroVentas.aspx",
-              "RelativeToolTip": "RegistroVentas.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-13T19:33:49.364Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ReportedeVentas.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\ReportedeVentas.aspx",
-              "RelativeDocumentMoniker": "ReportedeVentas.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\ReportedeVentas.aspx",
-              "RelativeToolTip": "ReportedeVentas.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-13T19:33:45.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Reporte.aspx.cs",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Reporte.aspx.cs",
-              "RelativeDocumentMoniker": "Reporte.aspx.cs",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Reporte.aspx.cs",
-              "RelativeToolTip": "Reporte.aspx.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAF0AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-13T19:30:56.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "GestionCategoria.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\GestionCategoria.aspx",
-              "RelativeDocumentMoniker": "GestionCategoria.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\GestionCategoria.aspx",
-              "RelativeToolTip": "GestionCategoria.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-13T19:25:37.071Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Reporte.aspx",
-              "DocumentMoniker": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Reporte.aspx",
-              "RelativeDocumentMoniker": "Reporte.aspx",
-              "ToolTip": "D:\\Proyectos\\ProyectaComercio\\CodigoProyectaComercio\\Reporte.aspx",
-              "RelativeToolTip": "Reporte.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-12-13T19:21:24.573Z",
+              "WhenOpened": "2024-12-13T20:49:31.846Z",
               "EditorCaption": ""
             }
           ]
